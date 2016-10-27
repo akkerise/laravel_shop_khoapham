@@ -5,33 +5,19 @@
         <tr align="center">
             <th>ID</th>
             <th>Name</th>
-            <th>Category Parent</th>
+            <th>Category Present</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($list as $l)
-        {{-- {{ dd($l['id']) }} --}}
         <tr class="odd gradeX" align="center">
-            {{-- <td>{!! $l["id"] !!}</td> --}}
-            <td>{!! $l["name"] !!}</td>
-            <td>
-                @if($l["parent_id"] == 0)
-                    {{ "None" }}
-                @else
-                    <?php 
-                        // echo $l->parent_id;
-                        $parent = DB::table('cates')->where('id',$l["parent_id"])->first();
-                        // dd($parent);
-                        echo $parent->name;
-                        // dd($parent->name);
-                    ?>
-                    {{-- {{ $parent->alias }} --}}
-                @endif
-            </td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+            <td>{{ $l->id }}</td>
+            <td>{{ $l->name }}</td>
+            <td>{{ $l->alias}}</td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ URL::route('admin.cate.getDelete',$l->id) }}"> Delete</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{ URL::route('admin.cate.getEdit',$l->id) }}">Edit</a></td>
         </tr>
         @endforeach
         {{-- <tr class="even gradeC" align="center">

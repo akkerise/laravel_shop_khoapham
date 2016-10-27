@@ -12,7 +12,7 @@ class CateController extends Controller
 {
 	public function getList(){
 		// $list = Cate::all();
-        $list = Cate::select('id','name','parent_id')->orderBy('id','DESC')->get();
+        $list = Cate::select('id','name','parent_id','alias')->orderBy('id','DESC')->get();
 		return view('admin.cate.cate_list',compact('list'));
 	}
 
@@ -39,5 +39,17 @@ class CateController extends Controller
                 'flash_message' => 'Bạn Tạo Thành Công CMNR Nhé !!!',
                 'flash_level' => 'success'
             ]);
+    }
+
+    public function getDelete($id){
+        $del = Cate::where($id)->delete();
+        $del->save();
+        return redirect()->route('admin.cate.getList');
+    }
+    public function getEdit(){
+        
+    }
+    public function postEdit(){
+        
     }
 }

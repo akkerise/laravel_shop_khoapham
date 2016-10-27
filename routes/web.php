@@ -23,6 +23,9 @@ Route::group(['prefix' => 'admin'],function(){
 		Route::get('list','CateController@getList')->name('admin.cate.getList');
 		Route::get('add','CateController@getAdd')->name('admin.cate.getAdd');
 		Route::post('add','CateController@postAdd')->name('admin.cate.postAdd');
+		Route::get('delete/{$id}','CateController@getDelete')->name('admin.cate.getDelete');
+		Route::get('edit/{$id}','CateController@getEdit')->name('admin.cate.getEdit');
+		Route::post('edit/{$id}','CateController@postEdit')->name('admin.cate.postEdit');
 	});
 });
 
