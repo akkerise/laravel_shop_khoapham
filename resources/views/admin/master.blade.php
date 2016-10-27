@@ -89,10 +89,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">List Category</a>
+                                <a href="{{ route('admin.cate.getList') }}">List Category</a>
                             </li>
                             <li>
-                                <a href="#">Add Category</a>
+                                <a href="{{ route('admin.cate.getAdd') }}">Add Category</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -141,6 +141,11 @@
                     @if(Session::has('flash_message'))
                         <div class="alert alert-{{ Session::get('flash_level') }}">
                             {{ Session::get('flash_message') }}
+                        </div>
+                    @endif
+                    @if (Session::has('delete'))
+                        <div class="alert alert-success" onclick="return xacnhanxoa('Bạn có chăc là muốn xóa không ?')">
+                            {{ Session::get('delete') }} : {{ Session::get('id') }}
                         </div>
                     @endif
                 </div>

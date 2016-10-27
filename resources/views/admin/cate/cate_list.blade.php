@@ -5,15 +5,17 @@
         <tr align="center">
             <th>ID</th>
             <th>Name</th>
-            <th>Category Present</th>
+            <th>Category Parent</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
     </thead>
     <tbody>
+        <?php $stt = 0 ?>
         @foreach ($list as $l)
+        <?php $stt += 1 ?>
         <tr class="odd gradeX" align="center">
-            <td>{{ $l->id }}</td>
+            <td>{{ $stt }}</td>
             <td>{{ $l->name }}</td>
             <td>{{ $l->alias}}</td>
             <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ URL::route('admin.cate.getDelete',$l->id) }}"> Delete</a></td>

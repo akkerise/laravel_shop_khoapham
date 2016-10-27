@@ -12,7 +12,7 @@
     </div>
     @endif
     <form action="{{ route('admin.cate.getAdd') }}" method="POST">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <label>Category Parent</label>
             <select class="form-control">

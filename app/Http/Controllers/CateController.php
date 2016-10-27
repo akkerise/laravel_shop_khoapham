@@ -42,9 +42,23 @@ class CateController extends Controller
     }
 
     public function getDelete($id){
-        $del = Cate::where($id)->delete();
-        $del->save();
-        return redirect()->route('admin.cate.getList');
+        $parent = Cate::where('parent_id',$id)->count();
+        dd($parent);
+        if ($parent == 0) {
+            $cate = Cate::find($id);
+            $cate->delete();
+            return redirect()->route('admin.cate.getList')->with([
+                'delete' => 'Bạn đã xóa thành công dữ liệu của cate ',
+                'id' => $id
+            ]);
+        }else{
+            echo "<script type='text/javascript'>
+                    alert('Sorry You can not delete category name');
+                    window.location = '";
+                    echo route('admin.cate.list');
+                    echo "';
+            </script>";
+        }
     }
     public function getEdit(){
         
