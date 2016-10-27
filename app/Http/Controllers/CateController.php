@@ -31,6 +31,9 @@ class CateController extends Controller
     	$cate->keywords = $request->txtKeywords;
     	$cate->description = $request->txtDescription;
     	$cate->save();
-    	return redirect()->route('admin.cate.getList');
+    	return redirect()->route('admin.cate.getList')->with([
+                'flash_message' => 'Bạn Tạo Thành Công CMNR Nhé !!!',
+                'flash_level' => 'success'
+            ]);
     }
 }

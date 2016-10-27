@@ -25,3 +25,7 @@ Route::group(['prefix' => 'admin'],function(){
 		Route::post('add','CateController@postAdd')->name('admin.cate.postAdd');
 	});
 });
+
+Route::get('/routes',function(){
+	return view('routes');
+});

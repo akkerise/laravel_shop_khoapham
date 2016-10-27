@@ -40,3 +40,7 @@
     <form>
 </div>
 @endsection
+
+@section('action')
+Edit
+@endsection

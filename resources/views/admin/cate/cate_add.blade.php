@@ -50,3 +50,6 @@
     <form>
 </div>
 @endsection
+@section('action')
+Add
+@endsection

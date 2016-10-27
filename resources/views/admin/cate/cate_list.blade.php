@@ -33,3 +33,6 @@
     </tbody>
 </table>
 @endsection
+@section('action')
+List
+@endsection
