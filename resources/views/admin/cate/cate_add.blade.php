@@ -17,7 +17,9 @@
             <label>Category Parent</label>
             <select class="form-control">
                 <option value="0">Please Choose Category</option>
-                <option value="">Tin Tức</option>
+                @foreach($list as $l)
+                    <option value="">{{ $l->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
