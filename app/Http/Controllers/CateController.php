@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests\CateRequest;
 
+use Illuminate\Http\Request;
+
 use App\Cate;
+
+use App\Http\Requests;
+
+use Validator;
 
 class CateController extends Controller
 {
 	public function getList(){
 		// $list = Cate::all();
+
         $list = Cate::select('id','name','parent_id','alias')->orderBy('id','DESC')->get();
 		return view('admin.cate.cate_list',compact('list'));
 	}
@@ -60,10 +65,40 @@ class CateController extends Controller
             </script>";
         }
     }
-    public function getEdit(){
-        
+    public function getEdit($id){
+        $ctnames = Cate::select('alias')->get();
+        $data = Cate::findOrFail($id)->toArray();
+        $list = Cate::select('id','name','parent_id')->get();
+        return view('admin.cate.cate_edit',compact('list','data','id','ctnames'));
     }
-    public function postEdit(){
-        
+    public function postEdit(Request $request,$id){
+        $rule = [
+            'txtCateName' => 'required',
+            'txtOrder' => 'required',
+            'txtKeywords' => 'required',
+            'txtDescription' => 'required'
+        ];
+
+        $messages = [
+            '*.required' => 'Bạn bắt buộc phải nhập vào nhé !'
+        ];
+
+        $validation = Validator::make($request->all(),$rule,$messages);
+        if ($validation->fails()) {
+            return redirect()->back()->withInput()->withErrors($validation);
+        }else{
+            $cate = Cate::findOrFail($id);
+            $cate->name = $request->txtCateName;
+            $cate->alias = $request->txtCateName;
+            $cate->order = $request->txtOrder;
+            $cate->parent_id = 1;
+            $cate->keywords = $request->txtKeywords;
+            $cate->description = $request->txtDescription;
+            $cate->save();
+            return redirect()->route('admin.cate.getList')->with([
+                'flash_message' => 'Bạn Thay Đổi Thành Công CMNR Nhé !!!',
+                'flash_level' => 'success'
+            ]);
+        }
     }
 }
