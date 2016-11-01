@@ -19,7 +19,6 @@
             </div>
             @endif --}}
             <div class="form-group">
-                {{--{{ dd($ctnames) }}--}}
                 <label>Category Parent</label>
                 <select class="form-control" name="txtCP">
                     <option value="0">Please Choose Category</option>

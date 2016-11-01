@@ -34,7 +34,7 @@
     <script type="text/javascript">
         var baseURL = "{!! public_path() !!}";
         {{-- // var baseURL = "{!! url("/") !!}"; --}}
-         alert(baseURL);
+//         alert(baseURL);
     </script>
     <script src="{{ url('/admin/js/func_ckfinder.js') }}"></script>
     {{-- END CKEditor & CKFinder --}}

@@ -24,7 +24,8 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'txtName' => 'required',
+            'txtCP' => 'required',
+            'txtName' => 'required|unique:products,name',
             'txtPrice' => 'required',
             'txtIntro' => 'required',
             'txtContent' => 'required',
@@ -37,7 +38,16 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            '*.required' => 'Bạn bắt buộc phải nhập những trường này !'
+
+            'txtCP.required' => 'Bạn bắt buộc phải nhập Parent ID ',
+            'txtName.required' => 'Bạn bắt buộc phải nhập Product Name ',
+            'txtPrice.required' => 'Bạn bắt buộc phải nhập Product Price ',
+            'txtIntro.required' => 'Bạn bắt buộc phải nhập Product Intro ',
+            'txtContent.required' => 'Bạn bắt buộc phải nhập Product Content ',
+            'fImages.required' => 'Bạn bắt buộc phải nhập Product Images ',
+            'txtOrder.required' => 'Bạn bắt buộc phải nhập Product Order ',
+            'txtDescription.required' => 'Bạn bắt buộc phải nhập Product Description ',
+            'txtName.unique' => 'Tên của sản phẩm đã tồn tại , mời bạn đặt tên khác cho sản phẩm'
         ];
     }
 }
