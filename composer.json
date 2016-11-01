@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "garygreen/pretty-routes": "^0.0.2",
         "unisharp/laravel-ckeditor": "^4.5",
-        "ckeditor/ckeditor": "^4.5"
+        "ckeditor/ckeditor": "^4.5",
+        "sensio/distribution-bundle": "^5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -23,7 +24,7 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
         },
         "files": [
             "app/AkKe/functions.php"
