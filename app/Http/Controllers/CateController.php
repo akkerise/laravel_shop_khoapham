@@ -48,7 +48,7 @@ class CateController extends Controller
 
     public function getDelete($id){
         $parent = Cate::where('parent_id',$id)->count();
-        dd($parent);
+        // dd($parent);
         if ($parent == 0) {
             $cate = Cate::find($id);
             $cate->delete();
@@ -57,17 +57,17 @@ class CateController extends Controller
                 'id' => $id
             ]);
         }else{
-            echo "<script type='text/javascript'>
-                    alert('Sorry You can not delete category name');
-                    window.location = '";
-                    echo route('admin.cate.list');
-                    echo "';
-            </script>";
+            echo    "<script type='text/javascript'>
+                        alert('Sorry ! You can not delete category name');
+                        window.location = '";
+                        echo route('admin.cate.list');
+                        echo "';
+                    </script>";
         }
     }
     public function getEdit($id){
-        $ctnames = Cate::select('alias')->get();
-        $data = Cate::findOrFail($id)->toArray();
+        $ctnames  = Cate::select('alias')->get();
+        $data   = Cate::findOrFail($id)->toArray();
         $list = Cate::select('id','name','parent_id')->get();
         return view('admin.cate.cate_edit',compact('list','data','id','ctnames'));
     }

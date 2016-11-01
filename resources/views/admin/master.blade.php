@@ -28,6 +28,16 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{ url('/admin/bower_components/datatables-responsive/css/dataTables.responsive.css') }}"
           rel="stylesheet">
+    {{-- CKEditor & CKFinder --}}
+    <script src="{{ url('/admin/js/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ url('/admin/js/ckfinder/ckfinder.js') }}"></script>
+    <script type="text/javascript">
+        var baseURL = "{!! public_path() !!}";
+        {{-- // var baseURL = "{!! url("/") !!}"; --}}
+         alert(baseURL);
+    </script>
+    <script src="{{ url('/admin/js/func_ckfinder.js') }}"></script>
+    {{-- END CKEditor & CKFinder --}}
 </head>
 
 <body>
@@ -133,7 +143,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Category
+                    <h1 class="page-header">@yield('title_action')
                         <small>@yield('action')</small>
                     </h1>
                 </div>
@@ -151,7 +161,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 <!-- {Nội Dung} -->
-            @yield('content')
+                @yield('content')
             <!-- {END Nội Dung} -->
             </div>
             <!-- /.row -->

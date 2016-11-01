@@ -1,6 +1,11 @@
 @extends('admin.master')
+@section('title_action')
+    Category
+@endsection
+@section('action')
+    Add
+@endsection
 @section('content')
-
 <div class="col-lg-7" style="padding-bottom:120px">
     @if(count($errors)>0)
     <div class="alert alert-danger">
@@ -51,7 +56,4 @@
         <button type="reset" class="btn btn-default">Reset</button>
     <form>
 </div>
-@endsection
-@section('action')
-Add
 @endsection

@@ -1,11 +1,14 @@
 @extends('admin.master')
+@section('title_action')
+    Category
+@endsection
 @section('content')
     <!-- /.col-lg-12 -->
     <div class="col-lg-7" style="padding-bottom:120px">
         <form action="" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {{-- {{ dd(count($errors->all())) }} --}}
-            @include('admin.blocks.errors')
+            {{-- @include('admin.blocks.errors') --}}
             {{-- @if(count($errors)>0)
             <div class="alert alert-danger">
                 <ul>
@@ -30,7 +33,7 @@
                 <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name"
                        value="{{ old('txtCateName',isset($data) ? $data['name'] : null) }}"/>
                 @if ($errors->has('txtCateName'))
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <strong>Warning!</strong> {{ $errors->first('txtCateName') }}
                     </div>
                 @endif
@@ -40,7 +43,7 @@
                 <input class="form-control" name="txtOrder" placeholder="Please Enter Category Order"
                        value="{{ old('txtOrder',isset($data) ? $data['order'] : null) }}"/>
                 @if ($errors->has('txtOrder'))
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <strong>Warning!</strong> {{ $errors->first('txtOrder') }}
                     </div>
                 @endif
@@ -50,7 +53,7 @@
                 <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords"
                        value="{{ old('txtKeywords',isset($data) ? $data['keywords'] : null) }}"/>
                 @if ($errors->has('txtKeywords'))
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <strong>Warning!</strong> {{ $errors->first('txtKeywords') }}
                     </div>
                 @endif
@@ -60,7 +63,7 @@
                 <textarea class="form-control" rows="3"
                           name="txtDescription">{{ old('txtDescription',isset($data) ? $data['description'] : null) }}</textarea>
                 @if ($errors->has('txtDescription'))
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <strong>Warning!</strong> {{ $errors->first('txtDescription') }}
                     </div>
                 @endif

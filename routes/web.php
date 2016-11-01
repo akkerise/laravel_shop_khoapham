@@ -27,6 +27,11 @@ Route::group(['prefix' => 'admin'],function(){
 		Route::get('edit/{id}','CateController@getEdit')->name('admin.cate.getEdit');
 		Route::post('edit/{id}','CateController@postEdit')->name('admin.cate.postEdit');
 	});
+    Route::group(['prefix' => 'product'],function (){
+        Route::get('add','ProductController@getAdd')->name('admin.product.getAdd');
+        Route::post('add','ProductController@postAdd')->name('admin.product.postAdd');
+        Route::get('list','ProductController@getList')->name('admin.product.getList');
+    });
 });
 
 Route::get('/routes',function(){

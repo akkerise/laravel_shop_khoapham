@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title_action')
+    Category
+@endsection
 @section('content')
 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
     <thead>
