@@ -18,6 +18,8 @@ class ProductController extends Controller
     public function postAdd(ProductRequest $request){
         // dd($request->all());
         $file_name = $request->file('fImages')->getClientOriginalName();
+        $cate = Cate::where('name',$request->txtCP)->first()->toArray();
+        // dd($cate['id']);
         $product = new Product;
         $product->name = $request->txtName;
         $product->alias = $request->txtName;
@@ -28,9 +30,11 @@ class ProductController extends Controller
         $product->keywords = $request->txtKeyword;
         $product->description = $request->txtDescription;
         $product->user_id = 1;
-        $product->cate_id = $request->txtCP;
+        $product->cate_id = $cate['id'];
         // move images to uploads
-        $desPath = public_path().'resources/uploads';
+        // dd($cate->id);
+        $desPath = public_path('image');
+        // dd($desPath);
         $request->file('fImages')->move($desPath,$file_name);
         $product->save();
         return view('admin.product.product_list')->with([

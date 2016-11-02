@@ -16,7 +16,7 @@
                 <select class="form-control" name="txtCP">
                     <option value="0">Please Choose Category</option>
                     @foreach( $cate as $c)
-                        <option value="">{{ $c['name'] }}</option>
+                        <option value="{{ $c['name'] }}">{{ $c['name'] }}</option>
                     @endforeach
                 </select>
             </div>
