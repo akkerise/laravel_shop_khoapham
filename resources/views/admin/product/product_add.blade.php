@@ -61,6 +61,15 @@
             </div>
             <button type="submit" class="btn btn-default">Product Add</button>
             <button type="reset" class="btn btn-default">Reset</button>
-        <form>
-    </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <label for="">Images Product Detail {{ $i }}</label>
+                        <input type="file" name="fProductDetail[]" value="" placeholder="">
+                    @endfor
+                </div>
+            </div>
+    </form>
 @endsection
