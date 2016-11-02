@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <div class="col-lg-7" style="padding-bottom:120px">
-        <form action="{{ url('/admin/product/add') }}" method="POST">
+        <form action="{{ url('/admin/product/add') }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @include('admin.blocks.errors')
             <div class="form-group">

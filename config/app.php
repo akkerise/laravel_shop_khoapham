@@ -164,7 +164,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
