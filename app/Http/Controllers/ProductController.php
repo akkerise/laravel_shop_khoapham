@@ -17,6 +17,7 @@ class ProductController extends Controller
     }
 
     public function postAdd(ProductRequest $request){
+
         $file_name = $request->file('fImages')->getClientOriginalName();
         $cate = Cate::where('name',$request->txtCP)->first()->toArray();
         $product = new Product;
@@ -34,14 +35,19 @@ class ProductController extends Controller
         $request->file('fImages')->move($desPath,$file_name);
         $product->save();
         $product_img_id = $product->id;
-        if(Input::hasFile('fProductDetail')){
-            foreach ((Input::file('fProductDetail')) as $file) {
+        if($request->hasFile('fProductDetail')){
+          // dd(1121);
+            foreach (($request->file('fProductDetail')) as $file) {
                 // $file_img = $file->getClientOriginalName();
+                // dd(Input::file('fProductDetail'));
                 $product_img = new ProductImage();
                 if (isset($file)) {
+                    // dd($file);
                     $product_img->image = $file->getClientOriginalName();
                     $product_img->product_id = $product_img_id;
-                    $file->move('public/image/image_detail/',$file->getClientOriginalName());
+                    // $dessPath = public_path('image/image_detail');
+                    // dd($dessPath);
+                    $file->move('public/image/image_detail',$file->getClientOriginalName());
                     $product_img->save();
                 }
             }
