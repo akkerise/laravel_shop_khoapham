@@ -65,12 +65,14 @@ class CateController extends Controller
                     </script>";
         }
     }
+
     public function getEdit($id){
         $ctnames  = Cate::select('alias')->get();
         $data   = Cate::findOrFail($id)->toArray();
         $list = Cate::select('id','name','parent_id')->get();
         return view('admin.cate.cate_edit',compact('list','data','id','ctnames'));
     }
+
     public function postEdit(Request $request,$id){
         $rule = [
             'txtCateName' => 'required',

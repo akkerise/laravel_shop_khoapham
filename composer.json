@@ -10,7 +10,8 @@
         "garygreen/pretty-routes": "^0.0.2",
         "unisharp/laravel-ckeditor": "^4.5",
         "ckeditor/ckeditor": "^4.5",
-        "sensio/distribution-bundle": "^5.0"
+        "sensio/distribution-bundle": "^5.0",
+        "nesbot/carbon": "^1.21"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
