@@ -84,11 +84,11 @@ class ProductController extends Controller {
 		// dd($product_detail);
 		if (count($product_detail) > 0) {
 			foreach ($product_detail as $value) {
-				File::delete('public/image/image_detail'.$value->image);
+				File::delete('public/image'.$value->image);
 			}
 			$product = Product::find($id);
 			// dd($product_detail);
-			File::delete('public/image/image_detail'.$value->image);
+			File::delete('public/image'.$product->image);
 			$product->delete($id);
 			return redirect()->route('admin.product.getList')->with([
 					'delete' => 'Bạn đã xóa thành công',
@@ -97,6 +97,7 @@ class ProductController extends Controller {
 		} else {
 			$product = Product::find($id);
 			$product->delete($id);
+			File::delete('public/image'.$product->image);
 			return redirect()->route('admin.product.getList')->with([
 					'delete' => 'Bạn đã xóa thành công . Vì không có ảnh phụ nên sản phẩm sẽ được xóa !'
 				]);
@@ -105,7 +106,7 @@ class ProductController extends Controller {
 	}
 
 	public function getEdit($id) {
-		$product = Product::find($id);
-		return view('admin.product.product_edit', compact('product'));
+		$products = Product::find($id)->toArray();
+		return view('admin.product.product_edit', compact('products'));
 	}
 }

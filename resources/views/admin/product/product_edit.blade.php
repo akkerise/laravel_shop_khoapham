@@ -12,7 +12,12 @@
             {{-- {{ dd($product) }} --}}
             <div class="form-group">
                 <label>Name</label>
-                <input class="form-control" name="txtName" placeholder="Please Enter Username"/>
+
+                @foreach($products as $product)
+                    {{-- {{ dd($products) }} --}}
+                    <input class="form-control" name="txtName" value="{{ old('txtName',isset($product) ? $product['name'] : null) }}" placeholder="Please Enter Username"/>
+                @endforeach
+
             </div>
             <div class="form-group">
                 <label>Price</label>
