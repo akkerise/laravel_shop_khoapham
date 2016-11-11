@@ -7,6 +7,7 @@ use App\Cate;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\ProductImage;
+use File;
 
 class ProductController extends Controller {
 	public function getAdd() {
@@ -77,4 +78,34 @@ class ProductController extends Controller {
 	//     echo 'You stopped this method because you not permission delete !';
 	// }
 	// }
+
+	public function getDelete($id) {
+		$product_detail = Product::find($id)->product_image;
+		// dd($product_detail);
+		if (count($product_detail) > 0) {
+			foreach ($product_detail as $value) {
+				File::delete('public/image/image_detail'.$value->image);
+			}
+			$product = Product::find($id);
+			// dd($product_detail);
+			File::delete('public/image/image_detail'.$value->image);
+			$product->delete($id);
+			return redirect()->route('admin.product.getList')->with([
+					'delete' => 'Bạn đã xóa thành công',
+					'id'     => $id
+				]);
+		} else {
+			$product = Product::find($id);
+			$product->delete($id);
+			return redirect()->route('admin.product.getList')->with([
+					'delete' => 'Bạn đã xóa thành công . Vì không có ảnh phụ nên sản phẩm sẽ được xóa !'
+				]);
+		}
+
+	}
+
+	public function getEdit($id) {
+		$product = Product::find($id);
+		return view('admin.product.product_edit', compact('product'));
+	}
 }

@@ -44,8 +44,8 @@ $cate = DB::table('cates')->where('id', $p->cate_id)->first();
                 {!! $cate->name !!}
                 @endif
             </td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ URL::route('admin.product.getDelete',$p->cate_id) }}">Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{ URL::route('admin.product.getEdit',$p->cate_id) }}">Edit</a></td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ URL::route('admin.product.getDelete',$p->id) }}" onclick="return xacnhanxoa('Are you want delete?')">Delete</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{ URL::route('admin.product.getEdit',$p->id) }}">Edit</a></td>
         </tr>
         @endforeach
         @endif

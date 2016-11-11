@@ -8,6 +8,8 @@
 @section('content')
     <div class="col-lg-7" style="padding-bottom:120px">
         <form action="" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {{-- {{ dd($product) }} --}}
             <div class="form-group">
                 <label>Name</label>
                 <input class="form-control" name="txtName" placeholder="Please Enter Username"/>
@@ -19,9 +21,6 @@
             <div class="form-group">
                 <label>Intro</label>
                 <textarea class="form-control" rows="3" name="txtIntro"></textarea>
-                <script>
-                    CKEDITOR.replace( 'txtIntro' );
-                </script>
                 {{-- <script type="text/javascript">ckeditor("txtIntro")</script> --}}
                 <script type="text/javascript">
                     $('textarea').ckeditor();
