@@ -8,7 +8,7 @@
         <form action="" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {{-- {{ dd(count($errors->all())) }} --}}
-            {{-- @include('admin.blocks.errors') --}}
+            @include('admin.blocks.errors')
             {{-- @if(count($errors)>0)
             <div class="alert alert-danger">
                 <ul>

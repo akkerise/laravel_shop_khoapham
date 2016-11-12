@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Cate;
-
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\ProductImage;
 use File;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller {
 	public function getAdd() {
@@ -102,11 +102,28 @@ class ProductController extends Controller {
 					'delete' => 'Bạn đã xóa thành công . Vì không có ảnh phụ nên sản phẩm sẽ được xóa !'
 				]);
 		}
-
 	}
 
 	public function getEdit($id) {
-		$products = Product::find($id)->toArray();
-		return view('admin.product.product_edit', compact('products'));
+		$cates    = Cate::select('id', 'name', 'parent_id')->get();
+		$products = Product::find($id);
+		return view('admin.product.product_edit', compact('cates', 'products'));
 	}
+
+	public function postEdit(Request $request, $id) {
+		$cate                = Cate::where('parent_id', $request->sltParent);
+		$request->sltParent  = $cate->name;
+		$product             = Product::findOrFail($id);
+		$request->txtName    = $product->name;
+		$request->txtPrice   = $product->price;
+		$request->txtIntro   = $product->intro;
+		$request->txtContent = $product->content;
+		$filename            = getClientOriginalName($request->fImages);
+		$request->fImages    = $filename;
+		// Chuyen vao thu muc bang $filename->move()...
+		$request->txtKeywords    = $product->keywords;
+		$request->txtDescription = $product->description;
+		$request->save();
+	}
+
 }
