@@ -105,9 +105,10 @@ class ProductController extends Controller {
 	}
 
 	public function getEdit($id) {
-		$cates    = Cate::select('id', 'name', 'parent_id')->get();
-		$products = Product::find($id);
-		return view('admin.product.product_edit', compact('cates', 'products'));
+		$cates       = Cate::select('id', 'name', 'parent_id')->get();
+		$products    = Product::find($id);
+		$product_img = Product::find($id)->product_image;
+		return view('admin.product.product_edit', compact('cates', 'products', 'product_img'));
 	}
 
 	public function postEdit(Request $request, $id) {

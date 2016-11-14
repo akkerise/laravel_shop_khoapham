@@ -5,9 +5,14 @@
 @section('action')
     Edit
 @endsection
+<style>
+    .image_current{
+        width: 150px;
+    }
+</style>
 @section('content')
     <div class="col-lg-7" style="padding-bottom:120px">
-        <form action="{{ route('admin.product.postEdit',$products->id) }}" method="POST">
+        <form action="{{ route('admin.product.postEdit',$products->id) }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {{-- {{ dd($product) }} --}}
             {{-- @include('admin.blocks.error') --}}
@@ -46,6 +51,10 @@
                 <script type="text/javascript">ckeditor("txtContent")</script>
             </div>
             <div class="form-group">
+                <label>Images Current</label>
+                <img src="{{ asset('public/image/'.$products->image) }}" class="image_current" >
+            </div>
+            <div class="form-group">
                 <label>Images</label>
                 <input type="file" name="fImages" >
             </div>
@@ -70,6 +79,14 @@
             </div>
             <button type="submit" class="btn btn-default">Product Edit</button>
             <button type="reset" class="btn btn-default">Reset</button>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+
+                @foreach($product_img as $pimg)
+                    {{-- {{ dd($pimg) }} --}}
+                    <img src="{{ asset('/public/image/' . $pimg->image) }}" alt="">
+                @endforeach
+            </div>
             <form>
     </div>
 @endsection
