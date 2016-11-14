@@ -9,6 +9,9 @@
     .image_current{
         width: 150px;
     }
+    .image_detail{
+        width: 200px;
+    }
 </style>
 @section('content')
     <div class="col-lg-7" style="padding-bottom:120px">
@@ -52,7 +55,7 @@
             </div>
             <div class="form-group">
                 <label>Images Current</label>
-                <img src="{{ asset('public/image/'.$products->image) }}" class="image_current" >
+                <img src="{{ asset('image/'.$products->image) }}" class="image_current" >
             </div>
             <div class="form-group">
                 <label>Images</label>
@@ -82,9 +85,9 @@
             <div class="col-md-1"></div>
             <div class="col-md-4">
 
-                @foreach($product_img as $pimg)
+                @foreach($product_img as $k => $pimg)
                     {{-- {{ dd($pimg) }} --}}
-                    <img src="{{ asset('/public/image/' . $pimg->image) }}" alt="">
+                    <img class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
                 @endforeach
             </div>
             <form>
