@@ -13,3 +13,9 @@ function xacnhanxoa(msg){
 		return false;
 	}
 }
+
+jQuery(document).ready(function($) {
+	$('#addImages').click(function(){
+		$('#insertImageDetail').append('<div class="form-group"><input type="file" name="fEditDetail[]" ></div>');
+	})
+});

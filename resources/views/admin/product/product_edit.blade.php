@@ -6,15 +6,14 @@
     Edit
 @endsection
 <style>
-    .image_current{
-        width: 150px;
-    }
-    .image_detail{
-        width: 200px;
-    }
+    .image_current{width: 150px;}
+    .image_detail{width: 200px; margin-bottom: 15px;}
+    .icon-del {background: red;position: relative;top: -12px; right: -170px}
+    .product-relative-img {position: relative;}
+    .product-detail-img {position: absolute; top: -1200px;right: -680px;}
 </style>
 @section('content')
-    <div class="col-lg-7" style="padding-bottom:120px">
+    <div class="col-lg-7 product-relative-img" style="padding-bottom:120px">
         <form action="{{ route('admin.product.postEdit',$products->id) }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {{-- {{ dd($product) }} --}}
@@ -83,12 +82,16 @@
             <button type="submit" class="btn btn-default">Product Edit</button>
             <button type="reset" class="btn btn-default">Reset</button>
             <div class="col-md-1"></div>
-            <div class="col-md-4">
+            <div class="col-md-4 product-detail-img">
 
                 @foreach($product_img as $k => $pimg)
                     {{-- {{ dd($pimg) }} --}}
                     <img class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
+                    <a href="del_img_demo" class="btn btn-danger btn-circle icon-del"><i class="fa fa-times"></i></a>
                 @endforeach
+                <button type="button" class="btn btn-primary" id="addImages">Add Images</button>
+                <input type="file" name="fProductDetail[]">
+                <div id="insertImageDetail"></div>
             </div>
             <form>
     </div>
