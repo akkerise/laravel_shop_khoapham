@@ -126,5 +126,4 @@ class ProductController extends Controller {
 		$request->txtDescription = $product->description;
 		$request->save();
 	}
-
 }
