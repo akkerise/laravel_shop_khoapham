@@ -25,7 +25,7 @@
                     <option value="">Please Choose Category</option>
                     {{-- {{ dd($cates) }} --}}
                     @foreach($cates as $c)
-                        <option value="{{ $c->name }}">{{ $c->name }}</option>
+                        <option value="{{ $c->id }}">{{ $c->name }}</option>
                     @endforeach
                 </select>
             </div>
