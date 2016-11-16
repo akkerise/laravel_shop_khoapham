@@ -53,6 +53,7 @@
             <div class="form-group">
                 <label>Images Current</label>
                 <img src="{{ asset('image/'.$products->image) }}" class="image_current" >
+                <input type="hidden" name="img_current" value="{{ $products->image }}">
             </div>
             <div class="form-group">
                 <label>Images</label>

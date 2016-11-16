@@ -113,6 +113,7 @@ class ProductController extends Controller {
 	public function postEdit($id,Request $request) {
 //		$cate                = Cate::where('parent_id', $request->sltParent);
 //		$request->sltParent  = $cate->name;
+        // Lưu ý muốn sửa bất kỳ trường nào ở đây ta phải cho nó giá trị của Category
 		$product             = Product::findOrFail($id);
         $product->name        = $request->txtName;
         $product->alias       = $request->txtName;
@@ -125,6 +126,21 @@ class ProductController extends Controller {
         $product->cate_id = $request->sltParent;
         // dd($request->all());
 		$product->save();
+        $img_current = 'public/image/' . $request->img_current;
+//        dd($img_current);
+            // logic ở đây có ván đề vì nó không xóa ảnh trong database
+        if (!empty($request->hasFile('fImages'))){
+            $filename = $request->file('fImages')->getClientOriginalName();
+            $product->image = $filename;
+            $desPath = public_path('image');
+            $request->file('fImages')->move($desPath,$filename);
+            if(file_exists($img_current)){
+                File::delete($img_current);
+//                file_delete($img_current);
+            }
+        }else{
+            echo "KO CÓ FILE";
+        }
         return redirect()->route('admin.product.getList')->with([
             'delete' => 'Bạn đã sửa thành công !'
         ]);
