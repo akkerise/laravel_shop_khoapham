@@ -127,4 +127,19 @@ class ProductController extends Controller {
 		$request->save();
 	}
 
+	public function getDelImg($id) {
+		if (Request::ajax()) {
+			$idHinh = Request::get('idHinh');
+			$image  = ProductImage::find($idHinh);
+			if (!empty($image)) {
+				$img = '/public/image/'.$image->image;
+				if (File::exists($img)) {
+					File::delete($img);
+				}
+				$image->delete();
+			}
+			return "OK";
+		}
+	}
+
 }
