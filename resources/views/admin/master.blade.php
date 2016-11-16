@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="Vu Quoc Tuan">
-    <title>Admin - Khoa Phạm</title>
+    <title>Admin - AkKe</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Admin Area - Khoa Phạm</a>
+            <a class="navbar-brand" href="index.html">Admin Area - AkKe</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -186,7 +186,7 @@
 <script src="{{ url('/admin/dist/js/sb-admin-2.js') }}"></script>
 
 <!-- DataTables JavaScript -->
-<script src="{{ url('/admin/bower_components/DataTables/media/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('/admin/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
 
 <script src="{{ url('/admin/js/myscript.js') }}"></script>

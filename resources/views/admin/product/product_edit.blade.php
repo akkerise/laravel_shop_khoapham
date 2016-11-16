@@ -11,6 +11,7 @@
     .icon-del {background: red;position: relative;top: -12px; right: -170px}
     .product-relative-img {position: relative;}
     .product-detail-img {position: absolute; top: -1200px;right: -680px;}
+    #addImages {margin-bottom: 20px;}
 </style>
 @section('content')
     <div class="col-lg-7 product-relative-img" style="padding-bottom:120px">
@@ -43,9 +44,6 @@
                 <label>Intro</label>
                 <textarea class="form-control" rows="3" name="txtIntro">{{ strip_tags(old('txtIntro',isset($products) ? $products->intro : null )) }}</textarea>
                 {{-- <script type="text/javascript">ckeditor("txtIntro")</script> --}}
-                <script type="text/javascript">
-                    $('textarea').ckeditor();
-                </script>
             </div>
             <div class="form-group">
                 <label>Content</label>
@@ -86,8 +84,10 @@
 
                 @foreach($product_img as $k => $pimg)
                     {{-- {{ dd($pimg) }} --}}
-                    <img class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
+                    <div class="form-group" id="hinh{{ $k }}">
+                        <img id="hinh{{ $k }}" class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
                     <a href="del_img_demo" class="btn btn-danger btn-circle icon-del"><i class="fa fa-times"></i></a>
+                    </div>
                 @endforeach
                 <button type="button" class="btn btn-primary" id="addImages">Add Images</button>
                 <input type="file" name="fProductDetail[]">
