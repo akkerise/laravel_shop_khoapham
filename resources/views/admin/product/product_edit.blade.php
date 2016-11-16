@@ -8,23 +8,24 @@
 <style>
     .image_current{width: 150px;}
     .image_detail{width: 200px; margin-bottom: 15px;}
-    .icon-del {background: red;position: relative;top: -12px; right: -170px}
+    .icon-del {background: red;position: relative;top: -52px; right: -160px}
     .product-relative-img {position: relative;}
     .product-detail-img {position: absolute; top: -1200px;right: -680px;}
+    #addImages {margin-bottom: 20px;}
 </style>
 @section('content')
     <div class="col-lg-7 product-relative-img" style="padding-bottom:120px">
-        <form action="{{ route('admin.product.postEdit',$products->id) }}" method="POST" enctype="multipart/form-data">
+        <form name="frmEditProduct" action="{{ route('admin.product.postEdit',$products->id) }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {{-- {{ dd($product) }} --}}
             {{-- @include('admin.blocks.error') --}}
 
             <div class="form-group"><label for="">Category Parent</label>
-                <select name="sltParent" id="">
+                <select name="sltParent">
                     <option value="">Please Choose Category</option>
                     {{-- {{ dd($cates) }} --}}
                     @foreach($cates as $c)
-                        <option value="">{{ $c->name }}</option>
+                        <option value="{{ $c->id }}">{{ $c->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -43,9 +44,6 @@
                 <label>Intro</label>
                 <textarea class="form-control" rows="3" name="txtIntro">{{ strip_tags(old('txtIntro',isset($products) ? $products->intro : null )) }}</textarea>
                 {{-- <script type="text/javascript">ckeditor("txtIntro")</script> --}}
-                <script type="text/javascript">
-                    $('textarea').ckeditor();
-                </script>
             </div>
             <div class="form-group">
                 <label>Content</label>
@@ -55,6 +53,7 @@
             <div class="form-group">
                 <label>Images Current</label>
                 <img src="{{ asset('image/'.$products->image) }}" class="image_current" >
+                <input type="hidden" name="img_current" value="{{ $products->image }}">
             </div>
             <div class="form-group">
                 <label>Images</label>
@@ -86,8 +85,10 @@
 
                 @foreach($product_img as $k => $pimg)
                     {{-- {{ dd($pimg) }} --}}
-                    <img class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
-                    <a href="del_img_demo" class="btn btn-danger btn-circle icon-del"><i class="fa fa-times"></i></a>
+                    <div class="form-group" id="{{ $k }}">
+                        <img id="{{ $k }}" idHinh="{{ $pimg->id }}" class="image_detail" src="{{ asset('image/' . $pimg->image) }}" alt="{{ $k }}">
+                        <a href="javascript:void(0)" type="button" id="del_img_demo" class="btn btn-danger btn-circle icon-del"><i class="fa fa-times"></i></a>
+                    </div>
                 @endforeach
                 <button type="button" class="btn btn-primary" id="addImages">Add Images</button>
                 <input type="file" name="fProductDetail[]">

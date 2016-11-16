@@ -7,8 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\ProductImage;
 use File;
-use Illuminate\Http\Request;
-
+use Illuminate\Http\Request as Request;
 class ProductController extends Controller {
 	public function getAdd() {
 		$cate = Cate::select('name', 'id', 'parent_id')->get()->toArray();
@@ -53,8 +52,8 @@ class ProductController extends Controller {
 		}
 
 		return redirect()->route('admin.product.getList')->with([
-				'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
-				'flash_level'   => 'success'
+			'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
+			'flash_level'   => 'success'
 			]);
 	}
 
@@ -91,15 +90,15 @@ class ProductController extends Controller {
 			File::delete('public/image'.$product->image);
 			$product->delete($id);
 			return redirect()->route('admin.product.getList')->with([
-					'delete' => 'Bạn đã xóa thành công',
-					'id'     => $id
+				'delete' => 'Bạn đã xóa thành công',
+				'id'     => $id
 				]);
 		} else {
 			$product = Product::find($id);
 			$product->delete($id);
 			File::delete('public/image'.$product->image);
 			return redirect()->route('admin.product.getList')->with([
-					'delete' => 'Bạn đã xóa thành công . Vì không có ảnh phụ nên sản phẩm sẽ được xóa !'
+				'delete' => 'Bạn đã xóa thành công . Vì không có ảnh phụ nên sản phẩm sẽ được xóa !'
 				]);
 		}
 	}
@@ -111,19 +110,66 @@ class ProductController extends Controller {
 		return view('admin.product.product_edit', compact('cates', 'products', 'product_img'));
 	}
 
-	public function postEdit(Request $request, $id) {
-		$cate                = Cate::where('parent_id', $request->sltParent);
-		$request->sltParent  = $cate->name;
+	public function postEdit($id,Request $request) {
+//		$cate                = Cate::where('parent_id', $request->sltParent);
+//		$request->sltParent  = $cate->name;
+        // Lưu ý muốn sửa bất kỳ trường nào ở đây ta phải cho nó giá trị của Category
 		$product             = Product::findOrFail($id);
-		$request->txtName    = $product->name;
-		$request->txtPrice   = $product->price;
-		$request->txtIntro   = $product->intro;
-		$request->txtContent = $product->content;
-		$filename            = getClientOriginalName($request->fImages);
-		$request->fImages    = $filename;
-		// Chuyen vao thu muc bang $filename->move()...
-		$request->txtKeywords    = $product->keywords;
-		$request->txtDescription = $product->description;
-		$request->save();
+        $product->name        = $request->txtName;
+        $product->alias       = $request->txtName;
+        $product->price       = $request->txtPrice;
+        $product->intro       = $request->txtIntro;
+        $product->content     = $request->txtContent;
+        $product->keywords    = $request->txtKeywords;
+        $product->description = $request->txtDes;
+        $product->user_id  = 1;
+        $product->cate_id = $request->sltParent;
+        // dd($request->all());
+		$product->save();
+        $img_current = 'public/image/' . $request->img_current;
+//        dd($img_current);
+            // logic ở đây có ván đề vì nó không xóa ảnh trong database
+        if (!empty($request->hasFile('fImages'))){
+            $filename = $request->file('fImages')->getClientOriginalName();
+            $product->image = $filename;
+            $desPath = public_path('image');
+            $request->file('fImages')->move($desPath,$filename);
+            if(file_exists($img_current)){
+                File::delete($img_current);
+//                file_delete($img_current);
+            }
+        }else{
+            echo "KO CÓ FILE";
+        }
+        return redirect()->route('admin.product.getList')->with([
+            'delete' => 'Bạn đã sửa thành công !'
+        ]);
+//		$product = Product::find($id);
+//		$product->name = Request::input('txtName');
+//		$product->alias = Request::input('txtName');
+//		$product->price = Request::input('txtPrice');
+//		$product->intro = Request::input('txtIntro');
+//		$product->content = Request::input('txtContent');
+//		$product->keywords = Request::input('txtKeyword');
+//		$product->description = Request::input('txtDes');
+//		$product->user_id = 1;
+//		$product->cate_id = Request::input('sltParent');
+//        dd($request->all());
+//        $product->save();
+	}
+
+	public function getDelImg($id) {
+		if (Request::ajax()) {
+			$idHinh = Request::get('idHinh');
+			$image  = ProductImage::find($idHinh);
+			if (!empty($image)) {
+				$img = '/public/image/'.$image->image;
+				if (File::exists($img)) {
+					File::delete($img);
+				}
+				$image->delete();
+			}
+			return "OK";
+		}
 	}
 }
