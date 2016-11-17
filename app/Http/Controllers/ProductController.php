@@ -164,13 +164,14 @@ class ProductController extends Controller {
 			$idHinh = (int)Request::get('idHinh');
 			// $idHinh = $request->idHinh;
 			// dd($idHinh);
-			$image  = ProductImage::find($idHinh);
-			if (!empty($image)) {
-				$img = '/public/image/'.$image->image;
+			$image_detail  = ProductImage::find($idHinh);
+			if (!empty($image_detail)) {
+				$img = '/public/image/'.$image_detail->image;
 				if (File::exists($img)) {
 					File::delete($img);
 				}
-				$image->delete();
+				$image_detail->delete();
+				$image_detail->save();
 			}
 			return "OK";
 		}

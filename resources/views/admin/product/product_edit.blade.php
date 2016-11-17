@@ -82,7 +82,6 @@
             <button type="reset" class="btn btn-default">Reset</button>
             <div class="col-md-1"></div>
             <div class="col-md-4 product-detail-img">
-
                 @foreach($product_img as $k => $pimg)
                     {{-- {{ dd($pimg) }} --}}
                     <div class="form-group" id="{{ $k }}">
