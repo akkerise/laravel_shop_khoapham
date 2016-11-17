@@ -90,7 +90,6 @@
                     </div>
                 @endforeach
                 <button type="button" class="btn btn-primary" id="addImages">Add Images</button>
-                <input type="file" name="fProductDetail[]">
                 <div id="insertImageDetail"></div>
             </div>
             <form>

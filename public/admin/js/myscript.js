@@ -35,7 +35,11 @@ $(document).ready(function() {
 			dataType: 'json',
 			data: {"_token":_token,"idHinh":idHinh,"urlHinh":img},
 			success: function(data){
-				alert(data);
+				if (data == "OK") {
+					$('#'+rid).remove();
+				} else {
+					alert("Error ! Please Contact Admin");
+				}
 			}
 		});
 	});
