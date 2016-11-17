@@ -133,7 +133,8 @@ class ProductController extends Controller {
 		//        dd($img_current);
 		// logic ở đây có ván đề vì nó không xóa ảnh trong database
 		if (!empty($request->hasFile('fImages'))) {
-			$filename       = $request->file('fImages')->getClientOriginalName();
+			$filename = $request->file('fImages')->getClientOriginalName();
+			// dd($filename);
 			$product->image = $filename;
 			$desPath        = public_path('image');
 			$request->file('fImages')->move($desPath, $filename);
