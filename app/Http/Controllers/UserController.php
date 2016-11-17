@@ -7,7 +7,7 @@ use Hash;
 
 class UserController extends Controller {
 	public function getList() {
-		$users = User::all();
+		$users = User::select('id', 'username', 'email', 'level')->orderBy('id', 'DESC')->get();
 		return view('admin.user.user_list', compact('users'));
 	}
 	public function getAdd() {
@@ -29,8 +29,13 @@ class UserController extends Controller {
 				'flash_message' => 'Bạn đã thêm mới một người dùng'
 			]);
 	}
-	public function getDelete() {
-
+	public function getDelete($id) {
+		// $delete = User::find($id);
+		// $delete->delete();
+		// return redirect()->route('admin.user.getList')->with([
+		// 		'delete' => 'Bạn đã xóa 1 người dùng có id là :',
+		// 		'id'     => $id
+		// 	]);
 	}
 	public function getEdit() {
 

@@ -44,8 +44,11 @@ Route::group(['prefix'   => 'admin'], function () {
 				Route::get('edit/{id}', 'UserController@getEdit')->name('admin.user.getEdit');
 				Route::post('edit/{id}', 'UserController@postEdit')->name('admin.user.postEdit');
 			});
+		Route::get('login', 'Admin\LoginController@getLogin')->name('admin.login.getLogin');
+		Route::post('login', 'Admin\LoginController@postLogin')->name('admin.login.postLogin');
 	});
 
 Route::get('/routes', function () {
 		return view('routes');
 	});
+Route::get('/home', 'HomeController@index');
