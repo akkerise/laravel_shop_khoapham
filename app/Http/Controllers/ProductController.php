@@ -116,6 +116,7 @@ class ProductController extends Controller {
 		//		$cate                = Cate::where('parent_id', $request->sltParent);
 		//		$request->sltParent  = $cate->name;
 		// Lưu ý muốn sửa bất kỳ trường nào ở đây ta phải cho nó giá trị của Category
+
 		$product              = Product::findOrFail($id);
 		$product->name        = $request->txtName;
 		$product->alias       = $request->txtName;
@@ -144,6 +145,21 @@ class ProductController extends Controller {
 			echo "KO CÓ FILE";
 		}
 		$product->save();
+		if (!empty($request->fEditDetail)) {
+			// echo "<pre>";
+			// var_dump($request->fEditDetail);
+			// echo "</pre>";
+			foreach ($request->fEditDetail as $file) {
+				$product_img = new ProductImage;
+				if (isset($file)) {
+					// dd($file->getClientOriginalName());
+					$product_img->image      = $file->getClientOriginalName();
+					$product_img->product_id = $id;
+					$file->move('public/image/image_detail'.$file->getClientOriginalName());
+				}
+				$product_img->save();
+			}
+		}
 		return redirect()->route('admin.product.getList')->with([
 				'delete' => 'Bạn đã sửa thành công !'
 			]);
