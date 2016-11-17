@@ -114,7 +114,7 @@ class ProductController extends Controller {
 //		$cate                = Cate::where('parent_id', $request->sltParent);
 //		$request->sltParent  = $cate->name;
         // Lưu ý muốn sửa bất kỳ trường nào ở đây ta phải cho nó giá trị của Category
-		$product             = Product::findOrFail($id);
+		$product              = Product::findOrFail($id);
         $product->name        = $request->txtName;
         $product->alias       = $request->txtName;
         $product->price       = $request->txtPrice;
@@ -125,7 +125,7 @@ class ProductController extends Controller {
         $product->user_id  = 1;
         $product->cate_id = $request->sltParent;
         // dd($request->all());
-		$product->save();
+
         $img_current = 'public/image/' . $request->img_current;
 //        dd($img_current);
             // logic ở đây có ván đề vì nó không xóa ảnh trong database
@@ -141,6 +141,7 @@ class ProductController extends Controller {
         }else{
             echo "KO CÓ FILE";
         }
+        $product->save();
         return redirect()->route('admin.product.getList')->with([
             'delete' => 'Bạn đã sửa thành công !'
         ]);
@@ -158,9 +159,11 @@ class ProductController extends Controller {
 //        $product->save();
 	}
 
-	public function getDelImg($id) {
+	public function getDelImg($id,Request $request) {
 		if (Request::ajax()) {
-			$idHinh = Request::get('idHinh');
+			$idHinh = (int)Request::get('idHinh');
+			// $idHinh = $request->idHinh;
+			// dd($idHinh);
 			$image  = ProductImage::find($idHinh);
 			if (!empty($image)) {
 				$img = '/public/image/'.$image->image;
