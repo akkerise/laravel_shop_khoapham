@@ -49,11 +49,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 		Route::get('login', 'Auth\LoginController@getLogin')->name('admin.login.getLogin');
 		Route::post('login', 'Auth\LoginController@postLogin')->name('admin.login.postLogin');
+		// Route::get('logout', 'Auth\LoginController@getLogout');
+		Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 		// Route::get('login', function () {})->middleware('auth');
 
 	});
-
+Route::post('/logout', 'Admin\LoginController@logout');
 Route::get('/routes', function () {
 		return view('routes');
 	});
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
