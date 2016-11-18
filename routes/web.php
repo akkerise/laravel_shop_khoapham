@@ -11,15 +11,17 @@
 |
  */
 
-Route::get('/', function () {
+Route::get('/',
+	function () {
 		return view('welcome');
 	});
 Route::get('test', function () {
 		return view('admin.cate.cate_list');
 	});
 
-Route::group(['prefix'   => 'admin'], function () {
-		Route::group(['prefix' => 'cate'], function () {
+Route::group(['prefix' => 'admin'], function () {
+
+		Route::group(['prefix' => 'cate', 'middleware' => 'auth'], function () {
 				Route::get('list', 'CateController@getList')->name('admin.cate.getList');
 				Route::get('add', 'CateController@getAdd')->name('admin.cate.getAdd');
 				Route::post('add', 'CateController@postAdd')->name('admin.cate.postAdd');
@@ -27,7 +29,7 @@ Route::group(['prefix'   => 'admin'], function () {
 				Route::get('edit/{id}', 'CateController@getEdit')->name('admin.cate.getEdit');
 				Route::post('edit/{id}', 'CateController@postEdit')->name('admin.cate.postEdit');
 			});
-		Route::group(['prefix' => 'product'], function () {
+		Route::group(['prefix' => 'product', 'middleware' => 'auth'], function () {
 				Route::get('add', 'ProductController@getAdd')->name('admin.product.getAdd');
 				Route::post('add', 'ProductController@postAdd')->name('admin.product.postAdd');
 				Route::get('list', 'ProductController@getList')->name('admin.product.getList');
@@ -36,7 +38,7 @@ Route::group(['prefix'   => 'admin'], function () {
 				Route::post('edit/{id}', 'ProductController@postEdit')->name('admin.product.postEdit');
 				Route::get('delimg/{id}', 'ProductController@getDelImg')->name('admin.product.getDelImg');
 			});
-		Route::group(['prefix' => 'user'], function () {
+		Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 				Route::get('add', 'UserController@getAdd')->name('admin.user.getAdd');
 				Route::post('add', 'UserController@postAdd')->name('admin.user.postAdd');
 				Route::get('list', 'UserController@getList')->name('admin.user.getList');
@@ -44,8 +46,11 @@ Route::group(['prefix'   => 'admin'], function () {
 				Route::get('edit/{id}', 'UserController@getEdit')->name('admin.user.getEdit');
 				Route::post('edit/{id}', 'UserController@postEdit')->name('admin.user.postEdit');
 			});
+
 		Route::get('login', 'Auth\LoginController@getLogin')->name('admin.login.getLogin');
 		Route::post('login', 'Auth\LoginController@postLogin')->name('admin.login.postLogin');
+		// Route::get('login', function () {})->middleware('auth');
+
 	});
 
 Route::get('/routes', function () {

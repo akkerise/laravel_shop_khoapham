@@ -21,14 +21,15 @@ class AdminLoginRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'username' => 'required',
-			'password' => 'required'
+			'username' => 'required|between:6,18',
+			'password' => 'required|between:6,18'
 		];
 	}
 	public function messages() {
 		return [
 			'username.required' => 'Please enter username',
-			'password.required' => 'Please enter password'
+			'password.required' => 'Please enter password',
+			'*.between'         => 'Please enter not range :min to :max'
 		];
 	}
 }

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminLoginRequest;
+use Auth;
 use Illuminate\Contracts\Auth\Guard;
-
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller {
@@ -38,11 +38,13 @@ class LoginController extends Controller {
 		$this->auth = $auth;
 		// $this->registrar = $registrar;
 		$this->middleware('guest', ['except' => 'logout']);
+		// $this->middleware(['auth', 'admin'])->except('login');
 	}
 
 	public function getLogin() {
 		return view('admin.login');
 	}
+
 	public function postLogin(AdminLoginRequest $request) {
 		// dd($request->all());
 		$login = [
@@ -50,10 +52,12 @@ class LoginController extends Controller {
 			'password' => $request->password,
 			'level'    => 1
 		];
-		if ($this->auth->attempt($login)) {
+		if (Auth::attempt($login)) {
 			return redirect()->route('admin.cate.getList');
+			// echo "Thanh Cong";
 		} else {
 			return redirect()->back();
+			// echo "Xit";
 		}
 	}
 }
