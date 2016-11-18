@@ -36,6 +36,8 @@
                         <form role="form" action="{{ route('admin.login.postLogin') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+                                @include('admin.blocks.errors')
+
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
