@@ -6,6 +6,7 @@ use App\Cate;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\ProductImage;
+use Auth;
 use File;
 use Illuminate\Http\Request as Request;
 // use Request;
@@ -29,7 +30,7 @@ class ProductController extends Controller {
 		$product->image       = $file_name;
 		$product->keywords    = $request->txtKeywords;
 		$product->description = $request->txtDescription;
-		$product->user_id     = 1;
+		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $cate['id'];
 		$desPath              = public_path('image');
 		$request->file('fImages')->move($desPath, $file_name);
@@ -125,7 +126,7 @@ class ProductController extends Controller {
 		$product->content     = $request->txtContent;
 		$product->keywords    = $request->txtKeywords;
 		$product->description = $request->txtDes;
-		$product->user_id     = 1;
+		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $request->sltParent;
 		// dd($request->all());
 
