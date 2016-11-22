@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\AdminLoginRequest;
+use App\User;
 use Auth;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -49,18 +50,40 @@ class LoginController extends Controller {
 
 	public function postLogin(AdminLoginRequest $request) {
 		// dd($request->all());
+		// Error logic level == 2 not login need fix
 		$login = [
 			'username' => $request->username,
-			'password' => $request->password,
-			'level'    => 1
+			'password' => $request->password
 		];
-		if (Auth::attempt($login)) {
-			return redirect()->route('admin.cate.getList');
-			// echo "Thanh Cong";
-		} else {
-			return redirect()->back();
-			// echo "Xit";
+		$user_level = User::where('username', $request->username)->first()->level;
+
+		if ($user_level == 1 || $user_level == 2) {
+			if (Auth::attempt($login)) {
+				return redirect()->route('admin.user.getList');
+			} else {
+				return redirect()->back();
+			}
 		}
+		// $login_plus1 = ['level' => 1];
+		// $login_plus2 = ['level' => 2];
+		// $total       = array_merge($login, $login_plus2);
+		// echo "<pre>";
+		// var_dump($total);
+		// echo "</pre>";
+		// exit;
+
+		// if () {
+		// 	Auth::attempt($total);
+		// 	return redirect()->route('admin.user.getList');
+		// 	// echo "Thanh Cong";
+		// } elseif (Auth::attempt(array_push($login, "level", 2))) {
+		// 	return redirect()->route('admin.user.getList');
+		// 	# code...
+		// } else {
+		// 	return redirect()->back();
+		// 	// echo "Xit";
+		// }
+
 	}
 
 	public function logout(Request $request) {
