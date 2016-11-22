@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 <div class="col-lg-7" style="padding-bottom:120px">
-    <form action="" method="POST">
+    <form action="{{ route('admin.user.postEdit') }}" method="POST">
         <div class="form-group">
             <label>Username</label>
             <input class="form-control" name="txtUser" value="quoctuan" disabled />

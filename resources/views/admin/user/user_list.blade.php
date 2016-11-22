@@ -25,15 +25,15 @@ Add
             <td>{{ $user->username }}</td>
             <td><?php
 if ($user->level == 1) {
-	echo "Admin";
-} else if ($user->level == 2) {
 	echo "Superadmin";
+} else if ($user->level == 2) {
+	echo "Admin";
 } else {
 	echo "Member";
 }
 ?></td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ route('admin.user.getDelete',$user->id) }}"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{ route('admin.user.getDelete',$user->id) }}" onclick="return xacnhanxoa('Are you want delete?')"> Delete</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{ route('admin.user.getEdit',$user->id) }}"">Edit</a></td>
         </tr>
         @endforeach
     </tbody>

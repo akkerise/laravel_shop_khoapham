@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\User;
+use Auth;
 use Hash;
 
 class UserController extends Controller {
@@ -30,15 +31,25 @@ class UserController extends Controller {
 			]);
 	}
 	public function getDelete($id) {
-		// $delete = User::find($id);
-		// $delete->delete();
-		// return redirect()->route('admin.user.getList')->with([
-		// 		'delete' => 'Bạn đã xóa 1 người dùng có id là :',
-		// 		'id'     => $id
-		// 	]);
+		$userCurrentLogin = Auth::user()->id;
+		$user             = User::find($id);
+		if (($id == 7) || ($userCurrentLogin != 7 && $user['level'] == 1)) {
+			return redirect()->route('admin.user.getList')->with([
+					'flash_level'   => 'danger',
+					'flash_message' => 'You can\'t not access delete this user'
+				]);
+		} else {
+			$user->delete($id);
+			return redirect()->route('admin.user.getList')->with([
+					'flash_level'   => 'success',
+					'flash_message' => 'You are deleted user success'
+				]);
+		}
 	}
-	public function getEdit() {
 
+	public function getEdit($id) {
+		$user = User::find($id);
+		return view('admin.user.user_edit', compact('user'));
 	}
 	public function postEdit() {
 
