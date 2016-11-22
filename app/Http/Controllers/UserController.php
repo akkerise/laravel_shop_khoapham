@@ -38,6 +38,11 @@ class UserController extends Controller {
 					'flash_level'   => 'danger',
 					'flash_message' => 'You can\'t not access delete this user'
 				]);
+		} elseif ($user['level'] == 2) {
+			return redirect()->route('admin.user.getList')->with([
+					'flash_level'   => 'danger',
+					'flash_message' => 'You can\'t not access delete this user because same you'
+				]);
 		} else {
 			$user->delete($id);
 			return redirect()->route('admin.user.getList')->with([
