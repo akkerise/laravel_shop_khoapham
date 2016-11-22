@@ -56,13 +56,15 @@ class LoginController extends Controller {
 			'password' => $request->password
 		];
 		$user_level = User::where('username', $request->username)->first()->level;
-
-		if ($user_level == 1 || $user_level == 2) {
+		$user       = User::where('username', $request->username)->first();
+		if ($user_level == 1 || $user_level == 2 && $user != NULL) {
 			if (Auth::attempt($login)) {
 				return redirect()->route('admin.user.getList');
 			} else {
 				return redirect()->back();
 			}
+		} else {
+			return redirect()->abort(503);
 		}
 		// $login_plus1 = ['level' => 1];
 		// $login_plus2 = ['level' => 2];
