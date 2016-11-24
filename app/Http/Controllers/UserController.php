@@ -55,6 +55,12 @@ class UserController extends Controller {
 	public function getEdit($id) {
 		// echo $id;
 		$user = User::find($id);
+		if (((Auth::user()->id != 7) && ($id == 7)) || (($user->level == 1) && (Auth::user()->id != $id))) {
+			return redirect()->route('admin.user.getList')->with([
+					'flash_level'   => 'danger',
+					'flash_message' => 'You can\'t edit this user because you not access'
+				]);
+		}
 		return view('admin.user.user_edit', compact('user'));
 	}
 

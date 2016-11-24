@@ -27,25 +27,27 @@
             <label>Email</label>
             <input type="email" class="form-control" value="{{ old('txtEmail',isset($user) ? $user->email : null) }}" name="txtEmail" placeholder="Please Enter Email" />
         </div>
-        <div class="form-group">
-            <label>User Level</label>
+        @if(Auth::user()->id != $user->id)
+            <div class="form-group">
+                <label>User Level</label>
 
-            <label class="radio-inline">
-                <input name="rdoLevel" value="2" type="radio"
-                @if($user->level == 2)
-                    checked="checked"
-                @endif
-                >Admin
-            </label>
+                <label class="radio-inline">
+                    <input name="rdoLevel" value="2" type="radio"
+                    @if($user->level == 2)
+                        checked="checked"
+                    @endif
+                    >Admin
+                </label>
 
-            <label class="radio-inline">
-                <input name="rdoLevel" value="3" type="radio"
-                @if ($user->level ==3)
-                    checked="checked"
-                @endif
-                >Member
-            </label>
-        </div>
+                <label class="radio-inline">
+                    <input name="rdoLevel" value="3" type="radio"
+                    @if ($user->level ==3)
+                        checked="checked"
+                    @endif
+                    >Member
+                </label>
+            </div>
+        @endif
         <button type="submit" class="btn btn-default">User Edit</button>
         <button type="reset" class="btn btn-default">Reset</button>
     <form>
