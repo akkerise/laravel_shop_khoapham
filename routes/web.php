@@ -13,7 +13,7 @@
 
 Route::get('/',
 	function () {
-		return view('welcome');
+		return view('shop.pages.home');
 	});
 Route::get('test', function () {
 		return view('admin.cate.cate_list');
@@ -60,3 +60,7 @@ Route::get('/routes', function () {
 		return view('routes');
 	});
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('test', function () {
+		return view('shop.pages.home');
+	});
