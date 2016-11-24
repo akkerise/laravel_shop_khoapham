@@ -57,6 +57,40 @@ class UserController extends Controller {
 		$user = User::find($id);
 		return view('admin.user.user_edit', compact('user'));
 	}
-	public function postEdit() {
 
-	}}
+	public function postEdit($id, UserRequest $request) {
+
+		$user           = User::findOrFail($id);
+		$user->username = $request->txtUser;
+		$user->password = Hash::make($request->txtPass);
+		$user->email    = $request->txtEmail;
+		$user->level    = $request->rdoLevel;
+		$user->save();
+
+		return redirect()->route('admin.user.getList')->with([
+				'flash_level'   => 'success',
+				'flash_message' => 'You edit success',
+				'id'            => $id
+			]);
+		// $rules = [
+		// 	'txtUser'  => 'required|between:6,32',
+		// 	'txtPass'  => 'required|between:6,32',
+		// 	'txtEmail' => 'required|between:8,32|email'
+		// ];
+
+		// $messages = [
+		// 	'*.required'     => 'Nhập vào dữ liệu và không được để trống',
+		// 	'*.between'      => 'Dữ liệu phải có từ :min ký tự đến :max ký tự',
+		// 	'txtEmail.email' => 'Bạn nhập chưa đúng định dạng email'
+		// ];
+		// // check data in table users
+		// $validation = Validator::make($request->all(), $rules, $messages);
+		// if ($validation   ->fails()) {
+		// 	return redirect()->back()->withInput()->withErrors($validation);
+		// } else {
+		// 	dd('Changed Success');
+		// }
+		// dd('Success');
+	}
+
+}
