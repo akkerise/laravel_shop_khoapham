@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cate;
+use App\Product;
 
 class HomeController extends Controller {
 	/**
@@ -9,7 +11,7 @@ class HomeController extends Controller {
 	 * @return void
 	 */
 	public function __construct() {
-		$this->middleware('auth');
+		$this->middleware('guest');
 	}
 
 	/**
@@ -18,6 +20,19 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('shop.pages.home');
+		// $products = Product::all();
+		$cates = Cate::all();
+		return view('shop.pages.home')->with([
+				'products' => $products,
+				'cates'    => $cates
+			]);
+	}
+
+	// public function listProducts() {
+
+	// }
+	public function listProductsDetail($id) {
+		$list_products = Product::select()->where('cate_id', $id)->get();
+		dd($list_products);
 	}
 }
