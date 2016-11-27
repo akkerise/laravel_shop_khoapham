@@ -8,10 +8,14 @@ use App\Product;
 use App\ProductImage;
 use Auth;
 use File;
+use DB;
 use Illuminate\Http\Request as Request;
+use Intervention\Image\ImageManagerStatic as Image;
+
 // use Request;
 
 class ProductController extends Controller {
+
 	public function getAdd() {
 		$cate = Cate::select('name', 'id', 'parent_id')->get()->toArray();
 		return view('admin.product.product_add', compact('cate'));
@@ -20,8 +24,11 @@ class ProductController extends Controller {
 	public function postAdd(ProductRequest $request) {
 
 		$file_name            = $request->file('fImages')->getClientOriginalName();
-		$cate                 = Cate::where('name', $request->txtCP)->first()->toArray();
+		// $cate                 = Cate::select()->where('name', $request->txtCP)->first();
+		$cate = DB::table('cates')->select()->where('name',$request->txtCP)->first();
+		// dd($cate);
 		$product              = new Product;
+		// dd(1);
 		$product->name        = $request->txtName;
 		$product->alias       = $request->txtName;
 		$product->price       = $request->txtPrice;
@@ -31,11 +38,13 @@ class ProductController extends Controller {
 		$product->keywords    = $request->txtKeywords;
 		$product->description = $request->txtDescription;
 		$product->user_id     = Auth::user()->id;
-		$product->cate_id     = $cate['id'];
+		$product->cate_id     = $cate->id;
 		$desPath              = public_path('image');
+
 		$request->file('fImages')->move($desPath, $file_name);
 		$product->save();
 		$product_img_id = $product->id;
+		// dd(1);
 		if ($request->hasFile('fProductDetail')) {
 			// dd(1121);
 			foreach (($request->file('fProductDetail')) as $file) {
@@ -43,13 +52,19 @@ class ProductController extends Controller {
 				// dd(Input::file('fProductDetail'));
 				$product_img = new ProductImage();
 				if (isset($file)) {
-					// dd($file);
+					dd($file);
 					$product_img->image      = $file->getClientOriginalName();
 					$product_img->product_id = $product_img_id;
 					// $dessPath = public_path('image/image_detail');
 					// dd($dessPath);
-					$file->move('public/image/image_detail', $file->getClientOriginalName());
+					// $file->move(public_path('image'), $file->getClientOriginalName());
+					$img = Image::make(public_path('image' . $file->getClientOriginalName()))->resize(320, 480);
+					$img->save();
 					$product_img->save();
+					
+					// ->insert(public_path('/images/watermark.png'))
+					
+
 				}
 			}
 		}
