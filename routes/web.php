@@ -60,7 +60,3 @@ Route::get('/routes', function () {
 		return view('routes');
 	});
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('test', function () {
-		return view('shop.pages.home');
-	});
