@@ -6,8 +6,9 @@
     Add
 @endsection
 @section('content')
+<form action="{{ url('/admin/product/add') }}" method="POST" enctype="multipart/form-data">
     <div class="col-lg-7" style="padding-bottom:120px">
-        <form action="{{ url('/admin/product/add') }}" method="POST" enctype="multipart/form-data">
+
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @include('admin.blocks.errors')
             <div class="form-group">
@@ -64,12 +65,12 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-4">
-                <div class="form-group">
-                    @for ($i = 1; $i <= 5; $i++)
+                @for ($i = 1; $i <= 5; $i++)
+                    <div class="form-group">
                         <label for="">Images Product Detail {{ $i }}</label>
                         <input type="file" name="fProductDetail[]" value="" placeholder="">
-                    @endfor
-                </div>
+                    </div>
+                @endfor
             </div>
-    </form>
+        </form>
 @endsection

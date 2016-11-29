@@ -7,11 +7,14 @@ use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\ProductImage;
 use Auth;
-use File;
 use DB;
+use File;
 use Illuminate\Http\Request as Request;
-use Intervention\Image\ImageManagerStatic as Image;
+use Input;
+// use Image;
 
+use Intervention\Image\ImageManagerStatic as Image;
+// use Intervention\Image\Facades\Image;
 // use Request;
 
 class ProductController extends Controller {
@@ -21,58 +24,70 @@ class ProductController extends Controller {
 		return view('admin.product.product_add', compact('cate'));
 	}
 
-	public function postAdd(ProductRequest $request) {
+	public function postAdd(ProductRequest $product_request) {
 
-		$file_name            = $request->file('fImages')->getClientOriginalName();
-		// $cate                 = Cate::select()->where('name', $request->txtCP)->first();
-		$cate = DB::table('cates')->select()->where('name',$request->txtCP)->first();
-		// dd($cate);
+		// $file_fImages = $request->file('fImages');
+		// $cate         = DB::table('cates')->select()->where('name', $request->txtCP)->first();
+
+		// $product          = new Product;
+		// $product->name    = $request->txtName;
+		// $product->alias   = $request->txtName;
+		// $product->price   = $request->txtPrice;
+		// $product->intro   = $request->txtIntro;
+		// $product->content = $request->txtContent;
+		// $product->image   = $file_fImages->getClientOriginalName();
+		// $file_fImages->move(public_path('image/'), $file_fImages->getClientOriginalName());
+
+		// $product->keywords    = $request->txtKeywords;
+		// $product->description = $request->txtDescription;
+		// $product->user_id     = Auth::user()->id;
+		// $product->cate_id     = $cate->id;
+		// $product->save();
+		// $image_fImagess = Image::make(public_path('image/'.$file_fImages->getClientOriginalName()))->resize(400, 400);
+		// $image_fImagess->save();
+		// // dd(1);
+		// $product_img_id = $product->id;
+		// if (Input::hasFile('fProductDetail')) {
+		// 	foreach ((Input::file('fProductDetail')) as $file) {
+		// 		dd($file->getClientOriginalName());
+		// 		$product_img = new ProductImage();
+		// 		if (isset($file)) {
+		// 			$product_img->image      = $file->getClientOriginalName();
+		// 			$product_img->product_id = $product_img_id;
+		// 			$file->move(public_path('image/image_detail/'), $file->getClientOriginalName());
+		// 			$product_img->save();
+
+		// 			$image_fImagess = Image::make(public_path('image/image_detail/'.$file->getClientOriginalName()))->resize(400, 400);
+		// 			$img->save();
+		// 			dd("All Upload");
+		// 		}
+		// 	}
+		// }
+
+		// return redirect()->route('admin.product.getList')->with([
+		// 		'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
+		// 		'flash_level'   => 'success'
+		// 	]);
+
+		$file_name            = $product_request->file('fImages')->getClientOriginalName();
+		$cate                 = DB::table('cates')->select()->where('name', $product_request->txtCP)->first();
 		$product              = new Product;
-		// dd(1);
-		$product->name        = $request->txtName;
-		$product->alias       = $request->txtName;
-		$product->price       = $request->txtPrice;
-		$product->intro       = $request->txtIntro;
-		$product->content     = $request->txtContent;
+		$product->name        = $product_request->txtName;
+		$product->alias       = $product_request->txtName;
+		$product->price       = $product_request->txtPrice;
+		$product->intro       = $product_request->txtIntro;
+		$product->content     = $product_request->txtContent;
 		$product->image       = $file_name;
-		$product->keywords    = $request->txtKeywords;
-		$product->description = $request->txtDescription;
+		$product->keywords    = $product_request->txtKeywords;
+		$product->description = $product_request->txtDescription;
 		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $cate->id;
-		$desPath              = public_path('image');
-
-		$request->file('fImages')->move($desPath, $file_name);
+		$product_request->file('fImages')->move('public/image/'.$file_name);
 		$product->save();
-		$product_img_id = $product->id;
-		// dd(1);
-		if ($request->hasFile('fProductDetail')) {
-			// dd(1121);
-			foreach (($request->file('fProductDetail')) as $file) {
-				// $file_img = $file->getClientOriginalName();
-				// dd(Input::file('fProductDetail'));
-				$product_img = new ProductImage();
-				if (isset($file)) {
-					dd($file);
-					$product_img->image      = $file->getClientOriginalName();
-					$product_img->product_id = $product_img_id;
-					// $dessPath = public_path('image/image_detail');
-					// dd($dessPath);
-					// $file->move(public_path('image'), $file->getClientOriginalName());
-					$img = Image::make(public_path('image' . $file->getClientOriginalName()))->resize(320, 480);
-					$img->save();
-					$product_img->save();
-					
-					// ->insert(public_path('/images/watermark.png'))
-					
-
-				}
-			}
+		$product_id = $product->id;
+		if (Input::hasFile('fProductDetail')) {
+			echo "1";
 		}
-
-		return redirect()->route('admin.product.getList')->with([
-				'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
-				'flash_level'   => 'success'
-			]);
 	}
 
 	public function getList() {

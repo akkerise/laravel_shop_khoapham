@@ -43,10 +43,10 @@
   <!-- Section End-->
   @yield('content')
   <!-- Featured Product-->
-  @include('shop.blocks.feature')
+  {{-- @include('shop.blocks.feature') --}}
 
   <!-- Latest Product-->
-  @include('shop.blocks.lastest')
+  {{-- @include('shop.blocks.lastest') --}}
 
 <!-- Footer -->
 @include('shop.blocks.footer')
