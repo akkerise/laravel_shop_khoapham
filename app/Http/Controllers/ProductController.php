@@ -13,7 +13,7 @@ use Illuminate\Http\Request as Request;
 use Input;
 // use Image;
 
-use Intervention\Image\ImageManagerStatic as Image;
+use Image;
 // use Intervention\Image\Facades\Image;
 // use Request;
 
@@ -70,7 +70,8 @@ class ProductController extends Controller {
 		// 	]);
 
 		$file_name            = $product_request->file('fImages')->getClientOriginalName();
-		$cate                 = DB::table('cates')->select()->where('name', $product_request->txtCP)->first();
+		$cate                 = DB::table('cates')->select('id')->where('name', $product_request->txtCP)->first();
+		// dd($cate->id);
 		$product              = new Product;
 		$product->name        = $product_request->txtName;
 		$product->alias       = $product_request->txtName;
@@ -82,11 +83,25 @@ class ProductController extends Controller {
 		$product->description = $product_request->txtDescription;
 		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $cate->id;
-		$product_request->file('fImages')->move('public/image/'.$file_name);
+		$product_request->file('fImages')->move('image/'.$file_name);
 		$product->save();
 		$product_id = $product->id;
+		// $image_fImages = Image::make('image/'.$file_name)->resize(400, 400);
+		// $image_fImages->save();
 		if (Input::hasFile('fProductDetail')) {
-			echo "1";
+			// dd(Input::file('fProductDetail'));
+			foreach (Input::file('fProductDetail') as $file) {
+				$product_img = new ProductImage;
+				if (isset($file)) {
+					$product_img->image = $file->getClientOriginalName();
+					// dd($file->move('public/image/image_detail/'.$file->getClientOriginalName()));
+					$product_img->product_id = $product_id;
+					$file->move('image/image_details/'.$file->getClientOriginalName());
+					$product_img->save();
+					// $image_fImagess = Image::make('image/image_details/'.$file->getClientOriginalName())->resize(400, 400);
+					// $image_fImagess->save();
+				}
+			}
 		}
 	}
 
