@@ -10,10 +10,10 @@ use Auth;
 use DB;
 use File;
 use Illuminate\Http\Request as Request;
-use Input;
+use Image;
 // use Image;
 
-use Image;
+use Input;
 // use Intervention\Image\Facades\Image;
 // use Request;
 
@@ -71,7 +71,6 @@ class ProductController extends Controller {
 
 		$file_name            = $product_request->file('fImages')->getClientOriginalName();
 		$cate                 = DB::table('cates')->select('id')->where('name', $product_request->txtCP)->first();
-		// dd($cate->id);
 		$product              = new Product;
 		$product->name        = $product_request->txtName;
 		$product->alias       = $product_request->txtName;
@@ -83,26 +82,36 @@ class ProductController extends Controller {
 		$product->description = $product_request->txtDescription;
 		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $cate->id;
-		$product_request->file('fImages')->move('image/'.$file_name);
+
+		// // Resize Image Products
+		$file_imgImg = Input::file('fImages');
+		Image::make($file_imgImg->getRealPath())->resize(400, 400)->save(public_path('image/').$file_name)->destroy();
 		$product->save();
 		$product_id = $product->id;
-		// $image_fImages = Image::make('image/'.$file_name)->resize(400, 400);
-		// $image_fImages->save();
-		if (Input::hasFile('fProductDetail')) {
-			// dd(Input::file('fProductDetail'));
+		// Resize Image Product Details
+		if (!empty(Input::file('fProductDetail'))) {
 			foreach (Input::file('fProductDetail') as $file) {
 				$product_img = new ProductImage;
 				if (isset($file)) {
-					$product_img->image = $file->getClientOriginalName();
-					// dd($file->move('public/image/image_detail/'.$file->getClientOriginalName()));
+					dd(1);
+					$product_img->image      = $file->getClientOriginalName();
 					$product_img->product_id = $product_id;
-					$file->move('image/image_details/'.$file->getClientOriginalName());
+					$file->move(public_path('image/image_details/').$file->getClientOriginalName());
+					// $file_ProductsDetail = Input::file('fProductDetail');
 					$product_img->save();
-					// $image_fImagess = Image::make('image/image_details/'.$file->getClientOriginalName())->resize(400, 400);
-					// $image_fImagess->save();
+
+					// ERROR UPLOAD PRODUCT DETAILS
+					Image::make($file->getRealPath())->resize(400, 400)->save(public_path('image/image_detail/').$file->getClientOriginalName())->destroy();
+					// $image_fProductDetail = Image::make(public_path('image/image_detail/').$file->getClientOriginalName())->resize(400, 400);
+					$image_fProductDetail->save();
+
 				}
 			}
 		}
+		return redirect()->route('admin.product.getList')->with([
+				'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
+				'flash_level'   => 'success'
+			]);
 	}
 
 	public function getList() {
