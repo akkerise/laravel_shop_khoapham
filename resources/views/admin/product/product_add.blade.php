@@ -1,4 +1,5 @@
 @extends('admin.master')
+<style type="text/css"></style>
 @section('title_action')
     Product
 @endsection
@@ -65,6 +66,7 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-4">
+            {{-- ERROR LOGIC PRODUCT IMAGES DETAIL NEED FIX --}}
                 {{-- @for ($i = 1; $i <= 5; $i++)
                     <div class="form-group">
                         <label for="">Images Product Detail {{ $i }}</label>

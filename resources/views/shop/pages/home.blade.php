@@ -3,6 +3,9 @@
 @section('description')
 AkKe Home
 @endsection
+<style>
+
+</style>
 <!-- Featured Product-->
 {{-- {{ dd($cates) }} --}}
 <?php
