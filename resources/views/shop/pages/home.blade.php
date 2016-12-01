@@ -3,9 +3,7 @@
 @section('description')
 AkKe Home
 @endsection
-<style>
 
-</style>
 <!-- Featured Product-->
 {{-- {{ dd($cates) }} --}}
 <?php
@@ -20,7 +18,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       @if(!empty($products))
       @foreach($products as $product)
       {{-- {{ dd($products) }} --}}
-      <li class="span3">
+      <li class="span3 fix-price">
         <a class="prdocutname" href="product.html">{{ $product->name }}</a>
         <div class="thumbnail">
           <span class="sale tooltip-test">Sale</span>
@@ -47,7 +45,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       @if(!empty($products_lastest))
         @foreach($products_lastest as $product)
         {{-- {{ dd($products) }} --}}
-        <li class="span3">
+        <li class="span3 fix-price">
           <a class="prdocutname" href="product.html">{{ $product->name }}</a>
           <div class="thumbnail">
             <span class="sale tooltip-test">Sale</span>
