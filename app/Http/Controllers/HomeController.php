@@ -33,6 +33,6 @@ class HomeController extends Controller {
 	// }
 	public function listProductsDetail($id) {
 		$list_products = Product::select()->where('cate_id', $id)->get();
-		dd($list_products);
+		return view('shop.pages.cate', compact('list_products'));
 	}
 }
