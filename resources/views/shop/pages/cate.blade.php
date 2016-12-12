@@ -65,8 +65,9 @@ AkKe Category
               {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
                 <li>
                   <img width="68" height="68" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
-                  <a class="productname" href="{{ route('productDetail',$item->id) }}"> {{ $item->name }}</a>
-                  <span class="procategory">{{ $cate_name_lastet_product[0]->name }}</span>
+                  <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
+                  {{-- <span class="procategory">{{ $cate_name_lastet_product[0]->name }}</span> --}}
+                  <span class="procategory">{{ $cate_name->name }}</span>
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
               @endforeach

@@ -19,7 +19,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       @foreach($products as $product)
       {{-- {{ dd($products) }} --}}
       <li class="span3 fix-price">
-        <a class="prdocutname" href="product.html">{{ $product->name }}</a>
+        <a class="prdocutname" href="{{ route('productDetail',[$product->id,$product->name]) }}">{{ $product->name }}</a>
         <div class="thumbnail">
           <span class="sale tooltip-test">Sale</span>
           <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>

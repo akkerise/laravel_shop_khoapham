@@ -4,3 +4,13 @@
 	top: 30px;
 	left: 25px;
 }
+#pricenew_tag {
+	font-size: 1.0em;
+}
+#spiral-fix {
+	// display: inline-block;
+	font-size: 1.6em !important;
+}
+.productname {
+	padding : 30px 0px 0px 30px;
+}
