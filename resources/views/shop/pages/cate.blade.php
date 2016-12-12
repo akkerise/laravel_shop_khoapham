@@ -22,9 +22,13 @@ AkKe Category
           <div class="sidewidt">
             <h2 class="heading2"><span>Categories</span></h2>
             <ul class="nav nav-list categories">
-              <li>
-                <a href="category.html">Men Accessories</a>
-              </li>
+              @if (isset($menu_cates))
+                @foreach ($menu_cates as $item)
+                  <li>
+                    <a href="{{ route('listProductsDetail',$item->id,$item->alias) }}">{{ $item->name }}</a>
+                  </li>
+                @endforeach
+              @endif
             </ul>
           </div>
          <!--  Best Seller -->
@@ -55,24 +59,18 @@ AkKe Category
           <div class="sidewidt">
             <h2 class="heading2"><span>Latest Products</span></h2>
             <ul class="bestseller">
-              <li>
-                <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                <a class="productname" href="product.html"> Product Name</a>
-                <span class="procategory">Women Accessories</span>
-                <span class="price">$250</span>
-              </li>
-              <li>
-                <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                <a class="productname" href="product.html"> Product Name</a>
-                <span class="procategory">Electronics</span>
-                <span class="price">$250</span>
-              </li>
-              <li>
-                <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                <a class="productname" href="product.html"> Product Name</a>
-                <span class="procategory">Electronics</span>
-                <span class="price">$250</span>
-              </li>
+            @if (!empty($lastest_product))
+              @foreach ($lastest_product as $item)
+              {{-- {{ dd($item) }} --}}
+              {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
+                <li>
+                  <img width="68" height="68" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
+                  <a class="productname" href="{{ route('productDetail',$item->id) }}"> {{ $item->name }}</a>
+                  <span class="procategory">{{ $cate_name_lastet_product[0]->name }}</span>
+                  <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
+                </li>
+              @endforeach
+            @endif
             </ul>
           </div>
           <!--  Must have -->
@@ -110,7 +108,7 @@ AkKe Category
                         <div class="pricetag">
                           <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
                           <div class="price">
-                            <div class="pricenew">${{ number_format($product->price) }}</div>
+                            <div class="pricenew">{{ number_format($product->price,0,',','.') }} VNĐ</div>
                           </div>
                         </div>
                       </div>
