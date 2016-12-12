@@ -33,6 +33,11 @@ class HomeController extends Controller {
 	// }
 	public function listProductsDetail($id) {
 		$list_products = Product::select()->where('cate_id', $id)->get();
-		return view('shop.pages.cate', compact('list_products'));
+		echo "<pre>";
+		print_r($list_products);
+		echo "</pre>";
+		$list_cate_products = Cate::select('parent_id');
+		// $list_cate_products = Cate::select('parent_id')->where()->get();
+		return view('shop.pages.cate', compact('list_products', 'list_cate'));
 	}
 }

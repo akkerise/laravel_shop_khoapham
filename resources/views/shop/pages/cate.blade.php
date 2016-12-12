@@ -25,18 +25,6 @@ AkKe Category
               <li>
                 <a href="category.html">Men Accessories</a>
               </li>
-              <li>
-                <a href="category.html">Women Accessories</a>
-              </li>
-              <li>
-                <a href="category.html">Computers </a>
-              </li>
-              <li>
-                <a href="category.html">Home and Furniture</a>
-              </li>
-              <li>
-                <a href="category.html">Others</a>
-              </li>
             </ul>
           </div>
          <!--  Best Seller -->
