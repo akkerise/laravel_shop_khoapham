@@ -82,7 +82,7 @@ class ProductController extends Controller {
 		$product->description = $product_request->txtDescription;
 		$product->user_id     = Auth::user()->id;
 		$product->cate_id     = $cate->id;
-
+		// dd(1);
 		// // Resize Image Products
 		$file_imgImg = Input::file('fImages');
 		Image::make($file_imgImg->getRealPath())->resize(400, 400)->save(public_path('image/').$file_name)->destroy();
@@ -90,23 +90,30 @@ class ProductController extends Controller {
 		$product_id = $product->id;
 		// Resize Image Product Details
 		if (!empty(Input::file('fProductDetail'))) {
-			foreach (Input::file('fProductDetail') as $file) {
-				$product_img = new ProductImage;
-				if (isset($file)) {
-					dd(1);
-					$product_img->image      = $file->getClientOriginalName();
-					$product_img->product_id = $product_id;
-					$file->move(public_path('image/image_details/').$file->getClientOriginalName());
-					// $file_ProductsDetail = Input::file('fProductDetail');
-					$product_img->save();
+			// dd(1);
+			// foreach (Input::file('fProductDetail') as $file) {
+			$file = Input::file('fProductDetail');
 
-					// ERROR UPLOAD PRODUCT DETAILS
-					Image::make($file->getRealPath())->resize(400, 400)->save(public_path('image/image_detail/').$file->getClientOriginalName())->destroy();
-					// $image_fProductDetail = Image::make(public_path('image/image_detail/').$file->getClientOriginalName())->resize(400, 400);
-					$image_fProductDetail->save();
-
-				}
+			$product_img = new ProductImage;
+			// if (isset($file)) {
+			foreach ($file as $v) {
+				// dd($v->getClientOriginalName());
+				$product_img->image      = $v->getClientOriginalName();
+				$product_img->product_id = $product_id;
+				$v->move(public_path('image/image_details/'), $v->getClientOriginalName());
+				// $file->move(public_path('image/image_detail/'), $file->getClientOriginalName());
+				$product_img->save();
 			}
+			// $file_ProductsDetail = Input::file('fProductDetail');
+			// $product_img->save();
+
+			// ERROR UPLOAD PRODUCT DETAILS
+			// Image::make($file->getRealPath())->resize(400, 400)->save(public_path('image/image_detail/').$file->getClientOriginalName())->destroy();
+			// $image_fProductDetail = Image::make(public_path('image/image_detail/').$file->getClientOriginalName())->resize(400, 400);
+			// $image_fProductDetail->save();
+
+			// }
+			// }
 		}
 		return redirect()->route('admin.product.getList')->with([
 				'flash_message' => 'Bạn đã thêm thành công 1 sản phẩm mới',
@@ -118,22 +125,6 @@ class ProductController extends Controller {
 		$product = Product::all();
 		return view('admin.product.product_list', compact('product'));
 	}
-
-	// public function getDelete($id){
-	// $product = Product::delete('id',$id)->count();
-	// if ($product == 0) {
-	//     // dd($product);
-	//     $p = Product::find($id);
-	//     dd($p);
-	//     $p->delete();
-	//     return redirect()->route('admin.product.getList')->with([
-	//             'delete' => "You success deteted product id : ",
-	//             'id' => $id
-	//         ]);
-	// }else{
-	//     echo 'You stopped this method because you not permission delete !';
-	// }
-	// }
 
 	public function getDelete($id) {
 		$product_detail = Product::find($id)->product_image;

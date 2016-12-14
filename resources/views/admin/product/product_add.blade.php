@@ -74,24 +74,8 @@
                     </div>
                 @endfor --}}
                 <div class="form-group">
-                    <label for="">Images Product Detail 1</label>
-                    <input type="file" name="fProductDetail" value="" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="">Images Product Detail 2</label>
-                    <input type="file" name="fProductDetail" value="" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="">Images Product Detail 3</label>
-                    <input type="file" name="fProductDetail" value="" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="">Images Product Detail 4</label>
-                    <input type="file" name="fProductDetail" value="" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="">Images Product Detail 5</label>
-                    <input type="file" name="fProductDetail" value="" placeholder="">
+                    <label for="">Images Product Detail</label>
+                    <input type="file" name="fProductDetail[]" multiple value="" placeholder="">
                 </div>
             </div>
         </form>

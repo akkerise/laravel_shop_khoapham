@@ -20,7 +20,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 <!-- fav -->
-<link rel="shortcut icon" href="assets/ico/favicon.html">
+<link rel="shortcut icon" href="{{ asset('/shop/assets/ico/favicon.html') }}">
 </head>
 <body>
 <!-- Header Start -->
@@ -61,7 +61,7 @@
 <script defer src="{{ url('/shop/js/jquery.fancybox.js') }}"></script>
 <script defer src="{{ url('/shop/js/jquery.flexslider.js') }}"></script>
 <script type="text/javascript" src="{{ url('/shop/js/jquery.tweet.js') }}"></script>
-<script  src="{{ url('/shop/js/cloud-zoom.1.0.2.js') }}"></script>
+<script type="text/javascript" src="{{ url('/shop/js/cloud-zoom.1.0.2.js') }}"></script>
 <script  type="text/javascript" src="{{ url('/shop/js/jquery.validate.js') }}"></script>
 <script type="text/javascript"  src="{{ url('/shop/js/jquery.carouFredSel-6.1.0-packed.js') }}"></script>
 <script type="text/javascript"  src="{{ url('/shop/js/jquery.mousewheel.min.js') }}"></script>

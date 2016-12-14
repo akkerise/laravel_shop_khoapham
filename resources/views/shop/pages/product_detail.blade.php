@@ -6,54 +6,36 @@ AkKe Product Detail
 @section('content')
 <div id="maincontainer">
   <section id="product">
-    <div class="container">      
+    <div class="container">
       <!-- Product Details-->
       <div class="row">
        <!-- Left Image-->
         <div class="span5">
           <ul class="thumbnails mainimage">
             <li class="span5">
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="img/product1big.jpg">
-                <img src="img/product1big.jpg" alt="" title="">
+              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="{{ asset('image/' . $product_detail->image) }}">
+                <img src="{{ asset('image/' . $product_detail->image) }}" alt="" title="">
               </a>
             </li>
+            @foreach($image_details as $i)
             <li class="span5">
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="img/product2big.jpg">
-                <img  src="img/product2big.jpg" alt="" title="">
+              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="{{ asset('/image/image_details/' . $i->image) }}">
+                <img  src="{{ asset('/image/image_details/' . $i->image) }}" alt="" title="">
               </a>
             </li>
-            <li class="span5">
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="img/product1big.jpg">
-                <img src="img/product1big.jpg" alt="" title="">
-              </a>
-            </li>
-            <li class="span5">
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="img/product2big.jpg">
-                <img  src="img/product2big.jpg" alt="" title="">
-              </a>
-            </li>
+            @endforeach
           </ul>
           <ul class="thumbnails mainimage">
-            <li class="producthtumb">
-              <a class="thumbnail" >
-                <img  src="img/product1.jpg" alt="" title="">
-              </a>
-            </li>
-            <li class="producthtumb">
-              <a class="thumbnail" >
-                <img  src="img/product2.jpg" alt="" title="">
-              </a>
-            </li>
-            <li class="producthtumb">
-              <a class="thumbnail" >
-                <img  src="img/product1.jpg" alt="" title="">
-              </a>
-            </li>
-            <li class="producthtumb">
-              <a class="thumbnail" >
-                <img  src="img/product2.jpg" alt="" title="">
-              </a>
-            </li>
+          {{-- {{ dd($item_details) }} --}}
+          @if(isset($image_details))
+            @foreach($image_details as $i)
+              <li class="producthtumb">
+                <a class="thumbnail" >
+                  <img  src="{{ asset('image/image_details/' . $i->image) }}" alt="" title="">
+                </a>
+              </li>
+            @endforeach
+          @endif
           </ul>
         </div>
          <!-- Right Details-->
@@ -61,17 +43,17 @@ AkKe Product Detail
         <div class="span7">
           <div class="row">
             <div class="span7">
-              
+
                   <h1 class="productname"><span class="bgnone">{{ $product_detail->name }}</span></h1>
                   <div class="productprice">
                     <div id="spiral-fix" class="productpageprice">
-                      <span  class="spiral"></span>{{ number_format($product_detail->price,0,',','.') }}</div>
+                      <span  class="spiral"></span>{{ number_format($product_detail->price,0,',','.') }} VND</div>
                   </div>
                   <ul class="productpagecart">
                     <li><a class="cart" href="#">Add to Cart</a>
                     </li>
                   </ul>
-              
+
          <!-- Product Description tab & comments-->
          <div class="productdesc">
                 <ul class="nav nav-tabs" id="myTab">
@@ -178,7 +160,7 @@ AkKe Product Detail
       @if(!empty($product_related))
       @foreach($product_related as $p)
         <li class="span3">
-          <a class="prdocutname" href="product.html">{{ $p->name }}</a>
+          <a class="prdocutname" href="{{ route('productDetail',[$p->id,$p->name]) }}">{{ $p->name }}</a>
           <div class="thumbnail">
             <span class="sale tooltip-test">Sale</span>
             <a href="#"><img alt="" src="{{ asset('/image/'. $p->image) }}"></a>
