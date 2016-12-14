@@ -64,4 +64,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list-products/{id}/{list-name-products}', 'HomeController@listProducts')->name('listProducts');
 Route::get('/list-products-detail/{id}', 'HomeController@listProductsDetail')->name('listProductsDetail');
 Route::get('/product-detail/{id}/{name_product}', 'HomeController@productDetail')->name('productDetail');
+Route::get('/contact', 'HomeController@getSentMail')->name('getSentMail');
+Route::post('/contact', 'HomeController@postSentMail')->name('postSentMail');
 // Route::get('/test','HomeController@productDetail');

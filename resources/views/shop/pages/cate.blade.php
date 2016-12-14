@@ -78,10 +78,10 @@ AkKe Category
           <div class="flexslider" id="mainslider">
             <ul class="slides">
               <li>
-                <img src="img/product1.jpg" alt="" />
+                <img src="{{ asset('/shop/img/product1.jpg') }}" alt="" />
               </li>
               <li>
-                <img src="img/product2.jpg" alt="" />
+                <img src="{{ asset('/shop/img/product2.jpg') }}" alt="" />
               </li>
             </ul>
           </div>
@@ -117,19 +117,19 @@ AkKe Category
                   </ul>
                   <div class="pagination pull-right">
                     <ul>
-                      <li><a href="#">Prev</a>
-                      </li>
-                      <li class="active">
-                        <a href="#">1</a>
-                      </li>
-                      <li><a href="#">2</a>
-                      </li>
-                      <li><a href="#">3</a>
-                      </li>
-                      <li><a href="#">4</a>
-                      </li>
-                      <li><a href="#">Next</a>
-                      </li>
+                      @if ($list_products->currentPage() != 1)
+                        <li><a href="{{ str_replace('/?','?',$list_products->url($list_products->currentPage() - 1)) }}">Prev</a>
+                        </li>
+                      @endif
+                      @for ($i=1 ; $i <= $list_products->lastPage() ; $i++)
+                        <li class="{{ ($list_products->currentPage() == $i) ? 'active' : '' }}">
+                          <a href="{{ str_replace('/?','?',$list_products->url($i)) }}">{{ $i }}</a>
+                        </li>
+                      @endfor
+                      @if ($list_products->currentPage() != $list_products->lastPage())
+                        <li><a href="{{ str_replace('/?','?',$list_products->url($list_products->currentPage() + 1)) }}">Next</a>
+                        </li>
+                      @endif
                     </ul>
                   </div>
                 </section>
