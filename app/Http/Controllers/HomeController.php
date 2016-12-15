@@ -65,24 +65,30 @@ class HomeController extends Controller {
 	{
 		$rule = [
 			'nameContact' => 'required',
-			'messageContact' => 'required'
+			'messageContact' => 'required',
+			'email'				=> 'email|required'
 		];
 
 		$message = [
 			'nameContact.required' => "Mời bạn nhập vào tên của bạn",
-			'messageContact.required' => 'Mời bạn nhập vào nội dung bạn muốn phản hồi'
+			'messageContact.required' => 'Mời bạn nhập vào nội dung bạn muốn phản hồi',
+			'email.email' => 'Bạn nhập chưa đúng định dạng email',
+			'email.required' => 'Mời bạn nhập vào email của bạn'
 		];
-
+		// dd($request->email);
 		$validation = Validator::make($request->all(),$rule , $message);
 
 		if ($validation->fails()) {
 			return redirect()->back()->withInput()->withErrors($validation);
 		}else{
+			$email = $request->input('email');
+			// dd($email);
 			$data = [
 				'name' => $request->nameContact,
 				'mess' => $request->messageContact
 			];
-			Mail::send('shop.pages.mail_content',$data,function($msg){
+			// Mail::send('nội dung của mail file html' ,'dữ liệu cần gửi đi','hành động')
+			Mail::send('shop.mail.mail',$data,function($msg){
 				$msg->to('akkerise@gmail.com','AkKeRise');
 			});
 			return redirect('/');

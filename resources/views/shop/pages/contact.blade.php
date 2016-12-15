@@ -32,12 +32,12 @@ AkKe Product Detail
                     <input type="text"  class="required" id="name" value="" name="nameContact">
                   </div>
                 </div>
-                {{-- <div class="control-group">
+                <div class="control-group">
                   <label for="email" class="control-label">Email <span class="required">*</span></label>
                   <div class="controls">
                     <input type="email"  class="required email" id="email" value="" name="email">
                   </div>
-                </div> --}}
+                </div>
                 <div class="control-group">
                   <label for="message" class="control-label">Message</label>
                   <div class="controls">
