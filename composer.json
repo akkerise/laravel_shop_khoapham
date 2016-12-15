@@ -12,7 +12,8 @@
         "ckeditor/ckeditor": "^4.5",
         "sensio/distribution-bundle": "^5.0",
         "nesbot/carbon": "^1.21",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

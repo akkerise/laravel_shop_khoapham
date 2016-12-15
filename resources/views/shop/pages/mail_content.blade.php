@@ -1,1 +1,4 @@
-Đây là nội dung cần gửi mail đi
+Warning !
+My name is : {{ $name }} <br>
+I want sent for you my idear : <br>
+{{ $mess }}

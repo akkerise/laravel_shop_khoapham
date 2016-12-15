@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use App\Cate;
 use App\Product;
 use App\ProductImage;
-use Mail;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Validator;
+use Mail;
+use Carbon\Carbon;
+
 class HomeController extends Controller {
 	/**
 	 * Create a new controller instance.
@@ -75,14 +78,15 @@ class HomeController extends Controller {
 		if ($validation->fails()) {
 			return redirect()->back()->withInput()->withErrors($validation);
 		}else{
-			$data =[
-				'hoten' => 'Nguyễn Anh Thanh',
-				'tuoi' => '25'
+			$data = [
+				'name' => $request->nameContact,
+				'mess' => $request->messageContact
 			];
-			Mail::send('shop.pages.mail_content',$data,function($mess){
-				$mess->from('nguyenthanh.rise.88@gmail.com','AkKeRise');
-				$mess->to('akkerise@gmail.com','AkKe')->subject("This is Nguyen Thanh");
+			Mail::send('shop.pages.mail_content',$data,function($msg){
+				$msg->to('akkerise@gmail.com','AkKeRise');
 			});
+			return redirect('/');
 		}
+
 	}
 }

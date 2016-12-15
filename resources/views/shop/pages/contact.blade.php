@@ -57,14 +57,13 @@ AkKe Product Detail
             <aside>
               <div class="sidewidt">
                 <h2 class="heading2"><span>Contact Info</span></h2>
-                <p> Lorem Ipsum is simply<br>
-                  Lorem Ipsum is simply<br>
-                 Lorem Ipsum is simply<br>
+                <h4>AkKe Inc. Company</h4><br>
+                <p> You can send mail for us !<br>
                   <br>
                   Phone: (012) 333-7890<br>
                   Fax: (123) 444-7890<br>
-                  Email: test@contactus.com<br>
-                  Web: yourcompanyname.com<br>
+                  Email: nguyenthanh.rise.88@gmail.com<br>
+                  Web: akke.com<br>
                 </p>
               </div>
             </aside>
