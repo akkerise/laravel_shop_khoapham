@@ -5,10 +5,12 @@ use App\Cate;
 use App\Product;
 use App\ProductImage;
 use App\Mail\ContactMail;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Validator;
 use Mail;
 use Carbon\Carbon;
+use Cart;
+use Request;
 
 class HomeController extends Controller {
 	/**
@@ -93,6 +95,54 @@ class HomeController extends Controller {
 			});
 			return redirect('/');
 		}
+	}
+
+	public function addCart($id){
+		$product_add_cart = Product::select()->where('id',$id)->first();
+		Cart::add([
+			'id' => $id,
+			'name' => $product_add_cart->name,
+			'alias' => $product_add_cart->alias,
+			'qty' => 1,
+			'price' => $product_add_cart->price,
+			'options' => [
+				'img' => $product_add_cart->image
+			]
+		]);
+		return redirect()->route('totalCart');
+		// $content = Cart::content();
+		// echo "<pre>";
+		// print_r($content);
+		// echo "</pre>";
+		// return view('shop.pages.shopping-cart')->with([
+		// 	'product_add_cart' => $product_add_cart
+		// ]);
+	}
+
+	public function totalCart()
+	{
+		// dd(Cart::total());
+		return view('shop.pages.shopping-cart')->with([
+			'cart' => Cart::content(),
+			'cartTotal' => Cart::total()
+		]);
 
 	}
+
+	public function deleteIdCart($id)
+	{
+		Cart::remove($id);
+		return redirect()->route('totalCart');
+	}
+
+	public function updateCart()
+	{
+		if (Request::ajax()) {
+			$id = Request::get('id');
+			$qty = Request::get('qty');
+			Cart::update($id,$qty);
+			echo "OK";
+		}
+	}
+
 }

@@ -66,4 +66,8 @@ Route::get('/list-products-detail/{id}', 'HomeController@listProductsDetail')->n
 Route::get('/product-detail/{id}/{name_product}', 'HomeController@productDetail')->name('productDetail');
 Route::get('/contact', 'HomeController@getSentMail')->name('getSentMail');
 Route::post('/contact', 'HomeController@postSentMail')->name('postSentMail');
+Route::get('/add-cart/{id}/{name_product}', 'HomeController@addCart')->name('addCart');
+Route::get('/cart', 'HomeController@totalCart')->name('totalCart');
+Route::get('/delete_id_cart/{rowID}', 'HomeController@deleteIdCart')->name('deleteIdCart');
+Route::get('/update_cart/{id}/{qty}', 'HomeController@updateCart')->name('updateCart');
 // Route::get('/test','HomeController@productDetail');

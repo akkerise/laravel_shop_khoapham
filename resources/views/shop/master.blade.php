@@ -68,5 +68,6 @@
 <script type="text/javascript"  src="{{ url('/shop/js/jquery.touchSwipe.min.js') }}"></script>
 <script type="text/javascript"  src="{{ url('/shop/js/jquery.ba-throttle-debounce.min.js') }}"></script>
 <script defer src="{{ url('/shop/js/custom.js') }}"></script>
+<script src="{{ url('/shop/js/myscript.js') }}"></script>
 </body>
 </html>

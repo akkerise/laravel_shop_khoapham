@@ -24,9 +24,9 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
           <span class="sale tooltip-test">Sale</span>
           <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>
           <div class="pricetag">
-            <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+            <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a>
             <div class="price">
-              <div class="pricenew">${{ number_format($product->price) }}</div>
+              <div class="pricenew">VNĐ {{ number_format($product->price) }}</div>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
             <span class="sale tooltip-test">Sale</span>
             <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>
             <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+              <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a>
               <div class="price">
                 <div class="pricenew">${{ number_format($product->price) }}</div>
               </div>
