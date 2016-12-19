@@ -30,12 +30,12 @@ class HomeController extends Controller {
 	public function index() {
 		// $products = Product::all();
 		$cates = Cate::all();
-		$products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
-		$products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
+		// $products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
+		// $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
 		return view('shop.pages.home')->with([
 				'products' => $products,
 				'cates'    => $cates,
-				'products_lastest' => $products_lastest
+				// 'products_lastest' => $products_lastest
 			]);
 	}
 
