@@ -7,8 +7,8 @@ AkKe Home
 <!-- Featured Product-->
 {{-- {{ dd($cates) }} --}}
 <?php
-$products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
-$products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
+// $products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
+// $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
 ?>
 <section id="featured" class="row mt40">
   <div class="container">
