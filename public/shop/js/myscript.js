@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $('.update_cart').click(function() {
-    var rowId = $(this).attr('id');
+	$('.update_cart').click(function() {
+	  var rowId = $(this).attr('id');
     // var rowId = $('.total').find('a').attr('id');
     var qty = $(this).parent().parent().find('.qty').val();
     // var qty = $('.quantity').find('.qty').val();
@@ -21,5 +21,24 @@ $(document).ready(function(){
     		}
     	}
     });
-  });
+});
+});
+$(document).ready(function(){
+	$('.show_more_products').click(function(){
+    var token = $(this).parent().parent().parent().find('#token').val();
+    // alert(token);
+	   $.ajax({
+        url: '/',
+        type: 'POST',
+        cache: false,
+        data: {
+          "_token": token,
+        },
+        success: function(data){
+          if (data == "OK") {
+            alert('Sent data success');
+          }
+        }
+     });
+	});
 });

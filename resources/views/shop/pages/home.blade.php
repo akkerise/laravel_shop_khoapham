@@ -33,6 +33,14 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       </li>
       @endforeach
       @endif
+      <form class="" action="" method="post">
+        <input id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
+        <li class="span3 fix-price">
+          <div class="pricetag">
+            <span class="spiral"></span><a href="{{ route('showMoreProducts',[4]) }}" class="show_more_products">SHOW MORE PRODUCTS ...</a>
+          </div>
+        </li>
+      </form>
     </ul>
   </div>
 </section>

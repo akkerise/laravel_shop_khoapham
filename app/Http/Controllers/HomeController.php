@@ -40,7 +40,7 @@ class HomeController extends Controller {
 
 	// }
 	public function listProductsDetail($id) {
-		$list_products      = Product::select()->where('cate_id', $id)->paginate(2);
+		$list_products      = Product::select()->where('cate_id', $id)->paginate(3);
 		$list_cate_products = Cate::select('parent_id')->where('id', $list_products[0]->cate_id)->first();
 		$menu_cates         = Cate::select('id', 'name', 'alias')->where('parent_id', $list_cate_products->parent_id)->get();
 		$lastest_product    = Product::select('id', 'name', 'price', 'image', 'cate_id')->orderBy('id', 'DESC')->take(3)->get();
@@ -143,6 +143,12 @@ class HomeController extends Controller {
 			Cart::update($id,$qty);
 			echo "OK";
 		}
+	}
+
+	public function showMoreProducts()
+	{
+		$showMoreProducts = Product::select()->take(4)-get();
+		return $showMoreProducts;
 	}
 
 }

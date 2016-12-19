@@ -70,4 +70,5 @@ Route::get('/add-cart/{id}/{name_product}', 'HomeController@addCart')->name('add
 Route::get('/cart', 'HomeController@totalCart')->name('totalCart');
 Route::get('/delete_id_cart/{rowID}', 'HomeController@deleteIdCart')->name('deleteIdCart');
 Route::get('/update_cart/{id}/{qty}', 'HomeController@updateCart')->name('updateCart');
+Route::post('/', 'HomeController@showMoreProducts')->name('showMoreProducts');
 // Route::get('/test','HomeController@productDetail');
