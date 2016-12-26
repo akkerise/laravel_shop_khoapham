@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Cate;
+
 use App\Product;
 use App\ProductImage;
-use App\Mail\ContactMail;
-// use Illuminate\Http\Request;
-use Validator;
-use Mail;
-use Carbon\Carbon;
+
 use Cart;
-use Request;
+use Illuminate\Http\Request;
+use Mail;
+use Validator;
+// use Request;
 
 class HomeController extends Controller {
 	/**
@@ -62,30 +62,29 @@ class HomeController extends Controller {
 		return view('shop.pages.product_detail', compact('product_detail', 'product_related', 'image_details'));
 	}
 
-	public function getSentMail(){
+	public function getSentMail() {
 		return view('shop.pages.contact');
 	}
 
-	public function postSentMail(Request $request)
-	{
+	public function postSentMail(Request $request) {
 		$rule = [
-			'nameContact' => 'required',
+			'nameContact'    => 'required',
 			'messageContact' => 'required',
-			'email'				=> 'email|required'
+			'email'          => 'email|required'
 		];
 
 		$message = [
-			'nameContact.required' => "Mời bạn nhập vào tên của bạn",
+			'nameContact.required'    => "Mời bạn nhập vào tên của bạn",
 			'messageContact.required' => 'Mời bạn nhập vào nội dung bạn muốn phản hồi',
-			'email.email' => 'Bạn nhập chưa đúng định dạng email',
-			'email.required' => 'Mời bạn nhập vào email của bạn'
+			'email.email'             => 'Bạn nhập chưa đúng định dạng email',
+			'email.required'          => 'Mời bạn nhập vào email của bạn'
 		];
 		// dd($request->email);
-		$validation = Validator::make($request->all(),$rule , $message);
+		$validation = Validator::make($request->all(), $rule, $message);
 
-		if ($validation->fails()) {
+		if ($validation   ->fails()) {
 			return redirect()->back()->withInput()->withErrors($validation);
-		}else{
+		} else {
 			$email = $request->input('email');
 			// dd($email);
 			$data = [
@@ -93,25 +92,25 @@ class HomeController extends Controller {
 				'mess' => $request->messageContact
 			];
 			// Mail::send('nội dung của mail file html' ,'dữ liệu cần gửi đi','hành động')
-			Mail::send('shop.mail.mail',$data,function($msg){
-				$msg->to('akkerise@gmail.com','AkKeRise');
-			});
+			Mail::send('shop.mail.mail', $data, function ($msg) {
+					$msg->to('akkerise@gmail.com', 'AkKeRise');
+				});
 			return redirect('/');
 		}
 	}
 
-	public function addCart($id){
-		$product_add_cart = Product::select()->where('id',$id)->first();
+	public function addCart($id) {
+		$product_add_cart = Product::select()->where('id', $id)->first();
 		Cart::add([
-			'id' => $id,
-			'name' => $product_add_cart->name,
-			'alias' => $product_add_cart->alias,
-			'qty' => 1,
-			'price' => $product_add_cart->price,
-			'options' => [
-				'img' => $product_add_cart->image
-			]
-		]);
+				'id'      => $id,
+				'name'    => $product_add_cart->name,
+				'alias'   => $product_add_cart->alias,
+				'qty'     => 1,
+				'price'   => $product_add_cart->price,
+				'options' => [
+					'img'    => $product_add_cart->image
+				]
+			]);
 		return redirect()->route('totalCart');
 		// $content = Cart::content();
 		// echo "<pre>";
@@ -122,34 +121,30 @@ class HomeController extends Controller {
 		// ]);
 	}
 
-	public function totalCart()
-	{
+	public function totalCart() {
 		// dd(Cart::total());
 		return view('shop.pages.shopping-cart')->with([
-			'cart' => Cart::content(),
-			'cartTotal' => Cart::total()
-		]);
+				'cart'      => Cart::content(),
+				'cartTotal' => Cart::total()
+			]);
 
 	}
 
-	public function deleteIdCart($id)
-	{
+	public function deleteIdCart($id) {
 		Cart::remove($id);
 		return redirect()->route('totalCart');
 	}
 
-	public function updateCart()
-	{
+	public function updateCart() {
 		if (Request::ajax()) {
-			$id = Request::get('id');
+			$id  = Request::get('id');
 			$qty = Request::get('qty');
-			Cart::update($id,$qty);
+			Cart::update($id, $qty);
 			echo "OK";
 		}
 	}
 
-	public function showMoreProducts()
-	{
+	public function showMoreProducts() {
 		$showMoreProducts = Product::select()->take(4)-get();
 		return $showMoreProducts;
 	}
