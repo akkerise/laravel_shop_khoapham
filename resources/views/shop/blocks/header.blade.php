@@ -8,19 +8,25 @@
             <div class="navbar" id="topnav">
               <div class="navbar-inner">
                 <ul class="nav" >
-                  <li><a class="home active" href="#">Home</a>
+                  <li><a class="home active" href="{{ url('/') }}">Home</a>
                   </li>
                   <li><a class="myaccount" href="#">My Account</a>
                   </li>
                   <li><a class="shoppingcart" href="#">Shopping Cart</a>
                   </li>
-                  <li><a class="checkout" href="#">CheckOut</a>
+                  <li><a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <!-- Top Nav End -->
+          <div class="pull-right log-reg">
+            <ul class="nav">
+              <li><button type="button" class="btn" name="button"><a href="{{ route('admin.login.getLogin') }}">Login</a></button></li>
+              <li><button type="button" class="btn" name="button"><a href="{{ route('getRegister') }}">Register</a></button></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

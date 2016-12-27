@@ -24,7 +24,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
           <span class="sale tooltip-test">Sale</span>
           <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>
           <div class="pricetag">
-            <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a>
+            <span class="spiral"></span><a href="{{ route('addCart',[$product->id]) }}" class="productcart">ADD TO CART</a>
             <div class="price">
               <div class="pricenew">VNĐ {{ number_format($product->price) }}</div>
             </div>
@@ -33,14 +33,13 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       </li>
       @endforeach
       @endif
-      <form class="" action="" method="post">
-        <input id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
-        <li class="span3 fix-price">
-          <div class="pricetag">
-            <span class="spiral"></span><a href="{{ route('showMoreProducts',[4]) }}" class="show_more_products">SHOW MORE PRODUCTS ...</a>
-          </div>
-        </li>
-      </form>
+      {{-- <form class="" action="" method="post"> --}}
+        <input id="token" id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="button" onclick="loadMore()" class="btn btn-default">Load More ...</button>
+      {{-- </form> --}}
+      <div id="data"></div>
+
+
     </ul>
   </div>
 </section>
@@ -72,3 +71,28 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
   </div>
 </section>
 @endsection
+<script type="text/javascript">
+function loadMore(){
+  // var token = $(this).parent().parent().parent().find('.token').val();
+  // $.post('/', {'_token':token ,'qty':4}
+  //       ,function(result){
+  //           console.log(result);
+  //         });
+  var token = $('#token').val();
+  var qty = 4;
+  $.get('/ajax',
+    {token: token, qty: qty},
+    function(data) {
+      // $('.container').html(data.id);
+
+      var list = "<div>";
+      for (var i = 0; i < data.length; i++) {
+        list += '<li class="span3 fix-price"> <a class="prdocutname" href="http://localhost:8000/product-detail/' + data[i].id + '">' + data[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test" data-original-title="">Sale</span> <a href="#"><img alt="" src="http://localhost:8000/image/' + data[i].image + '"></a> <div class="pricetag"> <span class="spiral"></span><a href="http://localhost:8000/add-cart/' +data[i].id+ '/Qu%E1%BA%A7n%20C%C3%B4ng%20S%E1%BB%9F%205" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ data[i].price +'</div> </div> </div> </div> </li>';
+      }
+      list += "</div>";
+      console.log(list);
+      $('#data').html(list);
+  });
+}
+
+</script>

@@ -19,6 +19,8 @@ Route::get('test', function () {
 		return view('admin.cate.cate_list');
 	});
 
+Route::get('/ajax', 'HomeController@ajax');
+
 Route::group(['prefix' => 'admin'], function () {
 
 		Route::group(['prefix' => 'cate', 'middleware' => 'auth'], function () {
@@ -66,10 +68,10 @@ Route::post('/register', 'RegisterController@postRegister')->name('postRegister'
 
 Route::get('/list-products/{id}/{list-name-products}', 'HomeController@listProducts')->name('listProducts');
 Route::get('/list-products-detail/{id}', 'HomeController@listProductsDetail')->name('listProductsDetail');
-Route::get('/product-detail/{id}/{name_product}', 'HomeController@productDetail')->name('productDetail');
+Route::get('/product-detail/{id}', 'HomeController@productDetail')->name('productDetail');
 Route::get('/contact', 'HomeController@getSentMail')->name('getSentMail');
 Route::post('/contact', 'HomeController@postSentMail')->name('postSentMail');
-Route::get('/add-cart/{id}/{name_product}', 'HomeController@addCart')->name('addCart');
+Route::get('/add-cart/{id}', 'HomeController@addCart')->name('addCart');
 Route::get('/cart', 'HomeController@totalCart')->name('totalCart');
 Route::get('/delete_id_cart/{rowID}', 'HomeController@deleteIdCart')->name('deleteIdCart');
 Route::get('/update_cart/{id}/{qty}', 'HomeController@updateCart')->name('updateCart');

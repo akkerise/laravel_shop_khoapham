@@ -111,6 +111,7 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
+			// dd(Cart);
 		return redirect()->route('totalCart');
 		// $content = Cart::content();
 		// echo "<pre>";
@@ -145,8 +146,13 @@ class HomeController extends Controller {
 	}
 
 	public function showMoreProducts() {
-		$showMoreProducts = Product::select()->take(4)-get();
-		return $showMoreProducts;
+		$showMoreProducts = Product::select()->take(4)->get();
+		return route('home');
 	}
 
+	public function ajax() {
+		// return "HELLO WORLD";
+		$products = Product::select()->take(4)->get()->toArray();
+		return $products;
+	}
 }

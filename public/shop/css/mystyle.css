@@ -14,3 +14,10 @@
 .productname {
 	padding : 30px 0px 0px 30px;
 }
+
+.log-reg {
+	background-color: #fff;
+	width: 108px;
+	border: none;
+	border-radius: 5px;
+}

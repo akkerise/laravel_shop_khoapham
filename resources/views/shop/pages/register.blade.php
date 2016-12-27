@@ -10,7 +10,7 @@ AkKe Product Detail
      <!--  breadcrumb -->
       <ul class="breadcrumb">
         <li>
-          <a href="#">Home</a>
+          <a href="{{ url('/') }}">Home</a>
           <span class="divider">/</span>
         </li>
         <li class="active">Register Account</li>
@@ -19,40 +19,41 @@ AkKe Product Detail
         <!-- Register Account-->
         <div class="span9">
           <h1 class="heading1"><span class="maintext">Register Account</span><span class="subtext">Register Your details with us</span></h1>
-          <form class="form-horizontal">
+          <form class="form-horizontal" method="POST" action="{{ route('postRegister') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h3 class="heading3">Your Personal Details</h3>
             <div class="registerbox">
               <fieldset>
+                @include('admin.blocks.errors')
+                @if(Session::has('flash_message'))
+                  <div id="flash-message" class="alert alert-{{ Session::get('flash_level') }}">
+                      {{ Session::get('flash_message') }}
+                  </div>
+                @endif
                 <div class="control-group">
-                  <label class="control-label"><span class="red">*</span> First Name:</label>
+                  <label class="control-label"><span class="red">*</span> Username:</label>
                   <div class="controls">
-                    <input type="text"  class="input-xlarge">
+                    <input type="text" name="username" class="input-xlarge">
                   </div>
                 </div>
-                <div class="control-group">
+                {{-- <div class="control-group">
                   <label class="control-label"><span class="red">*</span> Last Name:</label>
                   <div class="controls">
                     <input type="text"  class="input-xlarge">
                   </div>
-                </div>
+                </div> --}}
                 <div class="control-group">
                   <label class="control-label"><span class="red">*</span> Email:</label>
                   <div class="controls">
-                    <input type="text"  class="input-xlarge">
+                    <input type="text" name="email" class="input-xlarge">
                   </div>
-                </div>
+                </div>{{--
                 <div class="control-group">
-                  <label class="control-label"><span class="red">*</span> Telephone:</label>
+                  <label class="control-label"><span class="red">*</span> Phone Number:</label>
                   <div class="controls">
                     <input type="text"  class="input-xlarge">
                   </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label"> Fax:</label>
-                  <div class="controls">
-                    <input type="text"  class="input-xlarge">
-                  </div>
-                </div>
+                </div> --}}
               </fieldset>
             </div>
             <h3 class="heading3">Your Password</h3>
@@ -61,13 +62,13 @@ AkKe Product Detail
                 <div class="control-group">
                   <label  class="control-label"><span class="red">*</span> Password:</label>
                   <div class="controls">
-                    <input type="text"  class="input-xlarge">
+                    <input type="password" name="password"  class="input-xlarge">
                   </div>
                 </div>
                 <div class="control-group">
-                  <label  class="control-label"><span class="red">*</span> LPassword Confirm::</label>
+                  <label  class="control-label"><span class="red">*</span> Password Confirm::</label>
                   <div class="controls">
-                    <input type="text"  class="input-xlarge">
+                    <input type="password" name="confirm_pass" class="input-xlarge">
                   </div>
                 </div>
               </fieldset>

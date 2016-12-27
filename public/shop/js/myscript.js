@@ -23,22 +23,4 @@ $(document).ready(function(){
     });
 });
 });
-$(document).ready(function(){
-	$('.show_more_products').click(function(){
-    var token = $(this).parent().parent().parent().find('#token').val();
-    // alert(token);
-	   $.ajax({
-        url: '/',
-        type: 'POST',
-        cache: false,
-        data: {
-          "_token": token,
-        },
-        success: function(data){
-          if (data == "OK") {
-            alert('Sent data success');
-          }
-        }
-     });
-	});
-});
+$('#flash-message').delay(3000).slideUp();
