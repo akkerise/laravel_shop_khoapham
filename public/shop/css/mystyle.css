@@ -15,9 +15,56 @@
 	padding : 30px 0px 0px 30px;
 }
 
-.log-reg {
-	background-color: #fff;
-	width: 108px;
+.log-reg ul {
+
+}
+
+.log-reg ul li {
+	background-color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 0px;
+	/*position: absolute;*/
+	/*right: 10%;*/
+	position: relative;
+	border-bottom: 1px solid #f25c27;
+}
+.log-reg ul li:last-child {
+	border:none;
+}
+
+.log-reg ul li button:hover {
+	background-color: #f25c27;
+	color: white;
+	border:none;
+	border-radius: 0px;
+}
+
+.log-reg ul li button {
+	width: 120px;
+	height: 50%;
+	/*position: absolute;*/
+	/*right: 20px;*/
+	position: relative;
+	right: 20%;
+	border-radius: 0px;
+	background-color: white;
+	border-right: 1px solid #f25c27;
+}
+
+.log-reg ul li button a {
+	color: #f25c27;
+	text-decoration: none;
+	font-family: Helvetica Neue ,sans-serif;
+	text-transform: uppercase;
+	font-weight: 50;
+}
+
+.log-reg ul li button:hover a {
+	color: white;
+}
+.log-reg ul li button span {
+	float: right;
+	color: #f25c27;
+	position: relative;
+	right: -32px;
 }
