@@ -87,7 +87,7 @@ function loadMore(){
 
       var list = "<div>";
       for (var i = 0; i < data.length; i++) {
-        list += '<li class="span3 fix-price"> <a class="prdocutname" href="http://localhost:8000/product-detail/' + data[i].id + '">' + data[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test" data-original-title="">Sale</span> <a href="#"><img alt="" src="http://localhost:8000/image/' + data[i].image + '"></a> <div class="pricetag"> <span class="spiral"></span><a href="http://localhost:8000/add-cart/' +data[i].id+ '/Qu%E1%BA%A7n%20C%C3%B4ng%20S%E1%BB%9F%205" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ data[i].price +'</div> </div> </div> </div> </li>';
+        list += '<li class="span3 fix-price"> <a class="prdocutname" href="/product-detail/' + data[i].id + '"></a> <div class="thumbnail"> <span class="sale tooltip-test" data-original-title="">Sale</span> <a href="#"><img alt="" src="/image/' + data[i].image + '"></a> <div class="pricetag"> <span class="spiral"></span><a href="/add-cart/' +data[i].id+ '/" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ data[i].price +'</div> </div> </div> </div> </li>';
       }
       list += "</div>";
       console.log(list);

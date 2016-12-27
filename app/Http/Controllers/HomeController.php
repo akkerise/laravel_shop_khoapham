@@ -5,8 +5,9 @@ use App\Cate;
 
 use App\Product;
 use App\ProductImage;
-
 use Cart;
+
+// use Darryldecode\Cart\Facades\CartFacade as Cart;
 use Illuminate\Http\Request;
 use Mail;
 use Validator;
@@ -101,6 +102,7 @@ class HomeController extends Controller {
 
 	public function addCart($id) {
 		$product_add_cart = Product::select()->where('id', $id)->first();
+
 		Cart::add([
 				'id'      => $id,
 				'name'    => $product_add_cart->name,
@@ -111,7 +113,7 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
-			// dd(Cart);
+			// dd(Cart::content());
 		return redirect()->route('totalCart');
 		// $content = Cart::content();
 		// echo "<pre>";

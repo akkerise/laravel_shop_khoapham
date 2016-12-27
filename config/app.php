@@ -167,6 +167,7 @@ return [
 		Unisharp\Ckeditor\ServiceProvider::class ,
 		Intervention\Image\ImageServiceProvider::class ,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class ,
+		// Darryldecode\Cart\CartServiceProvider::class,
 		/*
 		 * Package Service Providers...
 		 */
@@ -231,7 +232,8 @@ return [
 		'View'         => Illuminate\Support\Facades\View::class ,
 		'Input'        => Illuminate\Support\Facades\Input::class ,
 		'Image'        => Intervention\Image\Facades\Image::class ,
-		'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class ,
+		'Cart' 				 => Gloudemans\Shoppingcart\Facades\Cart::class,
+		// 'Cart' => 	Darryldecode\Cart\Facades\CartFacade::class,
 	],
 
 ];
