@@ -71,7 +71,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
   </div>
 </section>
 @endsection
-<script type="text/javascript">
+<script>
 function loadMore(){
   // var token = $(this).parent().parent().parent().find('.token').val();
   // $.post('/', {'_token':token ,'qty':4}

@@ -8,7 +8,7 @@
 <meta name="author" content="">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
-<link href="{{ url('/shop/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ secure_url('/shop/css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ url('/shop/css/bootstrap-responsive.css') }}" rel="stylesheet">
 <link href="{{ url('/shop/css/style.css') }}" rel="stylesheet">
 <link href="{{ url('/shop/css/flexslider.css') }}" type="text/css" media="screen" rel="stylesheet"  />
