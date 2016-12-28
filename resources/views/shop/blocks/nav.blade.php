@@ -4,7 +4,7 @@
 <?php
 $cate_level_1 = DB::table('cates')->where('parent_id', 1)->get();
 ?>
-<li><a href="{{ url('/') }}">Trang Chủ</a></li>
+<li><a href="{{ secure_url('/') }}">Trang Chủ</a></li>
       @foreach($cate_level_1 as $item_level_1)
       <li><a class=""  href="{{ route('listProducts',[
         $item_level_1->id,$item_level_1->name
@@ -26,7 +26,7 @@ $cate_level_2 = DB::table('products')->where('cate_id', $item_level_1->id)->get(
         </div>
       </li>
       @endforeach
-      <li><a href="{{ url('/contact') }}">Liên Hệ</a></li>
+      <li><a href="{{ secure_url('/contact') }}">Liên Hệ</a></li>
     </ul>
   </nav>
 </div>

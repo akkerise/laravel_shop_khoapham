@@ -8,7 +8,7 @@
             <div class="navbar" id="topnav">
               <div class="navbar-inner">
                 <ul class="nav" >
-                  <li><a class="home active" href="{{ url('/') }}">Home</a>
+                  <li><a class="home active" href="{{ secure_url('/') }}">Home</a>
                   </li>
                   <li><a class="myaccount" href="#">My Account</a>
                   </li>

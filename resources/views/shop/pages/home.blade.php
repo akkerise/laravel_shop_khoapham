@@ -22,7 +22,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
         <a class="prdocutname" href="{{ route('productDetail',[$product->id,$product->name]) }}">{{ $product->name }}</a>
         <div class="thumbnail">
           <span class="sale tooltip-test">Sale</span>
-          <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>
+          <a href="#"><img alt="" src="{{ secure_url('/image/'). "/" . $product->image }}"></a>
           <div class="pricetag">
             <span class="spiral"></span><a href="{{ route('addCart',[$product->id]) }}" class="productcart">ADD TO CART</a>
             <div class="price">
@@ -56,7 +56,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
           <a class="prdocutname" href="{{ route('productDetail',[$product->id,$product->name]) }}">{{ $product->name }}</a>
           <div class="thumbnail">
             <span class="sale tooltip-test">Sale</span>
-            <a href="#"><img alt="" src="{{ url('/image/'). "/" . $product->image }}"></a>
+            <a href="#"><img alt="" src="{{ secure_url('/image/'). "/" . $product->image }}"></a>
             <div class="pricetag">
               <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a>
               <div class="price">
