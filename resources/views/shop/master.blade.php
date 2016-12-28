@@ -9,12 +9,12 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
 <link href="{{ secure_url('/shop/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ url('/shop/css/bootstrap-responsive.css') }}" rel="stylesheet">
-<link href="{{ url('/shop/css/style.css') }}" rel="stylesheet">
-<link href="{{ url('/shop/css/flexslider.css') }}" type="text/css" media="screen" rel="stylesheet"  />
-<link href="{{ url('/shop/css/jquery.fancybox.css') }}" rel="stylesheet">
-<link href="{{ url('/shop/css/cloud-zoom.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ url('/shop/css/mystyle.css') }}">
+<link href="{{ secure_url('/shop/css/bootstrap-responsive.css') }}" rel="stylesheet">
+<link href="{{ secure_url('/shop/css/style.css') }}" rel="stylesheet">
+<link href="{{ secure_url('/shop/css/flexslider.css') }}" type="text/css" media="screen" rel="stylesheet"  />
+<link href="{{ secure_url('/shop/css/jquery.fancybox.css') }}" rel="stylesheet">
+<link href="{{ secure_url('/shop/css/cloud-zoom.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ secure_url('/shop/css/mystyle.css') }}">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -61,21 +61,21 @@
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ url('/shop/js/jquery.js') }}"></script>
-<script src="{{ url('/shop/js/bootstrap.js') }}"></script>
-<script src="{{ url('/shop/js/respond.min.js') }}"></script>
-<script src="{{ url('/shop/js/application.js') }}"></script>
-<script src="{{ url('/shop/js/bootstrap-tooltip.js') }}"></script>
-<script defer src="{{ url('/shop/js/jquery.fancybox.js') }}"></script>
-<script defer src="{{ url('/shop/js/jquery.flexslider.js') }}"></script>
-<script type="text/javascript" src="{{ url('/shop/js/jquery.tweet.js') }}"></script>
-<script type="text/javascript" src="{{ url('/shop/js/cloud-zoom.1.0.2.js') }}"></script>
-<script  type="text/javascript" src="{{ url('/shop/js/jquery.validate.js') }}"></script>
-<script type="text/javascript"  src="{{ url('/shop/js/jquery.carouFredSel-6.1.0-packed.js') }}"></script>
-<script type="text/javascript"  src="{{ url('/shop/js/jquery.mousewheel.min.js') }}"></script>
-<script type="text/javascript"  src="{{ url('/shop/js/jquery.touchSwipe.min.js') }}"></script>
-<script type="text/javascript"  src="{{ url('/shop/js/jquery.ba-throttle-debounce.min.js') }}"></script>
-<script defer src="{{ url('/shop/js/custom.js') }}"></script>
-<script src="{{ url('/shop/js/myscript.js') }}"></script>
+<script src="{{ secure_url('/shop/js/jquery.js') }}"></script>
+<script src="{{ secure_url('/shop/js/bootstrap.js') }}"></script>
+<script src="{{ secure_url('/shop/js/respond.min.js') }}"></script>
+<script src="{{ secure_url('/shop/js/application.js') }}"></script>
+<script src="{{ secure_url('/shop/js/bootstrap-tooltip.js') }}"></script>
+<script defer src="{{ secure_url('/shop/js/jquery.fancybox.js') }}"></script>
+<script defer src="{{ secure_url('/shop/js/jquery.flexslider.js') }}"></script>
+<script type="text/javascript" src="{{ secure_url('/shop/js/jquery.tweet.js') }}"></script>
+<script type="text/javascript" src="{{ secure_url('/shop/js/cloud-zoom.1.0.2.js') }}"></script>
+<script  type="text/javascript" src="{{ secure_url('/shop/js/jquery.validate.js') }}"></script>
+<script type="text/javascript"  src="{{ secure_url('/shop/js/jquery.carouFredSel-6.1.0-packed.js') }}"></script>
+<script type="text/javascript"  src="{{ secure_url('/shop/js/jquery.mousewheel.min.js') }}"></script>
+<script type="text/javascript"  src="{{ secure_url('/shop/js/jquery.touchSwipe.min.js') }}"></script>
+<script type="text/javascript"  src="{{ secure_url('/shop/js/jquery.ba-throttle-debounce.min.js') }}"></script>
+<script defer src="{{ secure_url('/shop/js/custom.js') }}"></script>
+<script src="{{ secure_url('/shop/js/myscript.js') }}"></script>
 </body>
 </html>
