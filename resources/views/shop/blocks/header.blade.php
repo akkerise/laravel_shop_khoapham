@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="span12">
-          <a href="index-2.html" class="logo pull-left"><img src="{{ url('/shop/img/logo.png') }}" alt="SimpleOne" title="SimpleOne"></a>
+          <a href="index-2.html" class="logo pull-left"><img src="{{ secure_url('/shop/img/logo.png') }}" alt="SimpleOne" title="SimpleOne"></a>
           <!-- Top Nav Start -->
           <div class="pull-left">
             <div class="navbar" id="topnav">
