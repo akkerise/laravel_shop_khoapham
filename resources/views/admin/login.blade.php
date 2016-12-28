@@ -46,7 +46,7 @@
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ secure_url('/redirect') }}">Facebook</a>
+                                    <a href="{!! route('redirectLoginFacebook') !!}">Facebook</a>
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
