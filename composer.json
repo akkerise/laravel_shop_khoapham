@@ -15,7 +15,8 @@
         "intervention/image": "^2.3",
         "guzzlehttp/guzzle": "^6.2",
         "darryldecode/cart": "dev-master",
-        "gloudemans/shoppingcart": "^2.2"
+        "gloudemans/shoppingcart": "^2.2",
+        "laravel/socialite": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

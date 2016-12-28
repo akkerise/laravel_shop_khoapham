@@ -80,6 +80,9 @@ Route::post('/', 'HomeController@showMoreProducts')->name('showMoreProducts');
 // Route MyAccout
 Route::get('/my-accout', 'HomeController@getMyAccout')->name('getMyAccout');
 
+Route::get('/redirect' , 'SocialAuthController@redirect');
+Route::get('/callback' , 'SocialAuthController@callback');
+
 // Route Shopping Cart
 // Route::get('/shopping-cart' , 'HomeController@getShoppingCart')->name('getShoppingCart');
 
