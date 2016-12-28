@@ -76,4 +76,12 @@ Route::get('/cart', 'HomeController@totalCart')->name('totalCart');
 Route::get('/delete_id_cart/{rowID}', 'HomeController@deleteIdCart')->name('deleteIdCart');
 Route::get('/update_cart/{id}/{qty}', 'HomeController@updateCart')->name('updateCart');
 Route::post('/', 'HomeController@showMoreProducts')->name('showMoreProducts');
+
+// Route MyAccout
+Route::get('/my-accout', 'HomeController@getMyAccout')->name('getMyAccout');
+
+// Route Shopping Cart
+// Route::get('/shopping-cart' , 'HomeController@getShoppingCart')->name('getShoppingCart');
+
+// Route
 // Route::get('/test','HomeController@productDetail');

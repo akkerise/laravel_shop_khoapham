@@ -157,4 +157,13 @@ class HomeController extends Controller {
 		$products = Product::select()->take(4)->get()->toArray();
 		return $products;
 	}
+
+	public function getMyAccout(){
+		return view('shop.pages.my-accout');
+	}
+
+
+	// public function getShoppingCart(){
+	//
+	// }
 }

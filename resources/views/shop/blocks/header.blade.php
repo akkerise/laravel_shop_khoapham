@@ -10,7 +10,7 @@
                 <ul class="nav" >
                   <li><a class="home active" href="{{ secure_url('/') }}">Home</a>
                   </li>
-                  <li><a class="myaccount" href="#">My Account</a>
+                  <li><a class="myaccount" href="{!! route('getMyAccout') !!}">My Account</a>
                   </li>
                   <li><a class="shoppingcart" href="#">Shopping Cart</a>
                   </li>
