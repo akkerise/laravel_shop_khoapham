@@ -17,17 +17,19 @@ AkKe Product Detail
                 <img src="{{ asset('image/' . $product_detail->image) }}" alt="" title="">
               </a>
             </li>
-            @foreach($image_details as $i)
-            <li class="span5">
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="{{ asset('/image/image_details/' . $i->image) }}">
-                <img  src="{{ asset('/image/image_details/' . $i->image) }}" alt="" title="">
-              </a>
-            </li>
-            @endforeach
+            @if (!empty($image_details))
+              @foreach($image_details as $i)
+              <li class="span5">
+                <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="{{ asset('/image/image_details/' . $i->image) }}">
+                  <img  src="{{ asset('/image/image_details/' . $i->image) }}" alt="" title="">
+                </a>
+              </li>
+              @endforeach
+            @endif
           </ul>
           <ul class="thumbnails mainimage">
           {{-- {{ dd($item_details) }} --}}
-          @if(isset($image_details))
+          @if(!empty($image_details))
             @foreach($image_details as $i)
               <li class="producthtumb">
                 <a class="thumbnail" >
@@ -39,7 +41,7 @@ AkKe Product Detail
           </ul>
         </div>
          <!-- Right Details-->
-        @if(isset($product_detail))
+        @if(!empty($product_detail))
         <div class="span7">
           <div class="row">
             <div class="span7">
