@@ -14,12 +14,12 @@ use Illuminate\Contracts\Auth\Guard;
 
 class SocialAuthController extends Controller
 {
-    public function __construct(Guard $auth) {
-      $this->auth = $auth;
-      // $this->registrar = $registrar;
-      $this->middleware('guest', ['except' => 'logout']);
-      // $this->middleware(['auth', 'admin'])->except('login');
-    }
+    // public function __construct(Guard $auth) {
+    //   $this->auth = $auth;
+    //   // $this->registrar = $registrar;
+    //   $this->middleware('guest', ['except' => 'logout']);
+    //   // $this->middleware(['auth', 'admin'])->except('login');
+    // }
 
     public function redirect()
     {
@@ -29,10 +29,8 @@ class SocialAuthController extends Controller
     public function callback(SocialAccountService $service)
     {
         $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
-
         // Auth::attempt($login);
         auth()->login($user);
-
         return redirect()->to('/home');
     }
 }

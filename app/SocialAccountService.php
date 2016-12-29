@@ -3,7 +3,8 @@
 namespace App;
 
 use Laravel\Socialite\Contracts\User as ProviderUser;
-
+use App\SocialAccount;
+use App\User;
 class SocialAccountService
 {
     public function createOrGetUser(ProviderUser $providerUser)
@@ -27,7 +28,7 @@ class SocialAccountService
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'name' => $providerUser->getName(),
+                    'username' => $providerUser->getName(),
                 ]);
             }
 
