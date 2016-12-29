@@ -5,6 +5,7 @@ namespace App;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 use App\SocialAccount;
 use App\User;
+use Hash;
 class SocialAccountService
 {
     public function createOrGetUser(ProviderUser $providerUser)
