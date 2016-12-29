@@ -37,7 +37,7 @@ return [
     'facebook' => [
       'client_id' => '202870110175489',
       'client_secret' => 'e93f80ea8fc0816a4ab2f1852b7a6f32',
-      'redirect' => secure_url('/callback'),
+      'redirect' => 'https://limitless-peak-35722.herokuapp.com/callback'
     ],
 
 ];
