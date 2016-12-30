@@ -154,11 +154,7 @@ class HomeController extends Controller {
 
 	public function ajax() {
 		// return "HELLO WORLD";
-		$products_skip4 = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
-		foreach ($products_skip4 as $p4) {
-			$pskip4 = $p4->id;
-		}
-		$products = Product::select()->skip($pskip4)->take(4)->get()->toArray();
+		$products = Product::select()->take(4)->get()->toArray();
 		return $products;
 	}
 
@@ -166,4 +162,7 @@ class HomeController extends Controller {
 		return view('shop.pages.my-accout');
 	}
 
+	// public function getShoppingCart(){
+	//
+	// }
 }
