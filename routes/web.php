@@ -21,7 +21,7 @@ Route::get('test', function () {
 		return view('admin.cate.cate_list');
 	});
 
-Route::get('/ajax', 'HomeController@ajax');
+Route::get('/ajax/{limit}', 'HomeController@ajax');
 
 Route::group(['prefix' => 'admin'], function () {
 
