@@ -160,7 +160,7 @@ class HomeController extends Controller {
 		}
 		// $products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
 		$limit    = 0;
-		$products = Product::select()->orderBy('id', 'DESC')->offset($limit += 4)->limit(4)->get()->toArray();
+		$products = Product::select()->orderBy('id', 'DESC')->offset($limit += 4)->take(4)->get()->toArray();
 		return $products;
 	}
 
