@@ -30,12 +30,12 @@ class HomeController extends Controller {
 	 */
 	public function index() {
 		// $products = Product::all();
-		$cates = Cate::all();
+		$cates            = Cate::all();
 		$products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
 		$products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
 		return view('shop.pages.home')->with([
-				'products' => $products,
-				'cates'    => $cates,
+				'products'         => $products,
+				'cates'            => $cates,
 				'products_lastest' => $products_lastest
 			]);
 	}
@@ -113,7 +113,7 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
-			// dd(Cart::content());
+		// dd(Cart::content());
 		return redirect()->route('totalCart');
 		// $content = Cart::content();
 		// echo "<pre>";
@@ -154,14 +154,14 @@ class HomeController extends Controller {
 
 	public function ajax() {
 		// return "HELLO WORLD";
-		$products = Product::select()->take(4)->get()->toArray();
+		$products_skip = DB::table('products')->select()->orderBy('id', 'DESC')->take(4)->get()->toArray();
+		$products      = Product::select()->skip($products_skip['id'])->take(4)->get()->toArray();
 		return $products;
 	}
 
-	public function getMyAccout(){
+	public function getMyAccout() {
 		return view('shop.pages.my-accout');
 	}
-
 
 	// public function getShoppingCart(){
 	//
