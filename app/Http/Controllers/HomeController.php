@@ -152,7 +152,7 @@ class HomeController extends Controller {
 		return route('home');
 	}
 
-	public function ajax($qty = 0) {
+	public function ajax($qty) {
 		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
 		$id_need         = array();
 		foreach ($id_skip_product as $key) {

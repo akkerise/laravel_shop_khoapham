@@ -79,7 +79,7 @@ function loadMore(){
   //           console.log(result);
   //         });
   var token = $('#token').val();
-  var qty = 4;
+  var qty += 4;
   $.get('/ajax/' + qty ,
     {token: token, qty: qty},
     function(data) {
