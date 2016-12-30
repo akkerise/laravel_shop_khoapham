@@ -69,7 +69,7 @@ Route::post('/register', 'RegisterController@postRegister')->name('postRegister'
 Route::get('/list-products/{id}/{list-name-products}', 'HomeController@listProducts')->name('listProducts');
 Route::get('/list-products-detail/{id}', 'HomeController@listProductsDetail')->name('listProductsDetail');
 Route::get('/product-detail/{id}', 'HomeController@productDetail')->name('productDetail');
-[^1]Route::get('/contact', 'HomeController@getSentMail')->name('getSentMail');
+Route::get('/contact', 'HomeController@getSentMail')->name('getSentMail');
 Route::post('/contact', 'HomeController@postSentMail')->name('postSentMail');
 Route::get('/add-cart/{id}', 'HomeController@addCart')->name('addCart');
 Route::get('/cart', 'HomeController@totalCart')->name('totalCart');
@@ -80,8 +80,8 @@ Route::post('/', 'HomeController@showMoreProducts')->name('showMoreProducts');
 // Route MyAccout
 Route::get('/my-accout', 'HomeController@getMyAccout')->name('getMyAccout');
 
-Route::get('/redirect' , 'SocialAuthController@redirect')->name('redirectLoginFacebook');
-Route::get('/callback' , 'SocialAuthController@callback');
+Route::get('/redirect', 'SocialAuthController@redirect')->name('redirectLoginFacebook');
+Route::get('/callback', 'SocialAuthController@callback');
 
 // Route Shopping Cart
 // Route::get('/shopping-cart' , 'HomeController@getShoppingCart')->name('getShoppingCart');
