@@ -93,5 +93,5 @@ Route::get('/callback', 'SocialAuthController@callback');
 
 Route::get('/test_id', function () {
 		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
-		dd($id_skip_product);
+		dd($id_skip_product->id);
 	});
