@@ -154,7 +154,8 @@ class HomeController extends Controller {
 
 	public function ajax() {
 		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
-		$products        = Product::select()->skip($id_skip_product)->paginate(4)->get()->toArray();
+		dd($id_skip_product);
+		$products = Product::select()->skip($id_skip_product)->paginate(4)->get()->toArray();
 		return $products;
 	}
 
