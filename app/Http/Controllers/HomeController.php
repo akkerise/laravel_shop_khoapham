@@ -153,8 +153,8 @@ class HomeController extends Controller {
 	}
 
 	public function ajax() {
-		// return "HELLO WORLD";
-		$products = Product::select()->take(4)->get()->toArray();
+		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
+		$products        = Product::select()->skip($id_skip_product)->paginate(4)->get()->toArray();
 		return $products;
 	}
 
