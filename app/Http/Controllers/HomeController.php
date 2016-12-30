@@ -158,7 +158,7 @@ class HomeController extends Controller {
 		foreach ($id_skip_product as $key) {
 			array_push($id_need, $key->id);
 		}
-		$products = Product::select()->orderBy('id', 'DESC')->skip([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->take(4)->get()->toArray();
+		$products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
 		return $products;
 	}
 
