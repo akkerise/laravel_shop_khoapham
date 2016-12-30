@@ -97,5 +97,5 @@ Route::get('/test_id', function () {
 		foreach ($id_skip_product as $key) {
 			array_push($id_need, $key->id);
 		}
-		dd($id_need);
+		dd($id_need[0]);
 	});
