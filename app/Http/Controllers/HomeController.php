@@ -124,6 +124,14 @@ class HomeController extends Controller {
 		// ]);
 	}
 
+	// public function addCart($id) {
+	// 	// CartItem::setCartItem($id);
+	// 	$product_add_cart = Product::select()->where('id', $id)->first();
+	// 	CartItem::setAttr($product_add_cart->id, $product_add_cart->name, $product_add_cart->alias, 1, $product_add_cart->price, $product_add_cart->image);
+	// 	return view('shop.pages.shopping-cart');
+	// 	// need fixed
+	// }
+
 	public function totalCart() {
 		// dd(Cart::total());
 		return view('shop.pages.shopping-cart')->with([
@@ -159,7 +167,7 @@ class HomeController extends Controller {
 			array_push($id_need, $key->id);
 		}
 		// $products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
-		$qty += 4;
+		// $qty += 4;
 		$products = Product::select()->orderBy('id', 'DESC')->offset($qty)->take(4)->get()->toArray();
 		return $products;
 	}
