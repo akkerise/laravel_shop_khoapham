@@ -61,10 +61,10 @@ AkKe Category
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get()->toArray() }}
                     @foreach($cate_name_lastet_product as $v)
-                      @if(is_array($v))
+                      {{-- @if(is_array($v))
                         <span class="procategory">{{ print_r($v[0]->name,TRUE) }}</span>
-                      @endif
-                      <span class="procategory">{{ $v[0]->name }}</span>
+                      @endif --}}
+                      <span class="procategory">{{ $v[0]['name'] }}</span>
                     @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
