@@ -5,7 +5,7 @@ AkKe Category
 @endsection
 @section('content')
 <div id="maincontainer">
-{{ dd($p_newst) }}
+{{ dd($p_newst[0]->name) }}
   <section id="product">
     <div class="container">
      <!--  breadcrumb -->
@@ -42,7 +42,7 @@ AkKe Category
               <li>
                 <img width="50" height="50" src="{{ asset('/image/'.$np->image) }}" alt="product" title="product">
                 <a class="productname" href="{{ route('productDetail',[$np->id,$np->name]) }}">{{ $np->name }}</a>
-                {{-- <span class="procategory">{{ dd($cate_name) }}</span> --}}
+                <span class="procategory">{{ $p_newst[0]->name }}</span>
                 <span class="price">{{ number_format($np->price,0,',','.') }} VNĐ</span>
               </li>
               @endforeach
