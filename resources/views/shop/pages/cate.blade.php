@@ -61,7 +61,7 @@ AkKe Category
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
                     
-                    <span class="procategory">{{ dd($cate_name_lastet_product) }}</span>
+                    <span class="procategory">{!! $cate_name_lastet_product[0]->name !!}</span>
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
               @endforeach
