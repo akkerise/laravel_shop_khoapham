@@ -62,9 +62,9 @@ AkKe Category
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
                     @foreach($cate_name_lastet_product as $v)
                       @if(is_array($v))
-                        <span class="procategory">{{ print_r($v,TRUE) }}</span>
+                        <span class="procategory">{{ print_r($v[0]->name,TRUE) }}</span>
                       @endif
-                      <span class="procategory">{{ htmlspecialchars($v) }}</span>
+                      <span class="procategory">{{ htmlspecialchars($v[0]->name) }}</span>
                     @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
