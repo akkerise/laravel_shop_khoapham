@@ -38,7 +38,6 @@ AkKe Category
             @if(isset($newest_products))
               @foreach($newest_products as $np)
               {{ $cate_name = DB::table('cates')->select('name')->where('id',$np->cate_id)->get() }}
-              {{-- {{ dd($cate_name[0]->name) }} --}}
               <li>
                 <img width="50" height="50" src="{{ asset('/image/'.$np->image) }}" alt="product" title="product">
                 <a class="productname" href="{{ route('productDetail',[$np->id,$np->name]) }}">{{ $np->name }}</a>
@@ -61,7 +60,7 @@ AkKe Category
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
                     @foreach($cate_name_lastet_product as $v)
-                      <span class="procategory">{{ $v[0]->name }}</span>
+                      <span class="procategory">{{ dd($v) }}</span>
                     @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
