@@ -37,7 +37,7 @@ AkKe Category
             <ul class="bestseller">
             @if(isset($newest_products))
               @foreach($newest_products as $np)
-              {{ $cate_name = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
+              {{ $cate_name = DB::table('cates')->select('name')->where('id',$np->cate_id)->get() }}
               <li>
                 <img width="50" height="50" src="{{ asset('/image/'.$np->image) }}" alt="product" title="product">
                 <a class="productname" href="{{ route('productDetail',[$np->id,$np->name]) }}">{{ $np->name }}</a>
