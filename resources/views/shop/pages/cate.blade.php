@@ -62,7 +62,7 @@ AkKe Category
                   {{-- {!! $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get(); !!} --}}
 
                     {{-- @foreach($cate_name_lastet_product as $v) --}}
-                      <span class="procategory">{{ $cate_name }}</span>
+                      <span class="procategory">{{ dd($cate_name) }}</span>
                     {{-- @endforeach --}}
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
