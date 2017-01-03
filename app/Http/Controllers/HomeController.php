@@ -53,7 +53,7 @@ class HomeController extends Controller {
 			// $p_newst = json_decode($newest_name_product);
 		}
 		$p_newst = json_decode($newest_name_product)
-		return view('shop.pages.cate',compact('list_products','newest_products','newest_name_product','p_newst'));
+		return view('shop.pages.cate',compact('list_products','newest_products','newest_name_product','parse_newest','p_newst'));
 	}
 
 	public function listProductsDetail($id) {
