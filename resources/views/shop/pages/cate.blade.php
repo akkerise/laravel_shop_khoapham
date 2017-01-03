@@ -55,11 +55,14 @@ AkKe Category
             <ul class="bestseller">
             @if (!empty($lastest_product))
               @foreach ($lastest_product as $item)
-              {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
+              
                 <li>
                   <img width="50" height="50" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
-                  {{-- <span class="procategory">{{ $cate_name_lastet_product[0]->name }}</span> --}}
+                  {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
+                    @foreach($cate_name_lastet_product as $v)
+                      <span class="procategory">{{ $v[0]->name }}</span>
+                    @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
               @endforeach
