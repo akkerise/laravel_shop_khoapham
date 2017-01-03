@@ -5,7 +5,7 @@ AkKe Category
 @endsection
 @section('content')
 <div id="maincontainer">
-{{ dd($parse_newest) }}
+{{ dd($p_newst) }}
   <section id="product">
     <div class="container">
      <!--  breadcrumb -->
