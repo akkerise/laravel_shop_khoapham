@@ -60,8 +60,9 @@ AkKe Category
                   <img width="50" height="50" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
-                    
-                    <span class="procategory">{!! $cate_name_lastet_product[0]->name !!}</span>
+                    @foreach($cate_name_lastet_product as $v)
+                      <span class="procategory">{{ $v }}</span>
+                    @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
               @endforeach
