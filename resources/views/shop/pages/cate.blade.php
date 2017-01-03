@@ -59,7 +59,7 @@ AkKe Category
                 <li>
                   <img width="50" height="50" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
-                  {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get() }}
+                  {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get()->toArray() }}
                     @foreach($cate_name_lastet_product as $v)
                       @if(is_array($v))
                         <span class="procategory">{{ print_r($v[0]->name,TRUE) }}</span>
