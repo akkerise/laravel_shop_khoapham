@@ -40,9 +40,11 @@ class HomeController extends Controller {
 			]);
 	}
 
-	// public function listProducts() {
+	public function listProducts($id) {
+		$products = Product::find($id);
+		dd($products);
+	}
 
-	// }
 	public function listProductsDetail($id) {
 		$list_products      = Product::select()->where('cate_id', $id)->paginate(3);
 		$list_cate_products = Cate::select('parent_id')->where('id', $list_products[0]->cate_id)->first();
