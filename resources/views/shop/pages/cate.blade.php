@@ -38,6 +38,7 @@ AkKe Category
             @if(isset($newest_products))
               @foreach($newest_products as $np)
               {{ $cate_name = DB::table('cates')->select('name')->where('id',$np->cate_id)->get() }}
+              {{ dd($cate_name) }}
               <li>
                 <img width="50" height="50" src="{{ asset('/image/'.$np->image) }}" alt="product" title="product">
                 <a class="productname" href="{{ route('productDetail',[$np->id,$np->name]) }}">{{ $np->name }}</a>
