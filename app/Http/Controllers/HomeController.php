@@ -41,7 +41,7 @@ class HomeController extends Controller {
 	}
 
 	public function listProducts($id) {
-		$list_products      = Product::select()->where('cate_id', $id)->paginate(3);
+		$list_products      = Product::all()->where('cate_id', $id)->get();
 		return view('shop.pages.cate',compact('list_products'));
 	}
 
