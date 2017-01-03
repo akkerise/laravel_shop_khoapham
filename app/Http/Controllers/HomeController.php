@@ -51,7 +51,7 @@ class HomeController extends Controller {
 			$parse_newest = json_encode($newest_name_product);
 			$p_newst = json_encode($newest_name_product, JSON_FORCE_OBJECT);
 		}
-		return view('shop.pages.cate',compact('list_products','newest_products','newest_name_product','parse_newest'));
+		return view('shop.pages.cate',compact('list_products','newest_products','newest_name_product','parse_newest','p_newst'));
 	}
 
 	public function listProductsDetail($id) {
