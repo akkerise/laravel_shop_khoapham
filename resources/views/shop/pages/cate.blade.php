@@ -59,7 +59,7 @@ AkKe Category
                 <li>
                   <img width="50" height="50" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
-                  <span class="procategory">{{ $cate_name_lastet_product->name }}</span>
+                  <span class="procategory">{{ $cate_name_lastet_product[0]->name }}</span>
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
               @endforeach
