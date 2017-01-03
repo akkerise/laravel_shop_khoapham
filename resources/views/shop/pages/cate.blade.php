@@ -64,7 +64,7 @@ AkKe Category
                       @if(is_array($v))
                         <span class="procategory">{{ print_r($v[0]->name,TRUE) }}</span>
                       @endif
-                      <span class="procategory">{{ htmlspecialchars($v[0]->name) }}</span>
+                      <span class="procategory">{{ $v[0]->name }}</span>
                     @endforeach
                   <span class="price">{{ number_format($item->price,0,',','.') }} VNĐ</span>
                 </li>
