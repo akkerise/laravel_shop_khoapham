@@ -60,6 +60,7 @@ AkKe Category
                   <img width="50" height="50" src="{{ asset('/image/'.$item->image) }}" alt="product" title="product">
                   <a class="productname" href="{{ route('productDetail',[$item->id,$item->name]) }}"> {{ $item->name }}</a>
                   {{ $cate_name_lastet_product = DB::table('cates')->select('name')->where('id',$item->cate_id)->get()->toArray() }}
+                    {{ dd($cate_name_lastet_product) }}
                     @foreach($cate_name_lastet_product as $v)
                       <span class="procategory">{{ dd($v) }}</span>
                     @endforeach
