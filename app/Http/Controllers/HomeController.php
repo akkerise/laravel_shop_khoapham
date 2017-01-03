@@ -45,8 +45,8 @@ class HomeController extends Controller {
 		$list_cate_products = Cate::select('parent_id')->where('id', $list_products[0]->cate_id)->first();
 		$menu_cates         = Cate::select('id', 'name', 'alias')->where('parent_id', $list_cate_products->parent_id)->get();
 		$lastest_product    = Product::select('id', 'name', 'price', 'image', 'cate_id')->orderBy('id', 'DESC')->take(3)->get();
-		// dd($list_products);
-		return view('shop.pages.cate',compact('list_products'));
+		$newest_products = Product::select('id','name','price','image','cate_id')->orderBy('id','DESC')->take(3)->get();
+		return view('shop.pages.cate',compact('list_products','newest_products'));
 	}
 
 	public function listProductsDetail($id) {
