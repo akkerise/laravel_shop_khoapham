@@ -126,15 +126,11 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
-		dd(Cart::content());
-		// return redirect()->route('totalCart');
-		// $content = Cart::content();
-		// echo "<pre>";
-		// print_r($content);
-		// echo "</pre>";
-		// return view('shop.pages.shopping-cart')->with([
-		// 	'product_add_cart' => $product_add_cart
-		// ]);
+		 return redirect()->route('totalCart');
+//		 $content = Cart::content();
+//		 return view('shop.pages.shopping-cart')->with([
+//		 	'product_add_cart' => $product_add_cart
+//		 ]);
 	}
 
 	// public function addCart($id) {
