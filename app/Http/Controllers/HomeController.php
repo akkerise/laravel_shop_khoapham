@@ -115,7 +115,7 @@ class HomeController extends Controller {
 
 	public function addCart($id) {
 		$product_add_cart = Product::select()->where('id', $id)->first();
-
+        dd($product_add_cart);
 		Cart::add([
 				'id'      => $id,
 				'name'    => $product_add_cart->name,
@@ -126,8 +126,9 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
-		 return redirect()->route('totalCart');
-//		 $content = Cart::content();
+
+        $content = Cart::content();
+        return redirect()->route('totalCart');
 //		 return view('shop.pages.shopping-cart')->with([
 //		 	'product_add_cart' => $product_add_cart
 //		 ]);
@@ -142,7 +143,6 @@ class HomeController extends Controller {
 	// }
 
 	public function totalCart() {
-		// dd(Cart::total());
 		return view('shop.pages.shopping-cart')->with([
 				'cart'      => Cart::content(),
 				'cartTotal' => Cart::total()
