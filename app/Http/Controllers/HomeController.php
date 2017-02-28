@@ -46,7 +46,7 @@ class HomeController extends Controller {
 		$menu_cates         = Cate::select('id', 'name', 'alias')->where('parent_id', $list_cate_products->parent_id)->get();
 		$lastest_product    = Product::select('id', 'name', 'price', 'image', 'cate_id')->orderBy('id', 'DESC')->take(3)->get();
 		$newest_products = Product::select('id','name','price','image','cate_id')->orderBy('id','DESC')->take(3)->get();
-		
+
 		foreach ($newest_products as $v){
 			$newest_name_product = Cate::select('name')->where('id', $v->cate_id)->get()->toJson();
 			// $parse_newest = json_encode($newest_name_product);
@@ -126,15 +126,15 @@ class HomeController extends Controller {
 					'img'    => $product_add_cart->image
 				]
 			]);
-		// dd(Cart::content());
-		return redirect()->route('totalCart');
-		$content = Cart::content();
-		echo "<pre>";
-		print_r($content);
-		echo "</pre>";
-		return view('shop.pages.shopping-cart')->with([
-			'product_add_cart' => $product_add_cart
-		]);
+		dd(Cart::content());
+		// return redirect()->route('totalCart');
+		// $content = Cart::content();
+		// echo "<pre>";
+		// print_r($content);
+		// echo "</pre>";
+		// return view('shop.pages.shopping-cart')->with([
+		// 	'product_add_cart' => $product_add_cart
+		// ]);
 	}
 
 	// public function addCart($id) {
