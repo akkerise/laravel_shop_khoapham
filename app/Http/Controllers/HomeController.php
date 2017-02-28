@@ -115,13 +115,13 @@ class HomeController extends Controller {
 			]);
 		// dd(Cart::content());
 		return redirect()->route('totalCart');
-		// $content = Cart::content();
-		// echo "<pre>";
-		// print_r($content);
-		// echo "</pre>";
-		// return view('shop.pages.shopping-cart')->with([
-		// 	'product_add_cart' => $product_add_cart
-		// ]);
+		$content = Cart::content();
+		echo "<pre>";
+		print_r($content);
+		echo "</pre>";
+		return view('shop.pages.shopping-cart')->with([
+			'product_add_cart' => $product_add_cart
+		]);
 	}
 
 	// public function addCart($id) {
