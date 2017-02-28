@@ -128,10 +128,8 @@ class HomeController extends Controller {
 			]);
 
 //        $content = Cart::content();
-        return redirect()->route('totalCart');
-//		 return view('shop.pages.shopping-cart')->with([
-//		 	'product_add_cart' => $product_add_cart
-//		 ]);
+//        return redirect()->route('totalCart');
+		 return view('shop.pages.shopping-cart');
 	}
 
 	// public function addCart($id) {
