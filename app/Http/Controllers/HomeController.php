@@ -40,9 +40,22 @@ class HomeController extends Controller {
 			]);
 	}
 
-	// public function listProducts() {
+	public function listProducts($id) {
+		$list_products      = Product::select()->where('cate_id', $id)->paginate(3);
+		$list_cate_products = Cate::select('parent_id')->where('id', $list_products[0]->cate_id)->first();
+		$menu_cates         = Cate::select('id', 'name', 'alias')->where('parent_id', $list_cate_products->parent_id)->get();
+		$lastest_product    = Product::select('id', 'name', 'price', 'image', 'cate_id')->orderBy('id', 'DESC')->take(3)->get();
+		$newest_products = Product::select('id','name','price','image','cate_id')->orderBy('id','DESC')->take(3)->get();
+		
+		foreach ($newest_products as $v){
+			$newest_name_product = Cate::select('name')->where('id', $v->cate_id)->get()->toJson();
+			// $parse_newest = json_encode($newest_name_product);
+			// $p_newst = json_decode($newest_name_product);
+		}
+		$p_newst = json_decode($newest_name_product);
+		return view('shop.pages.cate', compact('list_products','newest_products','newest_name_product','parse_newest','p_newst'));
+	}
 
-	// }
 	public function listProductsDetail($id) {
 		$list_products      = Product::select()->where('cate_id', $id)->paginate(3);
 		$list_cate_products = Cate::select('parent_id')->where('id', $list_products[0]->cate_id)->first();
