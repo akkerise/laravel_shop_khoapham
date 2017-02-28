@@ -33,7 +33,6 @@ AkKe Product Detail
             @if(count($cart)>0)
             @foreach ($cart as $p)
               <tr>
-                {{-- {{ dd($p) }} --}}
                 <td class="image"><a href="#"><img title="product" alt="product" src="{{ asset('/image/'.$p->options['img']) }}" height="50" width="50"></a></td>
                 <td  class="name"><a href="#">{{ $p->name }}</a></td>
                 <td class="quantity"><input class="qty span1" type="text" size="1" value="{{ $p->qty }}" name="quantity[40]">

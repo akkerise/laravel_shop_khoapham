@@ -115,7 +115,7 @@ class HomeController extends Controller {
 
 	public function addCart($id) {
 		$product_add_cart = Product::select()->where('id', $id)->first();
-        dd($product_add_cart);
+//        dd($product_add_cart);
 		Cart::add([
 				'id'      => $id,
 				'name'    => $product_add_cart->name,
@@ -127,7 +127,7 @@ class HomeController extends Controller {
 				]
 			]);
 
-        $content = Cart::content();
+//        $content = Cart::content();
         return redirect()->route('totalCart');
 //		 return view('shop.pages.shopping-cart')->with([
 //		 	'product_add_cart' => $product_add_cart
