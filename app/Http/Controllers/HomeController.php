@@ -127,7 +127,8 @@ class HomeController extends Controller {
 				]
 			]);
 
-//        $cart = Cart::content();
+        $cart = Cart::content();
+        dd($cart);
         return redirect()->route('totalCart');
 //		 return view('shop.pages.shopping-cart');
 	}
