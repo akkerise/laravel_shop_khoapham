@@ -142,7 +142,8 @@ class HomeController extends Controller {
 
 	public function totalCart() {
 	    $cart = Cart::content();
-		return view('shop.pages.shopping-cart',compact('cart'));
+	    $cartTotal = Cart::total();
+		return view('shop.pages.shopping-cart',compact('cart','cartTotal'));
 	}
 
 	public function deleteIdCart($id) {
