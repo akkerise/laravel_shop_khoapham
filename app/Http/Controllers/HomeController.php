@@ -127,9 +127,8 @@ class HomeController extends Controller {
 				]
 			]);
 
-        $cart = Cart::content();
-//        dd($cart);
-        return redirect('/cart');
+//        $cart = Cart::content();
+        return redirect()->route('totalCart');
 //		 return view('shop.pages.shopping-cart');
 	}
 
@@ -142,9 +141,7 @@ class HomeController extends Controller {
 //	 }
 
 	public function totalCart() {
-	    dd(1);
 	    $cart = Cart::content();
-	    dd($cart);
 		return view('shop.pages.shopping-cart',compact('cart'));
 	}
 
