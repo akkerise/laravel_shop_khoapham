@@ -16,11 +16,12 @@ use Validator;
 class HomeController extends Controller {
 	/**
 	 * Create a new controller instance.
-	 *
+	 **9-
+     * 
 	 * @return void
 	 */
 	public function __construct() {
-		$this->middleware('guest');
+//		$this->middleware('guest');
 	}
 
 	/**
@@ -96,7 +97,7 @@ class HomeController extends Controller {
 		// dd($request->email);
 		$validation = Validator::make($request->all(), $rule, $message);
 
-		if ($validation   ->fails()) {
+		if ($validation->fails()) {
 			return redirect()->back()->withInput()->withErrors($validation);
 		} else {
 			$email = $request->input('email');
@@ -115,7 +116,6 @@ class HomeController extends Controller {
 
 	public function addCart($id) {
 		$product_add_cart = Product::select()->where('id', $id)->first();
-//        dd($product_add_cart);
 		Cart::add([
 				'id'      => $id,
 				'name'    => $product_add_cart->name,
@@ -132,18 +132,17 @@ class HomeController extends Controller {
 //		 return view('shop.pages.shopping-cart');
 	}
 
-	// public function addCart($id) {
-	// 	// CartItem::setCartItem($id);
-	// 	$product_add_cart = Product::select()->where('id', $id)->first();
-	// 	CartItem::setAttr($product_add_cart->id, $product_add_cart->name, $product_add_cart->alias, 1, $product_add_cart->price, $product_add_cart->image);
-	// 	return view('shop.pages.shopping-cart');
-	// 	// need fixed
-	// }
+//	 public function addCart($id) {
+//	 	// CartItem::setCartItem($id);
+//	 	$product_add_cart = Product::select()->where('id', $id)->first();
+//	 	CartItem::setAttr($product_add_cart->id, $product_add_cart->name, $product_add_cart->alias, 1, $product_add_cart->price, $product_add_cart->image);
+//	 	return view('shop.pages.shopping-cart');
+//	 	// need fixed
+//	 }
 
 	public function totalCart() {
 	    $cart = Cart::content();
 		return view('shop.pages.shopping-cart',compact('cart'));
-
 	}
 
 	public function deleteIdCart($id) {

@@ -7,7 +7,7 @@ $(document).ready(function(){
     var token = $(this).parent().parent().parent().find('.token').val();
     // var token = $('input[name="_token"]').val();
     $.ajax({
-    	url: '/update_cart/'+rowId+'/'+qty,
+    	url: '/update_cart/' + rowId + '/' + qty,
     	type: 'GET',
     	cache: false,
     	data: {
