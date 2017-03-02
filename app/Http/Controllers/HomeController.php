@@ -166,9 +166,10 @@ class HomeController extends Controller {
 //	}
 
 	public function ajaxLoadMore() {
-        $page  = Request::get('page');
+//        $page  = Request::get('page');
+        $page = $_GET['page'];
 		$products4 = Product::paginate(4*($page +1));
-		return $page;
+		return $products4;
 	}
 
 	public function getMyAccout() {
