@@ -170,7 +170,7 @@ class HomeController extends Controller {
         $page = $_GET['page'];
         $page++;
 		$products4 = Product::paginate(4*$page);
-		return $products4;
+		return $page;
 	}
 
 	public function getMyAccout() {
