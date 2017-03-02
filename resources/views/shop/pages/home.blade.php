@@ -35,7 +35,6 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       @endif
       {{-- <form class="" action="" method="post"> --}}
         <input id="token" id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button type="button" onclick="loadMore()" class="btn btn-default">Load More ...</button>
         <button class="btn btn-info"  onclick="loadMore()">Load More</button>
       {{-- </form> --}}
       <div id="data"></div>
@@ -73,27 +72,29 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
 </section>
 @endsection
 <script>
-function loadMore(){
-  // var token = $(this).parent().parent().parent().find('.token').val();
-  // $.post('/', {'_token':token ,'qty':4}
-  //       ,function(result){
-  //           console.log(result);
-  //         });
-  var token = $('#token').val();
+$(document).ready(function () {
+    function loadMore(){
+        // var token = $(this).parent().parent().parent().find('.token').val();
+        // $.post('/', {'_token':token ,'qty':4}
+        //       ,function(result){
+        //           console.log(result);
+        //         });
+        var token = $('#token').val();
 //  var qty+=4;
-  $.get('/ajax/' + qty ,
-    {token: token, qty: qty},
-    function(data) {
-      // $('.container').html(data.id);
+        $.get('/ajax/' + qty ,
+            {token: token, qty: qty},
+            function(data) {
+                // $('.container').html(data.id);
 
-      var list = "<div>";
-      for (var i = 0; i < data.length; i++) {
-        list += '<li class="span3 fix-price"> <a class="prdocutname" href="/product-detail/' + data[i].id + '"></a> <div class="thumbnail"> <span class="sale tooltip-test" data-original-title="">Sale</span> <a href="#"><img alt="" src="/image/' + data[i].image + '"></a> <div class="pricetag"> <span class="spiral"></span><a href="/add-cart/' +data[i].id+ '/" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ data[i].price +'</div> </div> </div> </div> </li>';
-      }
-      list += "</div>";
-      console.log(list);
-      $('#data').html(list);
-  });
-}
+                var list = "<div>";
+                for (var i = 0; i < data.length; i++) {
+                    list += '<li class="span3 fix-price"> <a class="prdocutname" href="/product-detail/' + data[i].id + '"></a> <div class="thumbnail"> <span class="sale tooltip-test" data-original-title="">Sale</span> <a href="#"><img alt="" src="/image/' + data[i].image + '"></a> <div class="pricetag"> <span class="spiral"></span><a href="/add-cart/' +data[i].id+ '/" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ data[i].price +'</div> </div> </div> </div> </li>';
+                }
+                list += "</div>";
+                console.log(list);
+                $('#data').html(list);
+            });
+    }
+});
 
 </script>
