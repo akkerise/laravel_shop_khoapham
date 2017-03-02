@@ -165,15 +165,16 @@ class HomeController extends Controller {
 		return route('home');
 	}
 
-	public function ajax($qty) {
-		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
-		$id_need         = array();
-		foreach ($id_skip_product as $key) {
-			array_push($id_need, $key->id);
-		}
-//        $products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
-//        $qty += 4;
-		$products = Product::select()->orderBy('id', 'DESC')->offset($qty)->take(4)->get()->toArray();
+	public function ajaxLoadMore() {
+//		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
+//		$id_need         = array();
+//		foreach ($id_skip_product as $key) {
+//			array_push($id_need, $key->id);
+//		}
+////        $products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
+////        $qty += 4;
+//		$products = Product::select()->orderBy('id', 'DESC')->offset($qty)->take(4)->get()->toArray();
+        $products = 1;
 		return $products;
 	}
 
