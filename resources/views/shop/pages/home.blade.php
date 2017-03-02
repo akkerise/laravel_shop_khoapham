@@ -36,6 +36,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       {{-- <form class="" action="" method="post"> --}}
         <input id="token" id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
         <button type="button" onclick="loadMore()" class="btn btn-default">Load More ...</button>
+        <button class="btn btn-info"  onclick="loadMore()">Load More</button>
       {{-- </form> --}}
       <div id="data"></div>
 
