@@ -72,8 +72,10 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
 </section>
 @endsection
 <script>
+  var page = 0;
 function loadMore(){
   var token = $('#token').val();
+  page++;
   $.ajax({
       method: "get",
       url: "https://limitless-peak-35722.herokuapp.com/ajax-loadmore?page=" + page,
