@@ -21,7 +21,7 @@ Route::get('test', function () {
 		return view('admin.cate.cate_list');
 	});
 // Ajax LoadMore
-Route::get('/ajax-loadmore/{page}', 'HomeController@ajaxLoadMore');
+Route::get('/ajax-loadmore', 'HomeController@ajaxLoadMore');
 
 Route::group(['prefix' => 'admin'], function () {
 
