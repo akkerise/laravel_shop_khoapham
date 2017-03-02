@@ -165,10 +165,9 @@ class HomeController extends Controller {
 //		return route('home');
 //	}
 
-	public function ajaxLoadMore() {
-        $qty = $_GET['qty'];
+	public function ajaxLoadMore($page) {
 		$products = Product::select()->orderBy('id', 'DESC')->take(4)->get()->toArray();
-		return $qty;
+		return $page;
 	}
 
 	public function getMyAccout() {

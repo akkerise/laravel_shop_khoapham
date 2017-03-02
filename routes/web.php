@@ -20,8 +20,8 @@ function () {
 Route::get('test', function () {
 		return view('admin.cate.cate_list');
 	});
-
-Route::get('/ajax-loadmore/{qty}', 'HomeController@ajaxLoadMore');
+// Ajax LoadMore
+Route::get('/ajax-loadmore/{page}', 'HomeController@ajaxLoadMore');
 
 Route::group(['prefix' => 'admin'], function () {
 
