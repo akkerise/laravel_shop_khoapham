@@ -160,20 +160,15 @@ class HomeController extends Controller {
 		}
 	}
 
-	public function showMoreProducts() {
-		$showMoreProducts = Product::select()->take(4)->get();
-		return route('home');
-	}
+//	public function showMoreProducts() {
+//		$showMoreProducts = Product::select()->take(4)->get();
+//		return route('home');
+//	}
 
-	public function ajaxLoadMore() {
-//		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
-//		$id_need         = array();
-//		foreach ($id_skip_product as $key) {
-//			array_push($id_need, $key->id);
-//		}
-////        $products = Product::select()->orderBy('id', 'DESC')->offset([$id_need[0], $id_need[1], $id_need[2], $id_need[3]])->limit(4)->get()->toArray();
+	public function ajaxLoadMore($qty) {
+
 		$products = Product::select()->orderBy('id', 'DESC')->take(4)->get()->toArray();
-		return $products;
+		return $qty;
 	}
 
 	public function getMyAccout() {
