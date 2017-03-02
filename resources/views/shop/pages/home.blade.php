@@ -81,7 +81,7 @@ function loadMore(){
       url: "https://limitless-peak-35722.herokuapp.com/ajax-loadmore?page=" + page,
       data: {token: token , page: page},
       success: function (data) {
-          console.log(data[0]);
+          console.log(data);
 
       }
   });
