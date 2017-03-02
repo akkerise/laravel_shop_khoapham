@@ -165,9 +165,9 @@ class HomeController extends Controller {
 //		return route('home');
 //	}
 
-	public function ajaxLoadMore($page) {
-		$products = Product::select()->orderBy('id', 'DESC')->take(4)->get()->toArray();
-		return $page;
+	public function ajaxLoadMore() {
+		$products4 = Product::paginate(4);
+		return $products4;
 	}
 
 	public function getMyAccout() {
