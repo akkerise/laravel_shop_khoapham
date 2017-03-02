@@ -77,7 +77,7 @@ function loadMore(){
   $.ajax({
       method: "get",
       url: "https://limitless-peak-35722.herokuapp.com/ajax-loadmore",
-      data: {qty: 4, token: token},
+      data: {token: token},
       success: function (data) {
           console.log(data);
       }
