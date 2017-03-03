@@ -61,7 +61,7 @@
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ secure_url('/shop/js/jquery.js') }}"></script>
+<script src="{{ secure_url('shop.js.jquery.js') }}"></script>
 <script src="{{ secure_url('/shop/js/bootstrap.js') }}"></script>
 <script src="{{ secure_url('/shop/js/respond.min.js') }}"></script>
 <script src="{{ secure_url('/shop/js/application.js') }}"></script>

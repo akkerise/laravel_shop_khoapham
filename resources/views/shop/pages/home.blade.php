@@ -82,7 +82,7 @@ function loadMore(){
       data: {token: token},
       success: function (obj) {
           obj = $.parseJSON(obj);
-          console.log(obj.data);
+//          console.log(obj.data);
           var arrObject = obj.data;
           for (i=0;i<4;i++){
               $('#featured_products').append('<li class="span3 fix-price"> <a class="prdocutname" href="https://limitless-peak-35722.herokuapp.com/product-detail/'+ arrObject[i].id + '?' + arrObject[i].name+'">' + arrObject[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="https://limitless-peak-35722.herokuapp.com/image/'+ arrObject[i].image +'"></a> <div class="pricetag"> <span class="spiral"></span><a href="https://limitless-peak-35722.herokuapp.com/add-cart/'+ arrObject[i].id +'" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ arrObject[i].price +'</div> </div> </div> </div> </li>');
