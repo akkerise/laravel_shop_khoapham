@@ -84,7 +84,7 @@ function loadMore(){
           data = $.parseJSON(data);
           console.log(data);
           $(data).each(function (index) {
-              console.log(index);
+              console.log(index['alias']);
           })
       }
   });
