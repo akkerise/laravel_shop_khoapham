@@ -88,8 +88,9 @@ function loadMore(){
           for (i=0;i<4;i++){
               htmlli += '<li class="span3 fix-price"> <a class="prdocutname" href="https://limitless-peak-35722.herokuapp.com/product-detail/'+ arrObject[i].id + '?' + arrObject[i].name+'">' + arrObject[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="https://limitless-peak-35722.herokuapp.com/image/'+ arrObject[i].image +'"></a> <div class="pricetag"> <span class="spiral"></span><a href="https://limitless-peak-35722.herokuapp.com/add-cart/'+ arrObject[i].id +'" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ arrObject[i].price +'</div> </div> </div> </div> </li></ul>';
           }
-          var html = '<ul id="featured_products" class="thumbnails">'+ htmlli +'</ul>';
-          $('#top').append(html);
+          console.log(htmlli);
+//          var html = '<ul id="featured_products" class="thumbnails">'+ htmlli +'</ul>';
+//          $('#top').append(html);
       },
       error: function () {
           console.log('Error Parse Data');
