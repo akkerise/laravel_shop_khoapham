@@ -90,6 +90,9 @@ function loadMore(){
           {
               console.log(index + " : " + optionData);
           });
+          $.map( data, function( n, i ) {
+              return console.log(n.toUpperCase() + i );
+          });
 
       },
       error: function () {
