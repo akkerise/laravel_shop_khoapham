@@ -87,7 +87,7 @@ function loadMore(){
           var arrObject = obj.data;
           for (i=0;i<4;i++){
               console.log(arrObject[i]);
-              $featured_products.append('<li class="span3 fix-price"> <a class="prdocutname" href="http://limitless-peak-35722.herokuapp.com/product-detail/d">{{ $product->name }}</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="{{ secure_url('/image/'). "/" . $product->image }}"></a> <div class="pricetag"> <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ {{ number_format($product->price) }}</div> </div> </div> </div> </li>');
+              $featured_products.append('<li class="span3 fix-price"> <a class="prdocutname" href="{{ route('productDetail',[$product->id,$product->name]) }}">"+ arrObject[i]->name +"</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="{{ secure_url('/image/'). "/" . $product->image }}"></a> <div class="pricetag"> <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ {{ number_format($product->price) }}</div> </div> </div> </div> </li>');
           }
       },
       error: function () {
