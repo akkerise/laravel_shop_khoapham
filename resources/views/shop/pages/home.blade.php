@@ -35,7 +35,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
       @endif
       {{-- <form class="" action="" method="post"> --}}
         <input id="token" id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button class="btn btn-info"  onclick="loadMore()">Load More</button>
+        <button id="loadMore" class="btn btn-info"  onclick="loadMore()">Load More</button>
       {{-- </form> --}}
       <div id="data"></div>
 
@@ -90,7 +90,9 @@ function loadMore(){
           }
 //          console.log(htmlli);
           var html = '<ul id="featured_products" class="thumbnails">'+ htmlli +'</ul>';
+          var loadMore = $('#loadMore').remove();
           $('#top').append(html);
+          $('#top').append('<button id="loadMore" class="btn btn-info"  onclick="loadMore()">Load More</button>');
       },
       error: function () {
           console.log('Error Parse Data');
