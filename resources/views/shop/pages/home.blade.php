@@ -82,6 +82,7 @@ function loadMore(){
       data: {token: token , page: page},
       success: function (data) {
           data = $.parseJSON(data);
+          console.log(data);
           for(d in data){
               console.log(d['alias']);
           }
