@@ -83,7 +83,9 @@ function loadMore(){
       success: function (data) {
           data = $.parseJSON(data);
           console.log(data);
-          console.log(data[0]);
+          $(data).each(function (i) {
+              console.log(i);
+          });
       },
       error: function () {
           console.log('Error Parse Data');
