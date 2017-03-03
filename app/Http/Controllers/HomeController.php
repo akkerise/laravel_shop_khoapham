@@ -169,7 +169,7 @@ class HomeController extends Controller {
 //        $page  = Request::get('page');
 //        $page = $_GET['page'];
 		$products4 = Product::simplePaginate(4);
-		return $products4;
+		return json_encode($products4);
 	}
 
 	public function getMyAccout() {

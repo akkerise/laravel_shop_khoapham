@@ -80,11 +80,9 @@ function loadMore(){
       method: "get",
       url: "https://limitless-peak-35722.herokuapp.com/ajax-loadmore?page=" + page,
       data: {token: token , page: page},
-      success: function (datas) {
-//          console.log(data);
-          for(data in datas){
-              console.log(data);
-          }
+      success: function (data) {
+          data = $.parseJSON(data);
+          console.log(data);
       }
   });
 }
