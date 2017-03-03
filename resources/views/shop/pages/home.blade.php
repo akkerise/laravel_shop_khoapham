@@ -82,7 +82,7 @@ function loadMore(){
       data: {token: token , page: page},
       success: function (obj) {
           obj = $.parseJSON(obj);
-          console.log(obj.data);
+          console.log(obj.data[0]);
       },
       error: function () {
           console.log('Error Parse Data');
