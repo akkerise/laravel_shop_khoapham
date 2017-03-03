@@ -11,7 +11,7 @@ $products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip
 $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
 ?>
 <section id="featured" class="row mt40">
-  <div class="container">
+  <div class="container" id="top">
     <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
     <ul id="featured_products" class="thumbnails">
 
@@ -84,9 +84,12 @@ function loadMore(){
           obj = $.parseJSON(obj);
 //          console.log(obj.data);
           var arrObject = obj.data;
+          var htmlli = '';
           for (i=0;i<4;i++){
-              $('#featured_products').append('<ul id="featured_products" class="thumbnails"><li class="span3 fix-price"> <a class="prdocutname" href="https://limitless-peak-35722.herokuapp.com/product-detail/'+ arrObject[i].id + '?' + arrObject[i].name+'">' + arrObject[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="https://limitless-peak-35722.herokuapp.com/image/'+ arrObject[i].image +'"></a> <div class="pricetag"> <span class="spiral"></span><a href="https://limitless-peak-35722.herokuapp.com/add-cart/'+ arrObject[i].id +'" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ arrObject[i].price +'</div> </div> </div> </div> </li></ul>');
+              htmlli += '<li class="span3 fix-price"> <a class="prdocutname" href="https://limitless-peak-35722.herokuapp.com/product-detail/'+ arrObject[i].id + '?' + arrObject[i].name+'">' + arrObject[i].name + '</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="https://limitless-peak-35722.herokuapp.com/image/'+ arrObject[i].image +'"></a> <div class="pricetag"> <span class="spiral"></span><a href="https://limitless-peak-35722.herokuapp.com/add-cart/'+ arrObject[i].id +'" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ '+ arrObject[i].price +'</div> </div> </div> </div> </li></ul>';
           }
+          var html = '<ul id="featured_products" class="thumbnails">'+ htmlli +'</ul>';
+          $('#top').append(html);
       },
       error: function () {
           console.log('Error Parse Data');
