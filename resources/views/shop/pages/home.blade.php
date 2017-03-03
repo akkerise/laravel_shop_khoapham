@@ -86,6 +86,11 @@ function loadMore(){
           $(data).each(function (i) {
               console.log(i);
           });
+          $.each(data, function(index, optionData) //the same as FOR - OptionData = data trả về
+          {
+              console.log(index + " : " + optionData);
+          });
+
       },
       error: function () {
           console.log('Error Parse Data');
