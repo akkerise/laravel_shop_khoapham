@@ -83,7 +83,7 @@ function loadMore(){
       success: function (data) {
           data = $.parseJSON(data);
           for(d in data){
-              console.log(d.alias);
+              console.log(d['alias']);
           }
       }
   });
