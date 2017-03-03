@@ -91,7 +91,6 @@ function loadMore(){
               }
           }else{
               $('#top').append('<h1>Not More Result</h1>');
-              break;
           }
 //          console.log(htmlli);
           var html = '<ul id="featured_products" class="thumbnails">'+ htmlli +'</ul>';
