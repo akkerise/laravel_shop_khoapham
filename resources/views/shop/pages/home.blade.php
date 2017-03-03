@@ -80,20 +80,9 @@ function loadMore(){
       method: "get",
       url: "https://limitless-peak-35722.herokuapp.com/ajax-loadmore?page=" + page,
       data: {token: token , page: page},
-      success: function (data) {
-          data = $.parseJSON(data);
-          console.log(data);
-          $(data).each(function (i) {
-              console.log(i);
-          });
-          $.each(data, function(index, optionData) //the same as FOR - OptionData = data trả về
-          {
-              console.log(index + " : " + optionData);
-          });
-          $.map( data, function( n, i ) {
-              return console.log(n.toUpperCase() + i );
-          });
-
+      success: function (obj) {
+          obj = $.parseJSON(obj);
+          console.log(obj.data);
       },
       error: function () {
           console.log('Error Parse Data');
