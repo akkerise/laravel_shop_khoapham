@@ -13,7 +13,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
 <section id="featured" class="row mt40">
   <div class="container">
     <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
-    <ul class="thumbnails">
+    <ul id="featured_products" class="thumbnails">
 
       @if(!empty($products))
       @foreach($products as $product)
@@ -75,6 +75,7 @@ $products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(
   var page = 0;
 function loadMore(){
   var token = $('#token').val();
+  var featured_products = $('#featured_products');
   page++;
   $.ajax({
       method: "get",
@@ -86,6 +87,7 @@ function loadMore(){
           var arrObject = obj.data;
           for (i=0;i<4;i++){
               console.log(arrObject[i]);
+              $featured_products.append('<li class="span3 fix-price"> <a class="prdocutname" href="http://limitless-peak-35722.herokuapp.com/product-detail/d">{{ $product->name }}</a> <div class="thumbnail"> <span class="sale tooltip-test">Sale</span> <a href="#"><img alt="" src="{{ secure_url('/image/'). "/" . $product->image }}"></a> <div class="pricetag"> <span class="spiral"></span><a href="{{ route('addCart',[$product->id,$product->name]) }}" class="productcart">ADD TO CART</a> <div class="price"> <div class="pricenew">VNĐ {{ number_format($product->price) }}</div> </div> </div> </div> </li>');
           }
       },
       error: function () {
