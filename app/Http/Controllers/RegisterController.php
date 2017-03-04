@@ -28,7 +28,7 @@ class RegisterController extends Controller {
 			$user->username = $request->username;
 			$user->password = Hash::make($request->password);
 			$user->email    = $request->email;
-			$user->level    = 2;
+			$user->level    = 3;
 			$user->save();
 
 			return redirect('/')->with([

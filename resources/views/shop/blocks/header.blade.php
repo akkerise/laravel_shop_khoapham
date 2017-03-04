@@ -23,7 +23,7 @@
           <!-- Top Nav End -->
           <div class="pull-right log-reg">
             <ul class="nav">
-              <li><button type="button" class="btn" name="button"><span class="glyphicon glyphicon-log-in"></span> <a href="{{ secure_url('admin/login') }}">Login</a></button></li>
+              <li><button type="button" class="btn" name="button"><span class="glyphicon glyphicon-log-in"></span> <a href="{{ secure_url('admin/login') }}" id="btn-login">Login</a></button></li>
               <li><button type="button" class="btn" name="button"><span class="glyphicon glyphicon-registration-mark"></span> <a href="{{ secure_url('register') }}">Register</a></button></li>
             </ul>
           </div>
@@ -31,3 +31,9 @@
       </div>
     </div>
   </div>
+<script type="text/javascript">
+  $('#btn-login').addEventListener('click',function () {
+      alert(1);
+      return false;
+  })
+</script>
