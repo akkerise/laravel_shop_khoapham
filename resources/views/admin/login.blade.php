@@ -33,7 +33,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="{{ route('admin.login.postLogin') }}" method="POST">
+                        <form role="form" action="{{ route(secure_url('admin.login.postLogin')) }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 @include('admin.blocks.errors')
