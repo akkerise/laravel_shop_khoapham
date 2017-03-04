@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
 			});
 
 		Route::get(secure_url('login'), 'Auth\LoginController@getLogin')->name('admin.login.getLogin');
-		Route::post(secure_url('login'), 'Auth\LoginController@postLogin')->name('admin.login.postLogin');
+		Route::post('login', 'Auth\LoginController@postLogin')->name('admin.login.postLogin');
 		// Route::get('logout', 'Auth\LoginController@getLogout');
 		Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
