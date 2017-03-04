@@ -98,4 +98,4 @@ Route::get('/test_id', function () {
 			array_push($id_need, $key->id);
 		}
 		dd($id_need[0]);
-	});
+});

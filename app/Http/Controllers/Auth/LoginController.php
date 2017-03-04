@@ -45,7 +45,7 @@ class LoginController extends Controller {
 	}
 
 	public function getLogin() {
-		return view('admin.login');
+		return view(secure_url('admin.login'));
 	}
 
 	public function postLogin(AdminLoginRequest $request) {
