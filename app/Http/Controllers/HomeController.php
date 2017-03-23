@@ -184,6 +184,7 @@ class HomeController extends Controller {
 	    $data = [];
 	    $msg = "Bạn đã hoàn thành giao dịch";
 	    $link = 'limitless-peak-35722.herokuapp.com/';
-        return array_push($data,$msg,$link);
+	    $vl = array_push($data,$msg,$link)
+        return $vl;
     }
 }
