@@ -181,8 +181,8 @@ class HomeController extends Controller {
     public function checkOutSuccess(){
 	    $data = [];
 	    $msg = "Bạn đã hoàn thành giao dịch";
-	    $link = 'limitless-peak-35722.herokuapp.com/';
+	    $link = 'http://www.limitless-peak-35722.herokuapp.com/';
 	    array_push($data,$msg,$link);
-        echo $data;
+        return $data;
     }
 }
