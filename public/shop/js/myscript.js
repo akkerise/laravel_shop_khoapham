@@ -27,16 +27,16 @@ $(document).ready(function(){
 $('#flash-message').delay(3000).slideUp();
 
 $(document).ready(function () {
-	var msg = 'Bạn đã thanh toán thành công';
-	var link = 'https://limitless-peak-35722.herokuapp.com/';
+	// var msg = 'Bạn đã thanh toán thành công';
+	// var link = 'https://limitless-peak-35722.herokuapp.com/';
     var elementRemove = $('.container');
     $.ajax({
         url: '/thanhtoanthanhcong/',
         type: 'GET',
         cache: false,
         data: {
-			'msg':msg,
-			'link':link,
+			// 'msg':msg,
+			// 'link':link,
         },
         success: function(data){
             data = $.parseJSON(data);
