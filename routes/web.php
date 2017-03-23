@@ -101,3 +101,5 @@ Route::get('/test_id', function () {
 		}
 		dd($id_need[0]);
 });
+
+Route::get('/nganluong_e004797d8856a81e885f72589b791e35.html','HomeController@xacthucnganluong');

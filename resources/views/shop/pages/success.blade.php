@@ -4,6 +4,33 @@
     AkKe Product Detail
 @endsection
 @section('content')
+        <?php
+            require_once('/public/checkout2.5.PHP/lib/susoap.php');
+            require_once('/public/checkout2.5.PHP/lib/nganluong.apps.mcflow.js');
+            require_once('/public/checkout2.5.PHP/lib/nganluong.microcheckout.class.php');
+
+            $inputs = [
+                'receiver' => RECEIVER,
+                'order_code' => 'DH-'.date('His-dmY'),
+                'return_url' => url('/thanhtoanthanhcong'),
+                'cancel_url' => 'https://www.limitless-peak-35722.herokuapp.com',
+                'language' => 'vn'
+            ];
+            $link_checkout = '';
+            $obj = new NL_MicroCheckout(MERCHANT_ID,MERCHANT_PASS,URL_WS);
+            $result = $obj->setExpressCheckoutDeposit($inputs);
+            if($result != false){
+                if($result['result_code'] == '00'){
+                    $link_checkout = $result['link_checkout'];
+                    $link_checkout = str_replace('micro_checkout.php?token','index.php?portal=checkout&page=micro_checkout&token_code=', $link_checkout);
+                    $link_checkout .='&payment_option=nganluong';
+                } else{
+                    die('Mã lỗi '.$result['result_code'].' ('.$result['result_description'].') ');
+                }
+            } else {
+                die('Loi ket noi toi cong thanh toan ngan luong');
+            }
+        ?>
     <div id="maincontainer">
         <section id="product">
             <div class="container">
