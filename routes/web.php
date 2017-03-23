@@ -91,7 +91,7 @@ Route::get('/callback', 'SocialAuthController@callback');
 // Route
 // Route::get('/test','HomeController@productDetail');
 
-Route::get('/thanhtoan', function (){
+Route::get('/thanhtoanthanhcong', function (){
     echo "Giao dịch thành công nhé bạn không phải lo";
 });
 
