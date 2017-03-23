@@ -188,6 +188,6 @@ class HomeController extends Controller {
     }
 
     public function xacthucnganluong(){
-        return header('Location: https://limitless-peak-35722.herokuapp.com/nganluong_e004797d8856a81e885f72589b791e35.html');
+        return view('xacthucnganluong.nganluong_e004797d8856a81e885f72589b791e35.html');
     }
 }
