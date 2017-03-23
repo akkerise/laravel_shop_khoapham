@@ -16,6 +16,7 @@
                   </li>
                   <li><a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
                   </li>
+                  <li><a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a></li>
                 </ul>
               </div>
             </div>
