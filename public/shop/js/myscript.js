@@ -43,7 +43,7 @@ $(document).ready(function () {
             console.log(data);
 			// elementRemove.children().remove();
 			elementRemove.html('');
-			elementRemove.append('<h1 class="heading1">'+ data['msg'] +'</h1>'+'<br><a href="'+ data['link'] +'"></a>');
+			elementRemove.append('<h1 class="heading1">'+ data[0] +'</h1>'+'<br><a href="'+ data[1] +'"></a>');
         }
     });
 });
