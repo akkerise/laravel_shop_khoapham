@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Cate;
-
 use App\Product;
 use App\ProductImage;
 use Cart;
-
 // use Darryldecode\Cart\Facades\CartFacade as Cart;
 use Illuminate\Http\Request;
 use Mail;
@@ -184,7 +182,7 @@ class HomeController extends Controller {
 	    $data = [];
 	    $msg = "Bạn đã hoàn thành giao dịch";
 	    $link = 'limitless-peak-35722.herokuapp.com/';
-	    $vl = array_push($data,$msg,$link);
-        echo $vl;
+	    array_push($data,$msg,$link);
+        echo $data;
     }
 }
