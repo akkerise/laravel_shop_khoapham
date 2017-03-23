@@ -65,7 +65,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
                     <h1 class="heading1">{{ $msg }}</h1>' + '<br><a href="{{ $link }}"></a>
-                    {{ $result_code }}
+                    {{ dd($result) }}
                 </div>
             </div>
         </section>
