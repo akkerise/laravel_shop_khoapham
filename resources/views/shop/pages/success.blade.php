@@ -5,9 +5,9 @@
 @endsection
 @section('content')
         <?php
-            require_once('/public/checkout2.5.PHP/lib/susoap.php');
-            require_once('/public/checkout2.5.PHP/lib/nganluong.apps.mcflow.js');
-            require_once('/public/checkout2.5.PHP/lib/nganluong.microcheckout.class.php');
+            require_once('/public/checkout2.5.PHP/include/lib/susoap.php');
+            require_once('/public/checkout2.5.PHP/include/nganluong.apps.mcflow.js');
+            require_once('/public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
 
             $inputs = [
                 'receiver' => RECEIVER,
