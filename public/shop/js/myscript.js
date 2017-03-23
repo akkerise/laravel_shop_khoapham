@@ -16,6 +16,7 @@ $(document).ready(function(){
     		"qty":qty
     	},
     	success: function(data){
+    		data = $.parseJSON(data);
     		if(data == "OK"){
     			window.location = "cart"
     		}
@@ -24,3 +25,25 @@ $(document).ready(function(){
 });
 });
 $('#flash-message').delay(3000).slideUp();
+
+$(document).ready(function () {
+	// var msg = 'Bạn đã thanh toán thành công';
+	// var link = 'https://limitless-peak-35722.herokuapp.com/';
+    var elementRemove = $('.container');
+    $.ajax({
+        url: '/thanhtoanthanhcong/',
+        type: 'GET',
+        cache: false,
+        data: {
+			// 'msg':msg,
+			// 'link':link,
+        },
+        success: function(data){
+            data = $.parseJSON(data);
+            console.log(data);
+			// elementRemove.children().remove();
+			elementRemove.html('');
+			elementRemove.append('<h1 class="heading1">'+ data[0] +'</h1>'+'<br><a href="'+ data[1] +'"></a>');
+        }
+    });
+});

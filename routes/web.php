@@ -91,6 +91,8 @@ Route::get('/callback', 'SocialAuthController@callback');
 // Route
 // Route::get('/test','HomeController@productDetail');
 
+Route::get('/thanhtoanthanhcong', 'HomeController@checkOutSuccess');
+
 Route::get('/test_id', function () {
 		$id_skip_product = Product::select('id')->orderBy('id', 'DESC')->take(4)->get();
 		$id_need = array();

@@ -8,14 +8,19 @@
             <div class="navbar" id="topnav">
               <div class="navbar-inner">
                 <ul class="nav" >
-                  <li><a class="home active" href="{{ secure_url('/') }}">Home</a>
+                  <li>
+                    <a class="home active" href="{{ secure_url('/') }}">Home</a>
                   </li>
-                  <li><a class="myaccount" href="{!! route('getMyAccout') !!}">My Account</a>
+                  <li>
+                    <a class="myaccount" href="{!! route('getMyAccout') !!}">My Account</a>
                   </li>
-                  <li><a class="shoppingcart" href="#">Shopping Cart</a>
+                  <li>
+                    <a class="shoppingcart" href="#">Shopping Cart</a>
                   </li>
-                  <li><a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
+                  <li>
+                    <a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
                   </li>
+
                 </ul>
               </div>
             </div>
