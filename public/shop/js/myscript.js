@@ -40,9 +40,10 @@ $(document).ready(function () {
         },
         success: function(data){
             data = $.parseJSON(data);
+            console.log(data);
 			// elementRemove.children().remove();
 			elementRemove.html('');
-			elementRemove.append('<h1 class="heading1">Bạn Đã Giao Dịch Thành Công</h1>');
+			elementRemove.append('<h1 class="heading1">'+ data['msg'] +'</h1>'+'<br><a href="'+ data['link'] +'"></a>');
         }
     });
 });
