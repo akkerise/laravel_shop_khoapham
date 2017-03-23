@@ -61,7 +61,7 @@ AkKe Product Detail
             </table>
             <input type="submit" value="CheckOut" class="btn btn-orange pull-right">
 
-              <a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=nguyenthanh.rise.88@gmail.com&product_name=111111&price=888888&return_url={{ secure_url('/thanhtoanthanhcong')  }}&comments='Bạn đã thanh toán thành công đơn hàng'"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a>
+              <a target="_blank" href="http://sandbox.nganluong.vn:8088/nl30/nganluong/button_payment.php?receiver=nguyenthanh.rise.88@gmail.com&product_name=111111&price=888888&return_url={{ secure_url('/thanhtoanthanhcong')  }}&comments='Bạn đã thanh toán thành công đơn hàng'"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a>
             <input type="submit" value="Continue Shopping" class="btn btn-orange pull-right mr10">
           </div>
         </div>
