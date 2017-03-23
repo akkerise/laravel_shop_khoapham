@@ -17,17 +17,17 @@
                 </ul>
                 <h1 class="heading1"><span class="maintext"> Shopping Cart</span><span class="subtext"> All items in your  Shopping Cart</span></h1>
                 <!-- Cart-->
-                <div class="cart-info">
-                    <table class="table table-striped table-bordered">
-                        <tr>
-                            <th class="image">Image</th>
-                            <th class="name">Product Name</th>
-                            <th class="quantity">Qty</th>
-                            <th class="total">Action</th>
-                            <th class="price">Unit Price</th>
-                            <th class="total">Total</th>
+                {{--<div class="cart-info">--}}
+                    {{--<table class="table table-striped table-bordered">--}}
+                        {{--<tr>--}}
+                            {{--<th class="image">Image</th>--}}
+                            {{--<th class="name">Product Name</th>--}}
+                            {{--<th class="quantity">Qty</th>--}}
+                            {{--<th class="total">Action</th>--}}
+                            {{--<th class="price">Unit Price</th>--}}
+                            {{--<th class="total">Total</th>--}}
 
-                        </tr>
+                        {{--</tr>--}}
                         {{--<form action="" method="post" accept-charset="utf-8">--}}
                             {{--<input class="token" type="hidden" name="_token" value="{{ csrf_token() }}">--}}
                             {{--@if(count($cart)>0)--}}
@@ -48,8 +48,8 @@
                                 {{--@endforeach--}}
                             {{--@endif--}}
                         {{--</form>--}}
-                    </table>
-                </div>
+                    {{--</table>--}}
+                {{--</div>--}}
                 <div class="container">
                     {{--<div class="pull-right">--}}
                         {{--<div class="span4 pull-right">--}}
