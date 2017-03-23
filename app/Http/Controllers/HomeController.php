@@ -179,10 +179,10 @@ class HomeController extends Controller {
 	// }
 
     public function checkOutSuccess(){
-	    $data = [];
+//	    $data = [];
 	    $msg = "Bạn đã hoàn thành giao dịch";
 	    $link = 'http://www.limitless-peak-35722.herokuapp.com/';
-	    array_push($data,$msg,$link);
-        return $data;
+//	    array_push($data,$msg,$link);
+        return view('shop.pages.success',compact('msg','link'));
     }
 }
