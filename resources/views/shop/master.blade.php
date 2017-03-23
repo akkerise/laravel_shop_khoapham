@@ -61,8 +61,10 @@
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('/shop/js/jquery.js') }}"></script>
+<script src="{{ secure_url('shop/js/jquery.js') }}"></script>
 <script src="{{ secure_url('/shop/js/bootstrap.js') }}"></script>
+  <script src="{{ secure_url() }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="{{ secure_url('/shop/js/respond.min.js') }}"></script>
 <script src="{{ secure_url('/shop/js/application.js') }}"></script>
 <script src="{{ secure_url('/shop/js/bootstrap-tooltip.js') }}"></script>
