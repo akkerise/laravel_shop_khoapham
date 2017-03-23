@@ -4,9 +4,9 @@
     AkKe Product Detail
 @endsection
 @section('content')
-        @include('/public/checkout2.5.PHP/include/lib/susoap.php');
-        @include('/public/checkout2.5.PHP/include/nganluong.apps.mcflow.js');
-        @include('/public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
+        @include('checkout2.5.PHP/include/lib/susoap.php');
+        @include('checkout2.5.PHP/include/nganluong.apps.mcflow.js');
+        @include('checkout2.5.PHP/include/nganluong.microcheckout.class.php');
         <?php
 
 
