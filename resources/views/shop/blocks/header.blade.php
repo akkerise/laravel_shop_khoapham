@@ -8,15 +8,19 @@
             <div class="navbar" id="topnav">
               <div class="navbar-inner">
                 <ul class="nav" >
-                  <li><a class="home active" href="{{ secure_url('/') }}">Home</a>
+                  <li>
+                    <a class="home active" href="{{ secure_url('/') }}">Home</a>
                   </li>
-                  <li><a class="myaccount" href="{!! route('getMyAccout') !!}">My Account</a>
+                  <li>
+                    <a class="myaccount" href="{!! route('getMyAccout') !!}">My Account</a>
                   </li>
-                  <li><a class="shoppingcart" href="#">Shopping Cart</a>
+                  <li>
+                    <a class="shoppingcart" href="#">Shopping Cart</a>
                   </li>
-                  <li><a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
+                  <li>
+                    <a class="checkout" href="{{ route('totalCart') }}">CheckOut</a>
                   </li>
-                  <li><a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a></li>
+
                 </ul>
               </div>
             </div>
