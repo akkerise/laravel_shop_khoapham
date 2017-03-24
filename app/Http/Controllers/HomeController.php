@@ -206,7 +206,6 @@ class HomeController extends Controller {
 	// define('MERCHANT_ID', '45320'); // Mã kết nối
 	// define('MERCHANT_PASS', 'quintus49K'); // Mật khẩu kết nối 
 	
-	dd(app_path());
 	$libs_config = app_path();
 	$base_path = basePath();
 	$pathWant = substr($base_path,4);
