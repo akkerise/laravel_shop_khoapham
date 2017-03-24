@@ -1,6 +1,6 @@
 <?php
-//include 'checkout20/lib/nganluong.class.php';
-//include 'checkout20/config.php';
+include '/opt/lampp/htdocs/laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nganluong.class.php';
+include '/opt/lampp/htdocs/laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nusoap.php';
 ?>
 @extends('shop.master')
 @section('content')
