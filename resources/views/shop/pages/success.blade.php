@@ -10,32 +10,41 @@
             // include('../../../public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
         ?>
         <?php
-            // $inputs = [
-            //     'receiver' => RECEIVER,
-            //     'order_code' => 'DH-'.date('His-dmY'),
-            //     'return_url' => url('/thanhtoanthanhcong'),
-            //     'cancel_url' => 'https://www.limitless-peak-35722.herokuapp.com',
-            //     'language' => 'vn'
-            // ];
-            // $link_checkout = '';
-            // $obj = new NL_MicroCheckout(MERCHANT_ID,MERCHANT_PASS,URL_WS);
-            // $result = $obj->setExpressCheckoutDeposit($inputs);
-            // if($result != false){
-            //     if($result['result_code'] == '00'){
-            //         $link_checkout = $result['link_checkout'];
-            //         $link_checkout = str_replace('micro_checkout.php?token','index.php?portal=checkout&page=micro_checkout&token_code=', $link_checkout);
-            //         $link_checkout .='&payment_option=nganluong';
-            //     } else{
-            //         die('Mã lỗi '.$result['result_code'].' ('.$result['result_description'].') ');
-            //     }
-            // } else {
-            //     die('Loi ket noi toi cong thanh toan ngan luong');
-            // }
+            include 'checkout20/config.php';
+            include 'checkout20/lib/nganluong.class.php';
+            if (isset($_GET['payment_id'])) {
+                // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
+
+                $transaction_info =$_GET['transaction_info'];
+                $order_code =$_GET['order_code'];
+                $price =$_GET['price'];
+                $payment_id =$_GET['payment_id'];
+                $payment_type =$_GET['payment_type'];
+                $error_text =$_GET['error_text'];
+                $secure_code =$_GET['secure_code'];
+                //Khai báo đối tượng của lớp NL_Checkout
+                $nl= new NL_Checkout();
+                $nl->merchant_site_code = MERCHANT_ID;
+                $nl->secure_pass = MERCHANT_PASS;
+                //Tạo link thanh toán đến nganluong.vn
+                $checkpay= $nl->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code);
+                
+                if ($checkpay) {	
+                    echo 'Payment success: <pre>'; 
+                    // bạn viết code vào đây để cung cấp sản phẩm cho người mua		
+                    print_r($_GET);
+                }else{
+                    echo "payment failed";
+                }
+                
+            }
             
             // var_dump($_GET['payment_id']);
             // var_dump($_GET['secure_code']);
-            var_dump($_GET['token_nl']);
-            exit;
+            // $transaction_info = $_GET['transaction_info'];
+            // $order_code = $_GET['order_code'];
+            // var_dump($_GET['token_nl']);
+            // exit;
         ?>
     <div id="maincontainer">
         <section id="product">
