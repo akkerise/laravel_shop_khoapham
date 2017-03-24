@@ -29,8 +29,7 @@
                 var_dump($payment_id);
                 var_dump($payment_type);
                 echo "</pre>";
-                exit();
-
+                die();
                 //Khai báo đối tượng của lớp NL_Checkout
                 $nl= new NL_Checkout();
                 $nl->merchant_site_code = MERCHANT_ID;
@@ -40,7 +39,8 @@
                 
                 if ($checkpay) {	
                     echo 'Payment success: <pre>'; 
-                    // bạn viết code vào đây để cung cấp sản phẩm cho người mua		
+                    var_dump($checkpay);
+                    exit();		
                     var_dump($_GET);
                 }else{
                     echo "payment failed";
