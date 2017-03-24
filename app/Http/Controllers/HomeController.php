@@ -199,12 +199,14 @@ class HomeController extends Controller {
     }
 
     public function sentDataNganLuong(Request $request){
-    	dd(RECEIVER);
+
     	if (count($request->all()) > 0) {
-    		// $receiver = RECEIVER;
+    		dd(1);
+    		$receiver = RECEIVER;
     		$order_code='NL_'.time();
     		$return_url = redirect('/thanhtoanthanhcong');
 
     	}
+
     }
 }
