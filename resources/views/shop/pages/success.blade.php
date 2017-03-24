@@ -26,6 +26,16 @@
                 $payment_type =$_GET['payment_type'];
                 $error_text =$_GET['error_text'];
                 $secure_code =$_GET['secure_code'];
+
+                echo "<pre>";
+                var_dump($transaction_info);
+                var_dump($order_code);
+                var_dump($price);
+                var_dump($payment_id);
+                var_dump($payment_type);
+                echo "</pre>";
+                exit();
+
                 //Khai báo đối tượng của lớp NL_Checkout
                 $nl= new NL_Checkout();
                 $nl->merchant_site_code = MERCHANT_ID;
