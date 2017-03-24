@@ -183,18 +183,22 @@ class HomeController extends Controller {
 	// }
 
     public function checkOutSuccess(Request $request){
-    	if (isset($_GET['payment_id'])) {
-    		$secure_code =$_GET['secure_code'];
-    		$secure_code2 = $request->secure_code;
-    		return view('shop.pages.success',compact('secure_code','secure_code2'));
-    	}else{
-    		echo "ERROR";
-    	}
+    	// if (isset($_GET['payment_id'])) {
+    	// 	$secure_code =$_GET['secure_code'];
+    	// 	$secure_code2 = $request->secure_code;
+    	// 	return view('shop.pages.success',compact('secure_code','secure_code2'));
+    	// }else{
+    	// 	echo "ERROR";
+    	// }
 
     	
     }
 
     public function xacthucnganluong(){
         return view('xacthucnganluong.nganluong_e004797d8856a81e885f72589b791e35');
+    }
+
+    public function sentDataNganLuong(Request $request){
+    	dd($request->all());
     }
 }
