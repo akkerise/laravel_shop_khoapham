@@ -60,7 +60,7 @@ AkKe Product Detail
               </tr>
             </table>
             <form action="{{ url('/sentdatanl') }}" onsubmit="return check()" method="post" accept-charset="utf-8">
-              <input type="hidden" name="" value="{{ csrf_token() }}">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input  type="submit" name="submit" value="Thanh Toán"></td></tr> 
               <input type="submit" value="CheckOut" class="btn btn-orange pull-right">
               <input type="submit" value="Continue Shopping" class="btn btn-orange pull-right mr10">
