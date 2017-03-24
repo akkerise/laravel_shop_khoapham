@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-namespace App\Libs;
+
 use App\Cate;
 use App\Product;
 use App\ProductImage;
@@ -201,7 +200,7 @@ class HomeController extends Controller {
 
     public function sentDataNganLuong(Request $request){
 	// include('/laravel_shop_khoapham/app/Libs/config.php');
-	dd(RECEIVER);
+	
     	if (count($request->all()) > 0) {
     		dd(RECEIVER);
     		$receiver = RECEIVER;
