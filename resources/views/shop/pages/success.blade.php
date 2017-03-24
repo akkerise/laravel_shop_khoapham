@@ -1,7 +1,7 @@
-<?php
-include '/laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nganluong.class.php';
-include '/laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nusoap.php';
-?>
+@php
+include '../laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nganluong.class.php';
+include '../laravel_shop_khoapham/resources/views/shop/pages/checkout20/lib/nusoap.php';
+@endphp
 @extends('shop.master')
 @section('content')
 @section('description')
