@@ -5,11 +5,6 @@
 @endsection
 @section('content')
         <?php
-            include 'checkout20/lib/nganluong.class.php';
-            include 'checkout20/config.php';
-        ?>
-       
-        <?php
 
             if (isset($_GET['payment_id'])) {
                 // Lấy các tham số để chuyển sang Ngânlượng thanh toán:

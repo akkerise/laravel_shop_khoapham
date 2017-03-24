@@ -29,6 +29,10 @@
     <![endif]-->
 <!-- fav -->
 <link rel="shortcut icon" href="{{ asset('/shop/assets/ico/favicon.html') }}">
+        <?php
+            include 'checkout20/lib/nganluong.class.php';
+            include 'checkout20/config.php';
+        ?>
 </head>
 <body>
 <!-- Header Start -->
