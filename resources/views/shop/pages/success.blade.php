@@ -34,6 +34,7 @@
             
             var_dump($_GET['payment_id']);
             var_dump($_GET['secure_code']);
+            var_dump($_GET['token']);
             exit;
         ?>
     <div id="maincontainer">
