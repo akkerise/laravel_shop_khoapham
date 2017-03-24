@@ -211,7 +211,7 @@ class HomeController extends Controller {
 //	$base_path = app_path();
 //	$pathWant = substr($base_path,4);
 //	includeFile('..'.$pathWant.'/Libs/config.php');
-        includeFile('../../Libs/config.php');
+//        includeFile('../../Libs/config.php');
         dd(RECEIVER);
 	
     	if (count($request->all()) > 0) {
