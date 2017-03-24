@@ -207,10 +207,12 @@ class HomeController extends Controller {
 	
 	dd(app_path());
 	$libs_config = app_path();
+	$base_path = basePath();
+	dd($base_path);
 	
     	if (count($request->all()) > 0) {
     		
-    		$receiver = RECEIVER;
+//    		$receiver = RECEIVER;
     		$order_code='NL_'.time();
     		$return_url = redirect('/thanhtoanthanhcong');
     		
