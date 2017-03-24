@@ -1,6 +1,6 @@
 <?php
-include 'checkout20/lib/nganluong.class.php';
-include 'checkout20/config.php';
+//include 'checkout20/lib/nganluong.class.php';
+//include 'checkout20/config.php';
 ?>
 @extends('shop.master')
 @section('content')
