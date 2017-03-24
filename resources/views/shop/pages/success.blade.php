@@ -31,6 +31,9 @@
             } else {
                 die('Loi ket noi toi cong thanh toan ngan luong');
             }
+            
+            var_dump($_GET['transaction_info']);
+            exit;
         ?>
     <div id="maincontainer">
         <section id="product">
