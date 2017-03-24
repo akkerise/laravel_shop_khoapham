@@ -199,7 +199,7 @@ class HomeController extends Controller {
     }
 
     public function sentDataNganLuong(Request $request){
-	include(app_path() . '\app\libs\config.php');
+	include(app_path() . 'libs\config.php');
 
     	if (count($request->all()) > 0) {
     		dd(RECEIVER);
