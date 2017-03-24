@@ -199,9 +199,10 @@ class HomeController extends Controller {
     }
 
     public function sentDataNganLuong(Request $request){
+	include(app_path() . '\app\libs\config.php');
 
     	if (count($request->all()) > 0) {
-    		dd(1);
+    		dd(RECEIVER);
     		$receiver = RECEIVER;
     		$order_code='NL_'.time();
     		$return_url = redirect('/thanhtoanthanhcong');
