@@ -9,9 +9,12 @@
             // include('../../../public/checkout2.5.PHP/include/nganluong.apps.mcflow.js');
             // include('../../../public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
         ?>
+        include 'checkout20/config.php';
+        include 'checkout20/lib/nganluong.class.php';
+        @include('checkout20/config.php');
+        @include('checkout20/lib/nganluong.class.php');
         <?php
-                include 'checkout20/config.php';
-                include 'checkout20/lib/nganluong.class.php';
+
             if (isset($_GET['payment_id'])) {
                 // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
 
