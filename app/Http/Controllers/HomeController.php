@@ -199,8 +199,8 @@ class HomeController extends Controller {
     }
 
     public function sentDataNganLuong(Request $request){
-	include('\app\libs\config.php');
-	dd(app_path());
+	include('/laravel_shop_khoapham/app/Libs/config.php');
+	dd(1);
     	if (count($request->all()) > 0) {
     		dd(RECEIVER);
     		$receiver = RECEIVER;
