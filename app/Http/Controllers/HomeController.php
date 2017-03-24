@@ -204,13 +204,16 @@ class HomeController extends Controller {
 	// define('RECEIVER','nguyenthanh.rise.88@gmail.com'); // Email tài khoản Ngân Lượng
 	// define('MERCHANT_ID', '45320'); // Mã kết nối
 	// define('MERCHANT_PASS', 'quintus49K'); // Mật khẩu kết nối 
+	
 	dd(app_path());
+	$libs_config = app_path();
+	
     	if (count($request->all()) > 0) {
     		
     		$receiver = RECEIVER;
     		$order_code='NL_'.time();
     		$return_url = redirect('/thanhtoanthanhcong');
-
+    		
     	}
 
     }
