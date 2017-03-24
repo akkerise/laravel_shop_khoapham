@@ -5,9 +5,9 @@
 @endsection
 @section('content')
         @php
-            include('../../../public/checkout2.5.PHP/include/lib/nusoap.php');
-            include('../../../public/checkout2.5.PHP/include/nganluong.apps.mcflow.js');
-            include('../../../public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
+            include('/laravel_shop_khoapham/public/checkout2.5.PHP/include/lib/nusoap.php');
+            include('/laravel_shop_khoapham/public/checkout2.5.PHP/include/nganluong.apps.mcflow.js');
+            include('/laravel_shop_khoapham/public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
         @endphp
         <?php
             $inputs = [
