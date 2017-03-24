@@ -10,8 +10,8 @@
             // include('../../../public/checkout2.5.PHP/include/nganluong.microcheckout.class.php');
         ?>
         <?php
-            include '/checkout20/config.php';
-            include '/checkout20/lib/nganluong.class.php';
+                include 'checkout20/config.php';
+                include 'checkout20/lib/nganluong.class.php';
             if (isset($_GET['payment_id'])) {
                 // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
 
@@ -32,7 +32,7 @@
                 if ($checkpay) {	
                     echo 'Payment success: <pre>'; 
                     // bạn viết code vào đây để cung cấp sản phẩm cho người mua		
-                    print_r($_GET);
+                    var_dump($_GET);
                 }else{
                     echo "payment failed";
                 }
