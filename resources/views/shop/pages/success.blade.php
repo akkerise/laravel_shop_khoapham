@@ -1,7 +1,7 @@
 
 <?php
-    include 'checkout20/lib/nganluong.class.php';
-    include 'checkout20/config.php';
+    // include 'checkout20/lib/nganluong.class.php';
+    // include 'checkout20/config.php';
 ?>
 
 @extends('shop.master')
@@ -12,40 +12,40 @@ AkKe Product Detail
 @section('content')
 <?php
 
-if (isset($_GET['payment_id'])) {
-                // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
+// if (isset($_GET['payment_id'])) {
+//                 // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
 
-    $transaction_info =$_GET['transaction_info'];
-    $order_code =$_GET['order_code'];
-    $price =$_GET['price'];
-    $payment_id =$_GET['payment_id'];
-    $payment_type =$_GET['payment_type'];
-    $error_text =$_GET['error_text'];
-    $secure_code =$_GET['secure_code'];
+//     $transaction_info =$_GET['transaction_info'];
+//     $order_code =$_GET['order_code'];
+//     $price =$_GET['price'];
+//     $payment_id =$_GET['payment_id'];
+//     $payment_type =$_GET['payment_type'];
+//     $error_text =$_GET['error_text'];
+//     $secure_code =$_GET['secure_code'];
 
-    echo "<pre>";
-    var_dump($transaction_info);
-    var_dump($order_code);
-    var_dump($price);
-    var_dump($payment_id);
-    var_dump($payment_type);
-    echo "</pre>";
-    die();
-                //Khai báo đối tượng của lớp NL_Checkout
-    $nl= new NL_Checkout();
-    $nl->merchant_site_code = MERCHANT_ID;
-    $nl->secure_pass = MERCHANT_PASS;
-                //Tạo link thanh toán đến nganluong.vn
-    $checkpay= $nl->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code);
+//     echo "<pre>";
+//     var_dump($transaction_info);
+//     var_dump($order_code);
+//     var_dump($price);
+//     var_dump($payment_id);
+//     var_dump($payment_type);
+//     echo "</pre>";
+//     die();
+//                 //Khai báo đối tượng của lớp NL_Checkout
+//     $nl= new NL_Checkout();
+//     $nl->merchant_site_code = MERCHANT_ID;
+//     $nl->secure_pass = MERCHANT_PASS;
+//                 //Tạo link thanh toán đến nganluong.vn
+//     $checkpay= $nl->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code);
     
-    if ($checkpay) {	
-        echo 'Payment success: <pre>'; 
-        var_dump($checkpay);
-        exit();		
-        var_dump($_GET);
-    }else{
-        echo "payment failed";
-    }
+//     if ($checkpay) {	
+//         echo 'Payment success: <pre>'; 
+//         var_dump($checkpay);
+//         exit();		
+//         var_dump($_GET);
+//     }else{
+//         echo "payment failed";
+//     }
     
 }
 

@@ -11,6 +11,10 @@ use Mail;
 use Validator;
 // use Request;
 
+use App\Libs\config;
+use App\Libs\nganluong;
+use App\Libs\nusoap;
+
 class HomeController extends Controller {
 	/**
 	 * Create a new controller instance.
@@ -178,13 +182,16 @@ class HomeController extends Controller {
 	//
 	// }
 
-    public function checkOutSuccess(){
-//	    $data = [];
-//	    $msg = "Bạn đã hoàn thành giao dịch";
-//	    $link = 'http://www.limitless-peak-35722.herokuapp.com/';
-//	    array_push($data,$msg,$link);
-//      return view('shop.pages.success',compact('msg','link'));
-      return view('shop.pages.success');
+    public function checkOutSuccess(Request $request){
+    	if (isset($_GET['payment_id'])) {
+    		$secure_code =$_GET['secure_code'];
+    		$secure_code2 = $request->secure_code;
+    		return view('shop.pages.success',compact('secure_code','secure_code2'));
+    	}else{
+    		echo "ERROR";
+    	}
+
+    	
     }
 
     public function xacthucnganluong(){
