@@ -32,9 +32,9 @@
             //     die('Loi ket noi toi cong thanh toan ngan luong');
             // }
             
-            var_dump($_GET['payment_id']);
-            var_dump($_GET['secure_code']);
-            var_dump($_GET['token']);
+            // var_dump($_GET['payment_id']);
+            // var_dump($_GET['secure_code']);
+            var_dump($_GET['token_nl']);
             exit;
         ?>
     <div id="maincontainer">
