@@ -205,13 +205,12 @@ class HomeController extends Controller {
 	// define('RECEIVER','nguyenthanh.rise.88@gmail.com'); // Email tài khoản Ngân Lượng
 	// define('MERCHANT_ID', '45320'); // Mã kết nối
 	// define('MERCHANT_PASS', 'quintus49K'); // Mật khẩu kết nối 
-	
-	$libs_config = app_path();
-	$base_path = basePath();
+
+
+	$base_path = app_path();
 	$pathWant = substr($base_path,4);
 	includeFile($pathWant.'/Libs/config.php');
     dd(RECEIVER);
-	dd($base_path);
 	
     	if (count($request->all()) > 0) {
     		
