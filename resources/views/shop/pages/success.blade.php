@@ -5,8 +5,8 @@
 @endsection
 @section('content')
         <?php
-            require_one('checkout20/lib/nganluong.class.php');
-            require_one('checkout20/config.php')
+            include('checkout20/lib/nganluong.class.php');
+            include('checkout20/config.php');
         ?>
        
         <?php
