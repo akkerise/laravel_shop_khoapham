@@ -47,7 +47,7 @@ AkKe Product Detail
 //         echo "payment failed";
 //     }
     
-}
+// }
 
             // var_dump($_GET['payment_id']);
             // var_dump($_GET['secure_code']);
