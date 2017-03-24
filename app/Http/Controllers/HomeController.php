@@ -200,11 +200,11 @@ class HomeController extends Controller {
     }
 
     public function sentDataNganLuong(Request $request){
-	// include('/laravel_shop_khoapham/app/Libs/config.php');
-	// define('NGANLUONG_URL', 'https://www.nganluong.vn/checkout.php');
-	// define('RECEIVER','nguyenthanh.rise.88@gmail.com'); // Email tài khoản Ngân Lượng
-	// define('MERCHANT_ID', '45320'); // Mã kết nối
-	// define('MERCHANT_PASS', 'quintus49K'); // Mật khẩu kết nối 
+
+	 define('NGANLUONG_URL', 'https://www.nganluong.vn/checkout.php');
+	 define('RECEIVER','nguyenthanh.rise.88@gmail.com'); // Email tài khoản Ngân Lượng
+	 define('MERCHANT_ID', '45320'); // Mã kết nối
+	 define('MERCHANT_PASS', 'quintus49K'); // Mật khẩu kết nối
 
 //    '/app/app'
 //    '/app'
