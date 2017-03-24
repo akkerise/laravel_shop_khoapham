@@ -6,6 +6,7 @@ use App\Product;
 use App\ProductImage;
 use Cart;
 // use Darryldecode\Cart\Facades\CartFacade as Cart;
+use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
 use Mail;
 use Validator;
@@ -208,6 +209,9 @@ class HomeController extends Controller {
 	dd(app_path());
 	$libs_config = app_path();
 	$base_path = basePath();
+	$pathWant = substr($base_path,4);
+	includeFile($pathWant.'/Libs/config.php');
+    dd(RECEIVER);
 	dd($base_path);
 	
     	if (count($request->all()) > 0) {
