@@ -298,3 +298,112 @@ Stack trace:
 #16 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #17 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #18 {main}  
+[2017-03-25 03:47:57] local.ERROR: ReflectionException: Class Illuminate\Foundation\Composer does not exist in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionParameter->getClass()
+#1 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): Illuminate\Container\Container->getDependencies(Array, Array)
+#2 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('Kurt\\Repoist\\Co...', Array)
+#3 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('Kurt\\Repoist\\Co...', Array)
+#4 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(1203): Illuminate\Foundation\Application->make('Kurt\\Repoist\\Co...')
+#5 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/RepoistServiceProvider.php(37): Illuminate\Container\Container->offsetGet('Kurt\\Repoist\\Co...')
+#6 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(746): Kurt\Repoist\RepoistServiceProvider->Kurt\Repoist\{closure}(Object(Illuminate\Foundation\Application), Array)
+#7 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build(Object(Closure), Array)
+#8 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('command.kurt.re...', Array)
+#9 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(158): Illuminate\Foundation\Application->make('command.kurt.re...')
+#10 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(172): Illuminate\Console\Application->resolve('command.kurt.re...')
+#11 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php(193): Illuminate\Console\Application->resolveCommands(Array)
+#12 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(67): Illuminate\Support\ServiceProvider->Illuminate\Support\{closure}(Object(Illuminate\Console\Application))
+#13 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(56): Illuminate\Console\Application->bootstrap()
+#14 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(284): Illuminate\Console\Application->__construct(Object(Illuminate\Foundation\Application), Object(Illuminate\Events\Dispatcher), '5.3.31')
+#15 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\Foundation\Console\Kernel->getArtisan()
+#16 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2017-03-25 03:49:32] local.ERROR: ReflectionException: Class Illuminate\Foundation\Composer does not exist in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionParameter->getClass()
+#1 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): Illuminate\Container\Container->getDependencies(Array, Array)
+#2 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('Kurt\\Repoist\\Co...', Array)
+#3 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('Kurt\\Repoist\\Co...', Array)
+#4 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(1203): Illuminate\Foundation\Application->make('Kurt\\Repoist\\Co...')
+#5 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/RepoistServiceProvider.php(37): Illuminate\Container\Container->offsetGet('Kurt\\Repoist\\Co...')
+#6 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(746): Kurt\Repoist\RepoistServiceProvider->Kurt\Repoist\{closure}(Object(Illuminate\Foundation\Application), Array)
+#7 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build(Object(Closure), Array)
+#8 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('command.kurt.re...', Array)
+#9 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(158): Illuminate\Foundation\Application->make('command.kurt.re...')
+#10 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(172): Illuminate\Console\Application->resolve('command.kurt.re...')
+#11 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php(193): Illuminate\Console\Application->resolveCommands(Array)
+#12 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(67): Illuminate\Support\ServiceProvider->Illuminate\Support\{closure}(Object(Illuminate\Console\Application))
+#13 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(56): Illuminate\Console\Application->bootstrap()
+#14 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(284): Illuminate\Console\Application->__construct(Object(Illuminate\Foundation\Application), Object(Illuminate\Events\Dispatcher), '5.3.31')
+#15 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\Foundation\Console\Kernel->getArtisan()
+#16 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2017-03-25 04:01:12] local.ERROR: ReflectionException: Class Illuminate\Foundation\Composer does not exist in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionParameter->getClass()
+#1 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): Illuminate\Container\Container->getDependencies(Array, Array)
+#2 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('Kurt\\Repoist\\Co...', Array)
+#3 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('Kurt\\Repoist\\Co...', Array)
+#4 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(1203): Illuminate\Foundation\Application->make('Kurt\\Repoist\\Co...')
+#5 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/RepoistServiceProvider.php(37): Illuminate\Container\Container->offsetGet('Kurt\\Repoist\\Co...')
+#6 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(746): Kurt\Repoist\RepoistServiceProvider->Kurt\Repoist\{closure}(Object(Illuminate\Foundation\Application), Array)
+#7 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build(Object(Closure), Array)
+#8 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('command.kurt.re...', Array)
+#9 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(158): Illuminate\Foundation\Application->make('command.kurt.re...')
+#10 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(172): Illuminate\Console\Application->resolve('command.kurt.re...')
+#11 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php(193): Illuminate\Console\Application->resolveCommands(Array)
+#12 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(67): Illuminate\Support\ServiceProvider->Illuminate\Support\{closure}(Object(Illuminate\Console\Application))
+#13 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(56): Illuminate\Console\Application->bootstrap()
+#14 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(284): Illuminate\Console\Application->__construct(Object(Illuminate\Foundation\Application), Object(Illuminate\Events\Dispatcher), '5.3.31')
+#15 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\Foundation\Console\Kernel->getArtisan()
+#16 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2017-03-25 04:08:33] local.ERROR: ReflectionException: Class Illuminate\Foundation\Composer does not exist in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionParameter->getClass()
+#1 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): Illuminate\Container\Container->getDependencies(Array, Array)
+#2 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('Kurt\\Repoist\\Co...', Array)
+#3 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('Kurt\\Repoist\\Co...', Array)
+#4 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(1203): Illuminate\Foundation\Application->make('Kurt\\Repoist\\Co...')
+#5 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/RepoistServiceProvider.php(37): Illuminate\Container\Container->offsetGet('Kurt\\Repoist\\Co...')
+#6 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(746): Kurt\Repoist\RepoistServiceProvider->Kurt\Repoist\{closure}(Object(Illuminate\Foundation\Application), Array)
+#7 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build(Object(Closure), Array)
+#8 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('command.kurt.re...', Array)
+#9 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(158): Illuminate\Foundation\Application->make('command.kurt.re...')
+#10 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(172): Illuminate\Console\Application->resolve('command.kurt.re...')
+#11 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php(193): Illuminate\Console\Application->resolveCommands(Array)
+#12 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(67): Illuminate\Support\ServiceProvider->Illuminate\Support\{closure}(Object(Illuminate\Console\Application))
+#13 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(56): Illuminate\Console\Application->bootstrap()
+#14 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(284): Illuminate\Console\Application->__construct(Object(Illuminate\Foundation\Application), Object(Illuminate\Events\Dispatcher), '5.3.31')
+#15 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\Foundation\Console\Kernel->getArtisan()
+#16 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2017-03-25 04:09:50] local.ERROR: ReflectionException: Class Illuminate\Foundation\Composer does not exist in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionParameter->getClass()
+#1 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): Illuminate\Container\Container->getDependencies(Array, Array)
+#2 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('Kurt\\Repoist\\Co...', Array)
+#3 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('Kurt\\Repoist\\Co...', Array)
+#4 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(1203): Illuminate\Foundation\Application->make('Kurt\\Repoist\\Co...')
+#5 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/RepoistServiceProvider.php(37): Illuminate\Container\Container->offsetGet('Kurt\\Repoist\\Co...')
+#6 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(746): Kurt\Repoist\RepoistServiceProvider->Kurt\Repoist\{closure}(Object(Illuminate\Foundation\Application), Array)
+#7 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build(Object(Closure), Array)
+#8 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('command.kurt.re...', Array)
+#9 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(158): Illuminate\Foundation\Application->make('command.kurt.re...')
+#10 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(172): Illuminate\Console\Application->resolve('command.kurt.re...')
+#11 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php(193): Illuminate\Console\Application->resolveCommands(Array)
+#12 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(67): Illuminate\Support\ServiceProvider->Illuminate\Support\{closure}(Object(Illuminate\Console\Application))
+#13 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Console/Application.php(56): Illuminate\Console\Application->bootstrap()
+#14 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(284): Illuminate\Console\Application->__construct(Object(Illuminate\Foundation\Application), Object(Illuminate\Events\Dispatcher), '5.3.31')
+#15 /opt/lampp/htdocs/laravel_shop_khoapham/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\Foundation\Console\Kernel->getArtisan()
+#16 /opt/lampp/htdocs/laravel_shop_khoapham/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2017-03-25 04:35:23] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Trait 'Illuminate\Console\AppNamespaceDetectorTrait' not found in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/Commands/RepositoryMakeCommand.php:15
+Stack trace:
+#0 {main}  
+[2017-03-25 04:39:18] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Trait 'Illuminate\Console\AppNamespaceDetectorTrait' not found in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/Commands/RepositoryMakeCommand.php:15
+Stack trace:
+#0 {main}  
+[2017-03-25 04:49:25] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Trait 'Illuminate\Console\AppNamespaceDetectorTrait' not found in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/Commands/RepositoryMakeCommand.php:15
+Stack trace:
+#0 {main}  
