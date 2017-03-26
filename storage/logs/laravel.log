@@ -407,3 +407,6 @@ Stack trace:
 [2017-03-25 04:49:25] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Trait 'Illuminate\Console\AppNamespaceDetectorTrait' not found in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/Commands/RepositoryMakeCommand.php:15
 Stack trace:
 #0 {main}  
+[2017-03-26 02:56:29] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Trait 'Illuminate\Console\AppNamespaceDetectorTrait' not found in /opt/lampp/htdocs/laravel_shop_khoapham/vendor/ozankurt/repoist/src/Commands/RepositoryMakeCommand.php:15
+Stack trace:
+#0 {main}  
