@@ -1,6 +1,5 @@
 <?php
 namespace App\Http\Controllers;
-namespace App\Libs\config;
 
 use App\Cate;
 use App\Product;
