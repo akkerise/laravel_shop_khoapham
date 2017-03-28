@@ -168,6 +168,7 @@ return [
 		Intervention\Image\ImageServiceProvider::class ,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class ,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 		// Darryldecode\Cart\CartServiceProvider::class,
 		/*
 		 * Package Service Providers...
@@ -235,6 +236,7 @@ return [
 		'Image'        => Intervention\Image\Facades\Image::class ,
 		'Cart' 				 => Gloudemans\Shoppingcart\Facades\Cart::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 		// 'Cart' => 	Darryldecode\Cart\Facades\CartFacade::class,
 	],
 
