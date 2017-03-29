@@ -85,6 +85,7 @@
 <body>
 <h3>Chọn phương thức thanh toán</h3>
 <form  name="NLpayBank" action="{{ route('sentnl') }}" method="post">
+    {{ csrf_field() }}
     <table style="clear:both;width:500px;padding-left:46px;">
         <tr><td colspan="2"><p><span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">Lưu ý</span> Bạn nhập đầy đủ thông tin sau </td>
 
