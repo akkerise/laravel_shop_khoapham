@@ -132,3 +132,5 @@ class LogMessage{
         $job->delete();
     }
 }
+
+Route::get('/nganluongv3','NganLuongController@sentToNL');
