@@ -18,6 +18,7 @@ class CreateNganLuongsTable extends Migration
             $table->string('name');
             $table->string('order_code');
             $table->string('payment_type');
+            $table->string('payment_method');
             $table->integer('price');
             $table->text('information');
             $table->tinyInteger('transaction_status');
