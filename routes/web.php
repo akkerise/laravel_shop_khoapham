@@ -116,3 +116,19 @@ Route::get('/_debugbar/assets/javascript', [
     'as' => 'debugbar-js',
     'uses' => '\Barryvdh\Debugbar\Controllers\AssetController@js'
 ]);
+
+
+
+
+Route::get('/que',function (){
+    $queue = Queue::push('LogMessage',array([
+        'message' => 'Time'.time()
+    ]));
+    print_r(' '.$queue.' '.time());
+});
+class LogMessage{
+    public function fire($job,$data){
+        File::append(app_path().'/queue.txt',$data['message'].PHP_EOL);
+        $job->delete();
+    }
+}

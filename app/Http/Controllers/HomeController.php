@@ -8,13 +8,15 @@ use Cart;
 // use Darryldecode\Cart\Facades\CartFacade as Cart;
 use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Mail;
 use Validator;
+use Illuminate\Support\Facades\Redis;
 // use Request;
 
-use App\Libs\config;
-use App\Libs\nganluong;
-use App\Libs\nusoap;
+//use App\Libs\config;
+//use App\Libs\nganluong;
+//use App\Libs\nusoap;
 
 
 /*
@@ -8392,6 +8394,18 @@ class HomeController extends Controller {
 	 */
 	public function index() {
 		// $products = Product::all();
+//        $c = Cache::get('cates');
+//        $p = Cache::get('products');
+//        $p_l = Cache::get('products_lastest');
+//        if ($c != null){
+//            return $c;
+//        }
+//        if ($p != null){
+//            return $p;
+//        }
+//        if ($p_l != null){
+//            return $p_l;
+//        }
 		$cates            = Cate::all();
 		$products         = DB::table('products')->select()->orderBy('id', 'DESC')->skip(0)->take(4)->get();
 		$products_lastest = DB::table('products')->select()->orderBy('id', 'ASC')->skip(0)->take(4)->get();
