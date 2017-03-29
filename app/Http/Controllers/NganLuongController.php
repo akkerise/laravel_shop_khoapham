@@ -616,20 +616,20 @@ class NganLuongController extends Controller
         return view('nganluongv3');
     }
     public function postSentToNL(Request $request){
-        if(@$_POST['nlpayment']) {
-            dd(@$_POST['nlpayment']);
-            include('config.php');
-            include('include/NL_Checkoutv3.php');
+        if(@($request->nlpayment)) {
+            dd(@($request->fiib));
+//            include('config.php');
+//            include('include/NL_Checkoutv3.php');
             $nlcheckout= new NL_CheckOutV3(MERCHANT_ID,MERCHANT_PASS,RECEIVER,URL_API);
             $total_amount=$_POST['total_amount'];
-
+//            $total_amount = $request->total_amount;
             $array_items[0]= array('item_name1' => 'Product name',
                 'item_quantity1' => 1,
                 'item_amount1' => $total_amount,
                 'item_url1' => 'http://nganluong.vn/');
 
-            $array_items=array();
-            $payment_method =$_POST['option_payment'];
+            $array_items = array();
+            $payment_method = $_POST['option_payment'];
             $bank_code = @$_POST['bankcode'];
             $order_code ="macode_".time();
 
