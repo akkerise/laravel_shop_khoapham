@@ -606,7 +606,10 @@ class NL_CheckOutV3
 }
 class NganLuongController extends Controller
 {
-    public function sentToNL(){
+    public function getSentToNL(){
         return view('nganluongv3');
+    }
+    public function postSentToNL(Request $request){
+        dd($request->all());
     }
 }

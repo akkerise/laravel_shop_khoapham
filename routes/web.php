@@ -133,4 +133,5 @@ class LogMessage{
     }
 }
 
-Route::get('/nganluongv3','NganLuongController@sentToNL');
+Route::get('/nganluongv3','NganLuongController@getSentToNL');
+Route::post('/nganluongv3','NganLuongController@postSentToNL')->name('sentnl');
