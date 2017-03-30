@@ -135,3 +135,8 @@ class LogMessage{
 
 Route::get('/nganluongv3','NganLuongController@getSentToNL');
 Route::post('/nganluongv3','NganLuongController@postSentToNL')->name('sentnl');
+
+
+
+// Laravel Log View
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

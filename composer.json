@@ -19,7 +19,8 @@
         "laravel/socialite": "^2.0",
         "laracasts/generators": "dev-master as 1.1.4",
         "barryvdh/laravel-debugbar": "^2.3",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "rap2hpoutre/laravel-log-viewer": "^0.8.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
