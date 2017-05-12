@@ -15,7 +15,7 @@ class Authenticate {
 	 */
 	protected $auth;
 
-	function __construct(Guard $auth) {
+	public function __construct(Guard $auth) {
 		$this->auth = $auth;
 	}
 
